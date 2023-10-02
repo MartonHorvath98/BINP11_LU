@@ -25,11 +25,11 @@ This repository serves as a both a personal portfolio, and a collection of relev
     <tr>
       <td>
         <ul>
-          <li><a href="./Pages/Projects.md">Projects</a></li>
-          <li><a href="./Pages/Bash.md">Bash</a></li>
-          <li><a href="./Pages/AWK.md">AWK</a></li>
-          <li><a href="./Pages/Python.md">Python</a></li>
-          <li><a href="./Pages/R.md">R programming</a></li>
+          <li><a href="./Pages/Projects/README.md">Projects</a></li>
+          <li><a href="./Pages/Bash/README.md">Bash</a></li>
+          <li><a href="./Pages/AWK/README.md">AWK</a></li>
+          <li><a href="./Pages/Python/README.md">Python</a></li>
+          <li><a href="./Pages/R/README.md">R programming</a></li>
         </ul>
       </td>
     </tr>
