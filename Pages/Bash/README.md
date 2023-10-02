@@ -16,7 +16,7 @@
 4. `cp [SOURCE][DEST]` - copies a file from its old directory to the new, selected one
 
 ---
-## Most used commands
+## Frequently used commands
 
 ### ls - list directory contents
 
@@ -37,6 +37,7 @@ The function `chmod [OPTION]... MODE[,MODE]... FILE...`  changes the file mode b
 - then three times the letter combination ("rwx") means if the current user, group members (other local users) or any user can read ("r"), write ("w") or execute the file ("x"). "-" in each case means the lack of that specific permission.
 
 **SO IN CONCLUSION, WHEN USING 'chmod'**
+
 First we select the users whose permissions we want to modify, then the operator and then the selected file mode bits like `chmod [uga][+-=][rwx]`, where ("u") is the own user, ("g") is the group users and ("a") is all users, ("+") adds permission, ("-") removes permission and ("=") adds a permission, while removes the ones not listed.
 
 ---
