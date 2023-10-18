@@ -40,17 +40,22 @@
 
 ### Setting the PATH variable
 The directories that have accessible programs can be found in the PATH variable, which can be printed to the standard output (stdout) using `echo $PATH`, the "$" sign is used generally to access variables. The command will return a colon-separated list of the directories saved in the PATH. Bash will search each of these directories, when trying to run a program. If the program is in a different path, it can be added to the PATH variable using: \n
-> ```export PATH=$PATH:/<list-of-colon-separated-paths>```
-This change to the path variable is temporary and will not be remebered if the the user logs out or switches to another terminal window. For the changes to be remembered, the variable assignment should be added to the .bashrc file via: \n
-> ```source ./bashrc # or ./bash_profile (on MAC) ```
+```export PATH=$PATH:/<list-of-colon-separated-paths>```
+\nThis change to the path variable is temporary and will not be remebered if the the user logs out or switches to another terminal window. For the changes to be remembered, the variable assignment should be added to the .bashrc file via: \n
+```source ./bashrc # or ./bash_profile (on MAC) ```
+
+### Remote login
+1. `ssh [DEST]` - with "ssh" (secure shell) you can access any distant machine, where you have permission to log in. You can leave the last stage of the network, you logged into with ssh using `exit`
+2. `scp [user@host:port][DEST]` - with "scp" (secure copy) you can copy files between hosts on a network using ssh for data transfer.
+3. `rsync -a [user@host:port][DEST]` -  while "scp" works on individual files, "rsync" synchronizes a complete folder between hosts on the network. Both "scp" and "rsync" work both ways, one process is called a push operation because it “pushes” a directory from the local system to a remote system. The opposite operation is pull, and is used to sync a remote directory to the local system. 
 
 ---
 ## Frequently used commands
 
 ### 'ls' - list directory contents
 
-The bash function "ls" lists information about the FILEs (the current directory by default).  Sort entries alphabetically if --sort is not specified. Usage:
-> ```ls [OPTION]... [FILE]...```
+The bash function "ls" lists information about the FILEs (the current directory by default).  Sort entries alphabetically if --sort is not specified. Usage:\n
+```ls [OPTION]... [FILE]...```
 - `-a, --all` lists hidden entries as well, starting with . *(e.g., current dir(.), backstep(..), etc.)*
 - `-A, --almost-all` do not list implied . and ..
 - `-s, --size`  print the allocated size of each file, in blocks sorted by file size, largest first
@@ -63,8 +68,8 @@ The bash function "ls" lists information about the FILEs (the current directory 
 ### 'chmod' - change permissions
 
 The function "chmod"  changes the file mode bits of each given file according to mode, which can be either a symbolic representation of changes to make, or an octal number representing the bit pattern for the new mode bits. Usage:
-> ```chmod [OPTION]... MODE[,MODE]... FILE...```
-Permission mode bits use 10 character, that looks somethin like: `-rw-r--r--` and can be interpreted as:
+```chmod [OPTION]... MODE[,MODE]... FILE...```
+\nPermission mode bits use 10 character, that looks somethin like: `-rw-r--r--` and can be interpreted as:
 - the first bit (-/d) denotes whether it is a regular file ("-") or a directory ("d")
 - then three times the letter combination ("rwx") means if the current user, group members (other local users) or any user can read ("r"), write ("w") or execute the file ("x"). "-" in each case means the lack of that specific permission.
 
@@ -75,8 +80,8 @@ First we select the users whose permissions we want to modify, then the operator
 ---
 
 ### 'tar' - (de)compression & archiving
- The GNU "tar" command saves (many) file(s) together into a singe disk archive, and can restore individual files from an archive. Usage:
- > ```tar [OPTIONS...] [FILE(s)]``` 
+ The GNU "tar" command saves (many) file(s) together into a singe disk archive, and can restore individual files from an archive. Usage:\n
+```tar [OPTIONS...] [FILE(s)]``` 
 - `-x` - to extract files (from ".tar" archive format)
 - `-z` - if the data is also compressed
 - `-v` - to complete the process verbosely for every file in the archive or the input directories
@@ -95,7 +100,7 @@ tar -xvzf archive.tar.gz # extract all files from the compressed archive.tar.gz
 ### 'wc'- new line, word and byte counts
 
 The function "wc" prints the newline, word and character (byte) counts from each FILE. When no FILE is specified or when FILE is -, it reads the standard input. Usage:
-> ```wc [OPTION...] [FILE]```
+```wc [OPTION...] [FILE]```
 - `-c, --bytes` - prints the byte counts
 - `-m, --chars` - prints the character counts (may differ for the byte count for complex characters)
 - `-l, --lines` - print the new line counts, or the total lines if more than one FILE is specified
@@ -107,7 +112,11 @@ The function "wc" prints the newline, word and character (byte) counts from each
 ### 'tr' - translate
 
 The function "tr" translates, squeezes and/or deletes characters from the standard input, writing to the standard output, which makes it useful for piped commands. Usage:
-> ```tr [OPTIONS...] SET1 [SET2]```
+```tr [OPTIONS...] SET1 [SET2]```
 - `-c, --complement` - use the complement of SET1
 - `-d, --delete` - delete characters in SET1, do not translate
 - `-s, --squeeze-repeats` - 
+
+---
+
+###
