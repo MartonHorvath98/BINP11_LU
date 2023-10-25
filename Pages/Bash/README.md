@@ -247,4 +247,4 @@ $ sed -e 'command1' -e 'command2' ... -e 'commandN' files
 
 *Using regular expressions*
 
-Looking for patterns to match while using the SED command, regular expressions can be a powerful tool which provide great flexibility. More can be found about them in the regular expression <li><a href="../regexp.md">cheatsheet</a></li>!
+Looking for patterns to match while using the SED command, regular expressions can be a powerful tool which provide great flexibility. More can be found about them in the regular expression <a>href="./regexp.md">cheatsheet</a>!
