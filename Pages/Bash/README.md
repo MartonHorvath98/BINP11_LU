@@ -184,7 +184,9 @@ grep [OPTION] ... PATTERN [FILE] ...
 - `-e, --regexp=PATTERN` use PATTERN for matching 
 - `-G, --basic-regexp` defines basic regular expressions, `-P, --perl-regexp` Perl type regular expressions, `-F, --fixed-strings` strings
 - `-i, --ignore-case` ignores case distinction in the pattern and the data, which are accounted for by default
+
 *Output control*
+
 - `-v, --invert-match` selects the non-matching lines
 - `-c, --count` returns the number of counts instead of the lines with matches (limitation! "grep" can only find one match per line and the count will disregard any further matches)
 - `-m, --max-count=INT` stop after INT selected lines
@@ -220,8 +222,10 @@ sed OPTIONS... [SCRIPT] [FILE]...
 - `3 s/old/new/` or `1,3 s/old/new/` the line or a range of lines can be specified where to do the substitution (in a range the "$" character symbolizes the last line)
 - `s/old/new/p` the flag "/p" duplicates the line where a substitution was done. When used together with the `-n, --silent` flag, only the duplicated lines are printed
 - `s/old/new/I or i` matches in a case-insensitive manner
+
 *Deleting lines*
 SED command can also be used for deleting lines from a particular file. SED command is used for performing deletion operation without even opening the file:
+
 |Expression|Range & Description|
 |---|---|
 |'nd'|deletes a particular line (n<sup>th</sup>) *e.g. '5d' deletes the 5<sup>th</sup>*|
@@ -229,6 +233,6 @@ SED command can also be used for deleting lines from a particular file. SED comm
 |'4,10d'|deletes lines starting from the 4<sup>th</sup> to the 10<sup>th</sup>, *does not work in revers, in that case only deletes the last!*|
 |'4,+5d'|starting from the 4<sup>th</sup> deletes the following 5 lines|
 |'2,5!d'|deletes everything except from 2<sup>nd</sup> till 5<sup>th</sup> lines|
-|'1~2d' OR '1~2!d'|prints only the even or odd lines, respectively|
+|'1\~2d' OR '1\~2!d'|prints only the even or odd lines, respectively|
 |'n;d' OR -n 'n;p' |can achieve the same, even or odd lines|
 |'/PATTERN/d'|deletes the pattern matching line|
