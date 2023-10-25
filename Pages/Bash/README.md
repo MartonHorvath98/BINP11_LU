@@ -158,7 +158,7 @@ cut OPTION... [FILE]...
 - `-b, --bytes=LIST` select bytes defined by the LIST
 - `-c, --character=LIST` select these characters
 - `-f, --fields=LIST` select these fields
-Use only one of "-b","-c" or "-f" at the same time, while the LIST can be made up of one range or many ranges separated by commas, where the format of the range is set as follows: **M** - the M'th byte/char/field (starting from 1), **M-** - everything starting from the M'th, **-N** everything up to N'th, **M-N, (O-P), ...** everything between the N'th and M'th and then O'th and P'th...
+Use only one of "-b","-c" or "-f" at the same time, while the LIST can be made up of one range or many ranges separated by commas, where the format of the range is set as follows: *M* - the M<sup>th</sup> byte/char/field (starting from 1), *M-* - everything starting from the M<sup>th</sup>, *-N* everything up to N<sup>th</sup>, *M-N, (O-P), ...* everything between the N<sup>th</sup> and M<sup>th</sup> and then O<sup>th</sup> and P<sup>th</sup>...
 
 - `-d, --delimiter=DELIM` when selecting field, the delimiter can be defined, unless the search defaults back to TABs
 - `-s, --only-delimited` unless "-s" is set, "-f" also prints any line that does not contain the delimiter character
@@ -224,6 +224,7 @@ sed OPTIONS... [SCRIPT] [FILE]...
 - `s/old/new/I or i` matches in a case-insensitive manner
 
 *Deleting lines*
+
 SED command can also be used for deleting lines from a particular file. SED command is used for performing deletion operation without even opening the file:
 
 |Expression|Range & Description|
@@ -236,3 +237,14 @@ SED command can also be used for deleting lines from a particular file. SED comm
 |'1\~2d' OR '1\~2!d'|prints only the even or odd lines, respectively|
 |'n;d' OR -n 'n;p' |can achieve the same, even or odd lines|
 |'/PATTERN/d'|deletes the pattern matching line|
+
+*Multiple SED commands*
+
+You can use multiple sed commands in a single sed command as follows:
+```
+$ sed -e 'command1' -e 'command2' ... -e 'commandN' files
+```
+
+*Using regular expressions*
+
+Looking for patterns to match while using the SED command, regular expressions can be a powerful tool which provide great flexibility. More can be found about them in the regular expression <li><a href="../regexp.md">cheatsheet</a></li>!
