@@ -1,0 +1,2 @@
+Sample	QUAST_mqc-generalstats-quast-N50	QUAST_mqc-generalstats-quast-Total_length
+assembly	809075.0	12119387.0

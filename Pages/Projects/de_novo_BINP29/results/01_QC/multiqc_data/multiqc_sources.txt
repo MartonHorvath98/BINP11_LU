@@ -1,0 +1,2 @@
+Module	Section	Sample Name	Source
+FastQC	all_sections	SRR13577846_1	/mnt/c/Users/Marton Horvath/Documents/github/LundUni/Pages/Projects/de_novo_BINP29/results/00_fastqc/SRR13577846_1_fastqc.zip

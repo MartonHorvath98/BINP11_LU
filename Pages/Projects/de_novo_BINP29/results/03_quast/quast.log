@@ -1,0 +1,89 @@
+/home/inf-42-2023/quast-5.2.0/quast.py -o . -r ../00_ref/GCF_000146045.2_R64_genomic.fna -t 12 --no-icarus ../01_assembler/assembly.fasta
+
+Version: 5.2.0
+
+System information:
+  OS: Linux-6.6.6-100.fc38.x86_64-x86_64-with-glibc2.37 (linux_64)
+  Python version: 3.10.13
+  CPUs number: 256
+
+Started: 2024-02-21 16:36:12
+
+Logging to /home/inf-42-2023/binp29/02_quast/quast.log
+
+CWD: /home/inf-42-2023/binp29/02_quast
+Main parameters: 
+  MODE: default, threads: 12, min contig length: 500, min alignment length: 65, min alignment IDY: 95.0, \
+  ambiguity: one, min local misassembly length: 200, min extensive misassembly length: 1000
+
+WARNING: Can't draw plots: python-matplotlib is missing or corrupted.
+
+Reference:
+  /home/inf-42-2023/binp29/00_ref/GCF_000146045.2_R64_genomic.fna ==> GCF_000146045.2_R64_genomic
+
+Contigs:
+  Pre-processing...
+  ../01_assembler/assembly.fasta ==> assembly
+
+2024-02-21 16:36:12
+Running Basic statistics processor...
+  Reference genome:
+    GCF_000146045.2_R64_genomic.fna, length = 12157105, num fragments = 17, GC % = 38.15
+  Contig files: 
+    assembly
+  Calculating N50 and L50...
+    assembly, N50 = 809075, L50 = 6, auN = 854374.4, Total length = 12119387, GC % = 38.30, # N's per 100 kbp =  0.00
+Done.
+
+2024-02-21 16:36:13
+Running Contig analyzer...
+  assembly
+  Logging to files /home/inf-42-2023/binp29/02_quast/contigs_reports/contigs_report_assembly.stdout and contigs_report_assembly.stderr...
+  Aligning contigs to the reference
+  /home/inf-42-2023/quast-5.2.0/quast_libs/minimap2/minimap2 -c -x asm10 -B5 -O4,16 \
+  --no-long-join -r 200 -N 50 -s 65 -z 200 --mask-level 0.9 --min-occ 200 -g 2500 \
+  --score-N 2 --cs -t 12 quast_corrected_input/GCF_000146045.2_R64_genomic.fna quast_corrected_input/assembly.fasta \
+  > contigs_reports/minimap_output/assembly.coords_tmp 2>> contigs_reports/contigs_report_assembly.stderr
+  Analysis is finished.
+
+  Creating total report...
+    saved to /home/inf-42-2023/binp29/02_quast/contigs_reports/misassemblies_report.txt, misassemblies_report.tsv, and misassemblies_report.tex
+  Transposed version of total report...
+    saved to /home/inf-42-2023/binp29/02_quast/contigs_reports/transposed_report_misassemblies.txt, transposed_report_misassemblies.tsv, and transposed_report_misassemblies.tex
+  Creating total report...
+    saved to /home/inf-42-2023/binp29/02_quast/contigs_reports/unaligned_report.txt, unaligned_report.tsv, and unaligned_report.tex
+Done.
+
+2024-02-21 16:36:18
+Running NA-NGA calculation...
+  assembly, Largest alignment = 843303, NA50 = 284119, NGA50 = 284119, LA50 = 12, LGA50 = 12
+Done.
+
+2024-02-21 16:36:18
+Running Genome analyzer...
+  NOTICE: No file with genomic features were provided. Use the --features option if you want to specify it.
+
+  NOTICE: No file with operons were provided. Use the -O option if you want to specify it.
+  assembly
+  Analysis is finished.
+Done.
+
+NOTICE: Genes are not predicted by default. Use --gene-finding or --glimmer option to enable it.
+
+2024-02-21 16:36:21
+Creating large visual summaries...
+This may take a while: press Ctrl-C to skip this step..
+Done
+
+2024-02-21 16:36:21
+RESULTS:
+  Text versions of total report are saved to /home/inf-42-2023/binp29/02_quast/report.txt, report.tsv, and report.tex
+  Text versions of transposed total report are saved to /home/inf-42-2023/binp29/02_quast/transposed_report.txt, transposed_report.tsv, and transposed_report.tex
+  HTML version (interactive tables and plots) is saved to /home/inf-42-2023/binp29/02_quast/report.html
+  Log is saved to /home/inf-42-2023/binp29/02_quast/quast.log
+
+Finished: 2024-02-21 16:36:21
+Elapsed time: 0:00:08.787492
+NOTICEs: 3; WARNINGs: 1; non-fatal ERRORs: 0
+
+Thank you for using QUAST!

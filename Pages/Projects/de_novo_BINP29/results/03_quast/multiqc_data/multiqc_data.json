@@ -1,0 +1,248 @@
+{
+    "report_data_sources": {
+        "QUAST": {
+            "all_sections": {
+                "assembly": "/mnt/c/Users/Marton Horvath/Documents/github/LundUni/Pages/Projects/de_novo_BINP29/results/03_quast/report.tsv"
+            }
+        }
+    },
+    "report_general_stats_data": [
+        {
+            "assembly": {
+                "# contigs (>= 0 bp)": 21.0,
+                "# contigs (>= 1000 bp)": 21.0,
+                "# contigs (>= 5000 bp)": 20.0,
+                "# contigs (>= 10000 bp)": 20.0,
+                "# contigs (>= 25000 bp)": 18.0,
+                "# contigs (>= 50000 bp)": 17.0,
+                "Total length (>= 0 bp)": 12119387.0,
+                "Total length (>= 1000 bp)": 12119387.0,
+                "Total length (>= 5000 bp)": 12117293.0,
+                "Total length (>= 10000 bp)": 12117293.0,
+                "Total length (>= 25000 bp)": 12083738.0,
+                "Total length (>= 50000 bp)": 12052421.0,
+                "# contigs": 21.0,
+                "Largest contig": 1499554.0,
+                "Total length": 12119387.0,
+                "Reference length": 12157105.0,
+                "GC (%)": 38.3,
+                "Reference GC (%)": 38.15,
+                "N50": 809075.0,
+                "NG50": 809075.0,
+                "N90": 430059.0,
+                "NG90": 430059.0,
+                "auN": 854374.4,
+                "auNG": 851723.6,
+                "L50": 6.0,
+                "LG50": 6.0,
+                "L90": 14.0,
+                "LG90": 14.0,
+                "# misassemblies": 89.0,
+                "# misassembled contigs": 18.0,
+                "Misassembled contigs length": 12083738.0,
+                "# local misassemblies": 35.0,
+                "# scaffold gap ext. mis.": 0.0,
+                "# scaffold gap loc. mis.": 0.0,
+                "# unaligned mis. contigs": 0.0,
+                "# unaligned contigs": 0.0,
+                "# unaligned contigs_partial": 15.0,
+                "Unaligned length": 85756.0,
+                "Genome fraction (%)": 97.264,
+                "Duplication ratio": 1.017,
+                "# N's per 100 kbp": 0.0,
+                "# mismatches per 100 kbp": 211.63,
+                "# indels per 100 kbp": 21.74,
+                "Largest alignment": 843303.0,
+                "Total aligned length": 12030510.0,
+                "NA50": 284119.0,
+                "NGA50": 284119.0,
+                "NA90": 109892.0,
+                "NGA90": 107862.0,
+                "auNA": 373427.6,
+                "auNGA": 372269.0,
+                "LA50": 12.0,
+                "LGA50": 12.0,
+                "LA90": 40.0,
+                "LGA90": 41.0
+            }
+        }
+    ],
+    "report_general_stats_headers": [
+        {
+            "N50": {
+                "title": "N50 (Kbp)",
+                "description": "N50 is the contig length such that using longer or equal length contigs produces half (50%) of the bases of the assembly (kilo base pairs)",
+                "min": 0,
+                "suffix": "Kbp",
+                "scale": "RdYlGn",
+                "modify": 0.001,
+                "namespace": "QUAST",
+                "rid": "mqc-generalstats-quast-N50",
+                "format": "{:,.1f}",
+                "colour": "55,126,184",
+                "hidden": null,
+                "max": null,
+                "ceiling": null,
+                "floor": null,
+                "minRange": null,
+                "shared_key": null,
+                "placement": 1000.0,
+                "dmax": 809.075,
+                "dmin": 0.0
+            },
+            "Total length": {
+                "title": "Assembly Length (Mbp)",
+                "description": "The total number of bases in the assembly (Mbp).",
+                "min": 0,
+                "suffix": "Mbp",
+                "scale": "YlGn",
+                "modify": 1e-06,
+                "namespace": "QUAST",
+                "rid": "mqc-generalstats-quast-Total_length",
+                "format": "{:,.1f}",
+                "colour": "55,126,184",
+                "hidden": null,
+                "max": null,
+                "ceiling": null,
+                "floor": null,
+                "minRange": null,
+                "shared_key": null,
+                "placement": 1000.0,
+                "dmax": 12.119387,
+                "dmin": 0.0
+            }
+        }
+    ],
+    "report_multiqc_command": "/home/hmarton/anaconda3/bin/multiqc .",
+    "report_plot_data": {
+        "quast_num_contigs": {
+            "plot_type": "bar_graph",
+            "samples": [
+                [
+                    "assembly"
+                ]
+            ],
+            "datasets": [
+                [
+                    {
+                        "name": ">= 50000 bp",
+                        "data": [
+                            17.0
+                        ],
+                        "color": "#7cb5ec"
+                    },
+                    {
+                        "name": "25000-50000 bp",
+                        "data": [
+                            1.0
+                        ],
+                        "color": "#434348"
+                    },
+                    {
+                        "name": "10000-25000 bp",
+                        "data": [
+                            2.0
+                        ],
+                        "color": "#90ed7d"
+                    },
+                    {
+                        "name": "1000-5000 bp",
+                        "data": [
+                            1.0
+                        ],
+                        "color": "#f7a35c"
+                    }
+                ]
+            ],
+            "config": {
+                "id": "quast_num_contigs",
+                "title": "QUAST: Number of Contigs",
+                "ylab": "# Contigs",
+                "yDecimals": false
+            }
+        }
+    },
+    "report_saved_raw_data": {
+        "multiqc_quast": {
+            "assembly": {
+                "# contigs (>= 0 bp)": 21.0,
+                "# contigs (>= 1000 bp)": 21.0,
+                "# contigs (>= 5000 bp)": 20.0,
+                "# contigs (>= 10000 bp)": 20.0,
+                "# contigs (>= 25000 bp)": 18.0,
+                "# contigs (>= 50000 bp)": 17.0,
+                "Total length (>= 0 bp)": 12119387.0,
+                "Total length (>= 1000 bp)": 12119387.0,
+                "Total length (>= 5000 bp)": 12117293.0,
+                "Total length (>= 10000 bp)": 12117293.0,
+                "Total length (>= 25000 bp)": 12083738.0,
+                "Total length (>= 50000 bp)": 12052421.0,
+                "# contigs": 21.0,
+                "Largest contig": 1499554.0,
+                "Total length": 12119387.0,
+                "Reference length": 12157105.0,
+                "GC (%)": 38.3,
+                "Reference GC (%)": 38.15,
+                "N50": 809075.0,
+                "NG50": 809075.0,
+                "N90": 430059.0,
+                "NG90": 430059.0,
+                "auN": 854374.4,
+                "auNG": 851723.6,
+                "L50": 6.0,
+                "LG50": 6.0,
+                "L90": 14.0,
+                "LG90": 14.0,
+                "# misassemblies": 89.0,
+                "# misassembled contigs": 18.0,
+                "Misassembled contigs length": 12083738.0,
+                "# local misassemblies": 35.0,
+                "# scaffold gap ext. mis.": 0.0,
+                "# scaffold gap loc. mis.": 0.0,
+                "# unaligned mis. contigs": 0.0,
+                "# unaligned contigs": 0.0,
+                "# unaligned contigs_partial": 15.0,
+                "Unaligned length": 85756.0,
+                "Genome fraction (%)": 97.264,
+                "Duplication ratio": 1.017,
+                "# N's per 100 kbp": 0.0,
+                "# mismatches per 100 kbp": 211.63,
+                "# indels per 100 kbp": 21.74,
+                "Largest alignment": 843303.0,
+                "Total aligned length": 12030510.0,
+                "NA50": 284119.0,
+                "NGA50": 284119.0,
+                "NA90": 109892.0,
+                "NGA90": 107862.0,
+                "auNA": 373427.6,
+                "auNGA": 372269.0,
+                "LA50": 12.0,
+                "LGA50": 12.0,
+                "LA90": 40.0,
+                "LGA90": 41.0
+            }
+        },
+        "multiqc_general_stats": {
+            "assembly": {
+                "QUAST_mqc-generalstats-quast-N50": 809075.0,
+                "QUAST_mqc-generalstats-quast-Total_length": 12119387.0
+            }
+        }
+    },
+    "config_analysis_dir_abs": [
+        "/mnt/c/Users/Marton Horvath/Documents/github/LundUni/Pages/Projects/de_novo_BINP29/results/03_quast"
+    ],
+    "config_analysis_dir": [
+        "."
+    ],
+    "config_creation_date": "2024-02-21, 22:25 CET",
+    "config_git_hash": null,
+    "config_intro_text": null,
+    "config_report_comment": null,
+    "config_report_header_info": null,
+    "config_script_path": "/home/hmarton/anaconda3/lib/python3.9/site-packages/multiqc/utils",
+    "config_short_version": "1.19",
+    "config_subtitle": null,
+    "config_title": null,
+    "config_version": "1.19"
+}

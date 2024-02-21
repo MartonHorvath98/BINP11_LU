@@ -1,0 +1,12 @@
+name: denovo
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - busco=5.6.1
+  - fastqc=0.12.1
+  - multiqc=1.19
+  - flye=2.9.3
+  - quast=5.2.0
+  - sra-tools=3.0.10
