@@ -31,6 +31,10 @@
 ├── environment.yml
 └── workflow.sh
 ```
+## Usage
+```bash
+bash workflow.sh SRR13577846 #SRR code for sample
+```
 ## 1. Data acquisition
 I downloaded the sequence file - SRR13577846 - from NCBI's sequence read archive ([SRA](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR13577846&display=metadata)) database, made the file(s) write-protected from all users and groups and. The raw data files are added to the `.gitignore` file to keep them from being uploaded to GitHub.
 ```bash
@@ -47,4 +51,18 @@ fastqc -o results/00_fastqc -f fastq -t 10 ${indir}/SRR13577846.fastq
 ```
 
 ## 3. Long-read assembly
-I chose to work with Flye (v2.9.3) de novo assembler, then execute polishing via QUAST (5.2.0).
+I chose to work with Flye (v2.9.3) de novo assembler, then execute polishing via QUAST (5.2.0). Even from the project folder on NCBI it was clear that a high-fidelity PacBio sequencing was executed on the genomic DNA, but looking at the QC results, the reads seemed very high quality. Hence, the `--pacbio-hifi` parameter could have been set during the flye assembler step. 
+```bash
+flye --pacbio-hifi ${indir}/SRR13577846.fastq --out-dir results/02_assembly --threads 10
+quast -o results/03_quast  -r ${indir}/reference.fna -t 10 --no-icarus results/02_assembly/assembly.fasta
+```
+Running the assembler failed on my local machine using 4 threads and 4 Gb-s of RAM, while it took about 22 minutes on the university server using 10 cores. The results were:
+|---|---|
+| Total length | 12119387 |
+| Fragments | 21 |
+| N50 | 809075 |
+| Largest frg | 1499554 |
+| Scaffolds | 0 |
+| Mean coverage | 87 |
+
+[Plot 1](results/02_assembly/graph.png)
