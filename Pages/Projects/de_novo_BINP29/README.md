@@ -65,4 +65,4 @@ Running the assembler failed on my local machine using 4 threads and 4 Gb-s of R
 | Scaffolds | 0 |
 | Mean coverage | 87 |
 
-[Plot 1](results/02_assembly/graph.png)
+![Plot 1](results/02_assembly/graph.png "Plot 1 - Visualising de novo assembly graphs with Bandage")
