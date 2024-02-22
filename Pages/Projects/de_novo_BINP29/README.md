@@ -57,7 +57,8 @@ flye --pacbio-hifi ${indir}/SRR13577846.fastq --out-dir results/02_assembly --th
 quast -o results/03_quast  -r ${indir}/reference.fna -t 10 --no-icarus results/02_assembly/assembly.fasta
 ```
 Running the assembler failed on my local machine using 4 threads and 4 Gb-s of RAM, while it took about 22 minutes on the university server using 10 cores. The results were:
-|---|---|
+| | |
+|:---:|:---:|
 | Total length | 12119387 |
 | Fragments | 21 |
 | N50 | 809075 |
