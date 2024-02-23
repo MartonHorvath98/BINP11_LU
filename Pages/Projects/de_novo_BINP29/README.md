@@ -89,15 +89,9 @@ We analyze the assembly quality based on the coverage and fragmentation of BUSCO
 busco -i ${assembly}/assembly.fasta -m genome -c 12 --out_path ${BUSCO}/ -l saccharomycetes_odb10
 generate_plot.py -wd ${BUSCO}/BUSCO_assembly.fasta/
 ```
-|Results from dataset saccharomycetes_odb10        |
-|---|
-|C:99.6%[S:97.4%,D:2.2%],F:0.1%,M:0.3%,n:2137      |
-|2129    Complete BUSCOs (C)                       |
-|2081    Complete and single-copy BUSCOs (S)       |
-|48    Complete and duplicated BUSCOs (D)          |
-|2    Fragmented BUSCOs (F)                        |
-|6    Missing BUSCOs (M)                           |
-|2137    Total BUSCO groups searched               |
+|Results|Complete BUSCOs \(C\)|Complete and single-copy BUSCOs (S)|Complete and duplicated BUSCOs (D)|Fragmented BUSCOs (F)|Missing BUSCOs (M)|**Total BUSCO groups searched**|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|C:99.6%[S:97.4%,D:2.2%],F:0.1%,M:0.3%,n:2137| 2129 | 2081 | 48 | 2 | 6 | **2137** |
 
 ![Plot 2](results/04_busco/BUSCO_assembly.fasta/busco_figure.png "Plot 2 - Completeness of BUSCO genes in the assembled genome")
 
