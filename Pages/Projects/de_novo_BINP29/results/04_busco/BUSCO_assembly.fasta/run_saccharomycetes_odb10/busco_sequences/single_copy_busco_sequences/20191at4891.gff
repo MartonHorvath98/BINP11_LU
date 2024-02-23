@@ -1,0 +1,16 @@
+contig_14	MetaEuk	gene	433832	434650	464	+	.	Target_ID=20191at4891_2;TCS_ID=20191at4891_2|contig_14|+|433831
+contig_14	MetaEuk	mRNA	433832	434650	464	+	.	Target_ID=20191at4891_2;TCS_ID=20191at4891_2|contig_14|+|433831_mRNA;Parent=20191at4891_2|contig_14|+|433831
+contig_14	MetaEuk	exon	433832	434650	464	+	.	Target_ID=20191at4891_2;TCS_ID=20191at4891_2|contig_14|+|433831_exon_0;Parent=20191at4891_2|contig_14|+|433831_mRNA
+contig_14	MetaEuk	CDS	433832	434650	464	+	.	Target_ID=20191at4891_2;TCS_ID=20191at4891_2|contig_14|+|433831_CDS_0;Parent=20191at4891_2|contig_14|+|433831_exon_0
+contig_17	MetaEuk	gene	337326	338165	118	-	.	Target_ID=20191at4891_8;TCS_ID=20191at4891_8|contig_17|-|337325
+contig_17	MetaEuk	mRNA	337326	338165	118	-	.	Target_ID=20191at4891_8;TCS_ID=20191at4891_8|contig_17|-|337325_mRNA;Parent=20191at4891_8|contig_17|-|337325
+contig_17	MetaEuk	exon	337326	338165	118	-	.	Target_ID=20191at4891_8;TCS_ID=20191at4891_8|contig_17|-|337325_exon_0;Parent=20191at4891_8|contig_17|-|337325_mRNA
+contig_17	MetaEuk	CDS	337326	338165	118	-	.	Target_ID=20191at4891_8;TCS_ID=20191at4891_8|contig_17|-|337325_CDS_0;Parent=20191at4891_8|contig_17|-|337325_exon_0
+contig_4	MetaEuk	gene	693082	693867	123	-	.	Target_ID=20191at4891_9;TCS_ID=20191at4891_9|contig_4|-|693081
+contig_4	MetaEuk	mRNA	693082	693867	123	-	.	Target_ID=20191at4891_9;TCS_ID=20191at4891_9|contig_4|-|693081_mRNA;Parent=20191at4891_9|contig_4|-|693081
+contig_4	MetaEuk	exon	693082	693867	123	-	.	Target_ID=20191at4891_9;TCS_ID=20191at4891_9|contig_4|-|693081_exon_0;Parent=20191at4891_9|contig_4|-|693081_mRNA
+contig_4	MetaEuk	CDS	693082	693867	123	-	.	Target_ID=20191at4891_9;TCS_ID=20191at4891_9|contig_4|-|693081_CDS_0;Parent=20191at4891_9|contig_4|-|693081_exon_0
+contig_4	MetaEuk	gene	331851	332831	94	+	.	Target_ID=20191at4891_9;TCS_ID=20191at4891_9|contig_4|+|331850
+contig_4	MetaEuk	mRNA	331851	332831	94	+	.	Target_ID=20191at4891_9;TCS_ID=20191at4891_9|contig_4|+|331850_mRNA;Parent=20191at4891_9|contig_4|+|331850
+contig_4	MetaEuk	exon	331851	332831	94	+	.	Target_ID=20191at4891_9;TCS_ID=20191at4891_9|contig_4|+|331850_exon_0;Parent=20191at4891_9|contig_4|+|331850_mRNA
+contig_4	MetaEuk	CDS	331851	332831	94	+	.	Target_ID=20191at4891_9;TCS_ID=20191at4891_9|contig_4|+|331850_CDS_0;Parent=20191at4891_9|contig_4|+|331850_exon_0

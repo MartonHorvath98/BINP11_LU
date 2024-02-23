@@ -1,0 +1,4 @@
+contig_4	MetaEuk	gene	672196	673566	549	+	.	Target_ID=11009at4891_9;TCS_ID=11009at4891_9|contig_4|+|672195
+contig_4	MetaEuk	mRNA	672196	673566	549	+	.	Target_ID=11009at4891_9;TCS_ID=11009at4891_9|contig_4|+|672195_mRNA;Parent=11009at4891_9|contig_4|+|672195
+contig_4	MetaEuk	exon	672196	673566	549	+	.	Target_ID=11009at4891_9;TCS_ID=11009at4891_9|contig_4|+|672195_exon_0;Parent=11009at4891_9|contig_4|+|672195_mRNA
+contig_4	MetaEuk	CDS	672196	673566	549	+	.	Target_ID=11009at4891_9;TCS_ID=11009at4891_9|contig_4|+|672195_CDS_0;Parent=11009at4891_9|contig_4|+|672195_exon_0

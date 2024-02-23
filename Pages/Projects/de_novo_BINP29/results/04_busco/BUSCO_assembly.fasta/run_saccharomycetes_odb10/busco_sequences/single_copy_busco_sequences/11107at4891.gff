@@ -1,0 +1,4 @@
+contig_27	MetaEuk	gene	22215	24155	747	-	.	Target_ID=11107at4891_2;TCS_ID=11107at4891_2|contig_27|-|22214
+contig_27	MetaEuk	mRNA	22215	24155	747	-	.	Target_ID=11107at4891_2;TCS_ID=11107at4891_2|contig_27|-|22214_mRNA;Parent=11107at4891_2|contig_27|-|22214
+contig_27	MetaEuk	exon	22215	24155	747	-	.	Target_ID=11107at4891_2;TCS_ID=11107at4891_2|contig_27|-|22214_exon_0;Parent=11107at4891_2|contig_27|-|22214_mRNA
+contig_27	MetaEuk	CDS	22215	24155	747	-	.	Target_ID=11107at4891_2;TCS_ID=11107at4891_2|contig_27|-|22214_CDS_0;Parent=11107at4891_2|contig_27|-|22214_exon_0

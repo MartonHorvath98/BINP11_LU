@@ -1,0 +1,4 @@
+contig_19	MetaEuk	gene	303016	303723	427	+	.	Target_ID=24980at4891_9;TCS_ID=24980at4891_9|contig_19|+|303015
+contig_19	MetaEuk	mRNA	303016	303723	427	+	.	Target_ID=24980at4891_9;TCS_ID=24980at4891_9|contig_19|+|303015_mRNA;Parent=24980at4891_9|contig_19|+|303015
+contig_19	MetaEuk	exon	303016	303723	427	+	.	Target_ID=24980at4891_9;TCS_ID=24980at4891_9|contig_19|+|303015_exon_0;Parent=24980at4891_9|contig_19|+|303015_mRNA
+contig_19	MetaEuk	CDS	303016	303723	427	+	.	Target_ID=24980at4891_9;TCS_ID=24980at4891_9|contig_19|+|303015_CDS_0;Parent=24980at4891_9|contig_19|+|303015_exon_0

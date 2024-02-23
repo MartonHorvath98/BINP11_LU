@@ -1,0 +1,16 @@
+contig_14	MetaEuk	gene	426238	426918	157	+	.	Target_ID=37570at4891_3;TCS_ID=37570at4891_3|contig_14|+|426237
+contig_14	MetaEuk	mRNA	426238	426918	157	+	.	Target_ID=37570at4891_3;TCS_ID=37570at4891_3|contig_14|+|426237_mRNA;Parent=37570at4891_3|contig_14|+|426237
+contig_14	MetaEuk	exon	426238	426918	157	+	.	Target_ID=37570at4891_3;TCS_ID=37570at4891_3|contig_14|+|426237_exon_0;Parent=37570at4891_3|contig_14|+|426237_mRNA
+contig_14	MetaEuk	CDS	426238	426918	157	+	.	Target_ID=37570at4891_3;TCS_ID=37570at4891_3|contig_14|+|426237_CDS_0;Parent=37570at4891_3|contig_14|+|426237_exon_0
+contig_20	MetaEuk	gene	686162	686746	60	+	.	Target_ID=37570at4891_4;TCS_ID=37570at4891_4|contig_20|+|686161
+contig_20	MetaEuk	mRNA	686162	686746	60	+	.	Target_ID=37570at4891_4;TCS_ID=37570at4891_4|contig_20|+|686161_mRNA;Parent=37570at4891_4|contig_20|+|686161
+contig_20	MetaEuk	exon	686162	686746	60	+	.	Target_ID=37570at4891_4;TCS_ID=37570at4891_4|contig_20|+|686161_exon_0;Parent=37570at4891_4|contig_20|+|686161_mRNA
+contig_20	MetaEuk	CDS	686162	686746	60	+	.	Target_ID=37570at4891_4;TCS_ID=37570at4891_4|contig_20|+|686161_CDS_0;Parent=37570at4891_4|contig_20|+|686161_exon_0
+contig_26	MetaEuk	gene	293798	294091	68	+	.	Target_ID=37570at4891_8;TCS_ID=37570at4891_8|contig_26|+|293797
+contig_26	MetaEuk	mRNA	293798	294091	68	+	.	Target_ID=37570at4891_8;TCS_ID=37570at4891_8|contig_26|+|293797_mRNA;Parent=37570at4891_8|contig_26|+|293797
+contig_26	MetaEuk	exon	293798	294091	68	+	.	Target_ID=37570at4891_8;TCS_ID=37570at4891_8|contig_26|+|293797_exon_0;Parent=37570at4891_8|contig_26|+|293797_mRNA
+contig_26	MetaEuk	CDS	293798	294091	68	+	.	Target_ID=37570at4891_8;TCS_ID=37570at4891_8|contig_26|+|293797_CDS_0;Parent=37570at4891_8|contig_26|+|293797_exon_0
+contig_4	MetaEuk	gene	550880	551461	144	+	.	Target_ID=37570at4891_2;TCS_ID=37570at4891_2|contig_4|+|550879
+contig_4	MetaEuk	mRNA	550880	551461	144	+	.	Target_ID=37570at4891_2;TCS_ID=37570at4891_2|contig_4|+|550879_mRNA;Parent=37570at4891_2|contig_4|+|550879
+contig_4	MetaEuk	exon	550880	551461	144	+	.	Target_ID=37570at4891_2;TCS_ID=37570at4891_2|contig_4|+|550879_exon_0;Parent=37570at4891_2|contig_4|+|550879_mRNA
+contig_4	MetaEuk	CDS	550880	551461	144	+	.	Target_ID=37570at4891_2;TCS_ID=37570at4891_2|contig_4|+|550879_CDS_0;Parent=37570at4891_2|contig_4|+|550879_exon_0

@@ -1,0 +1,4 @@
+contig_4	MetaEuk	gene	220211	220978	322	+	.	Target_ID=31659at4891_2;TCS_ID=31659at4891_2|contig_4|+|220210
+contig_4	MetaEuk	mRNA	220211	220978	322	+	.	Target_ID=31659at4891_2;TCS_ID=31659at4891_2|contig_4|+|220210_mRNA;Parent=31659at4891_2|contig_4|+|220210
+contig_4	MetaEuk	exon	220211	220978	322	+	.	Target_ID=31659at4891_2;TCS_ID=31659at4891_2|contig_4|+|220210_exon_0;Parent=31659at4891_2|contig_4|+|220210_mRNA
+contig_4	MetaEuk	CDS	220211	220978	322	+	.	Target_ID=31659at4891_2;TCS_ID=31659at4891_2|contig_4|+|220210_CDS_0;Parent=31659at4891_2|contig_4|+|220210_exon_0

@@ -1,0 +1,4 @@
+contig_14	MetaEuk	gene	143101	149535	3626	-	.	Target_ID=95at4891_4;TCS_ID=95at4891_4|contig_14|-|143100
+contig_14	MetaEuk	mRNA	143101	149535	3626	-	.	Target_ID=95at4891_4;TCS_ID=95at4891_4|contig_14|-|143100_mRNA;Parent=95at4891_4|contig_14|-|143100
+contig_14	MetaEuk	exon	143101	149535	3626	-	.	Target_ID=95at4891_4;TCS_ID=95at4891_4|contig_14|-|143100_exon_0;Parent=95at4891_4|contig_14|-|143100_mRNA
+contig_14	MetaEuk	CDS	143101	149535	3626	-	.	Target_ID=95at4891_4;TCS_ID=95at4891_4|contig_14|-|143100_CDS_0;Parent=95at4891_4|contig_14|-|143100_exon_0

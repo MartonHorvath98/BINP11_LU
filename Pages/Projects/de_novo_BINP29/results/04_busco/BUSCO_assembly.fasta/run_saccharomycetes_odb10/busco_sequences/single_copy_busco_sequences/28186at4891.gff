@@ -1,0 +1,16 @@
+contig_2	MetaEuk	gene	554520	555332	129	+	.	Target_ID=28186at4891_3;TCS_ID=28186at4891_3|contig_2|+|554519
+contig_2	MetaEuk	mRNA	554520	555332	129	+	.	Target_ID=28186at4891_3;TCS_ID=28186at4891_3|contig_2|+|554519_mRNA;Parent=28186at4891_3|contig_2|+|554519
+contig_2	MetaEuk	exon	554520	555332	129	+	.	Target_ID=28186at4891_3;TCS_ID=28186at4891_3|contig_2|+|554519_exon_0;Parent=28186at4891_3|contig_2|+|554519_mRNA
+contig_2	MetaEuk	CDS	554520	555332	129	+	.	Target_ID=28186at4891_3;TCS_ID=28186at4891_3|contig_2|+|554519_CDS_0;Parent=28186at4891_3|contig_2|+|554519_exon_0
+contig_20	MetaEuk	gene	358586	359563	516	+	.	Target_ID=28186at4891_7;TCS_ID=28186at4891_7|contig_20|+|358585
+contig_20	MetaEuk	mRNA	358586	359563	516	+	.	Target_ID=28186at4891_7;TCS_ID=28186at4891_7|contig_20|+|358585_mRNA;Parent=28186at4891_7|contig_20|+|358585
+contig_20	MetaEuk	exon	358586	359563	516	+	.	Target_ID=28186at4891_7;TCS_ID=28186at4891_7|contig_20|+|358585_exon_0;Parent=28186at4891_7|contig_20|+|358585_mRNA
+contig_20	MetaEuk	CDS	358586	359563	516	+	.	Target_ID=28186at4891_7;TCS_ID=28186at4891_7|contig_20|+|358585_CDS_0;Parent=28186at4891_7|contig_20|+|358585_exon_0
+contig_4	MetaEuk	gene	643778	644653	114	+	.	Target_ID=28186at4891_0;TCS_ID=28186at4891_0|contig_4|+|643777
+contig_4	MetaEuk	mRNA	643778	644653	114	+	.	Target_ID=28186at4891_0;TCS_ID=28186at4891_0|contig_4|+|643777_mRNA;Parent=28186at4891_0|contig_4|+|643777
+contig_4	MetaEuk	exon	643778	644653	114	+	.	Target_ID=28186at4891_0;TCS_ID=28186at4891_0|contig_4|+|643777_exon_0;Parent=28186at4891_0|contig_4|+|643777_mRNA
+contig_4	MetaEuk	CDS	643778	644653	114	+	.	Target_ID=28186at4891_0;TCS_ID=28186at4891_0|contig_4|+|643777_CDS_0;Parent=28186at4891_0|contig_4|+|643777_exon_0
+contig_4	MetaEuk	gene	401406	402257	121	-	.	Target_ID=28186at4891_7;TCS_ID=28186at4891_7|contig_4|-|401405
+contig_4	MetaEuk	mRNA	401406	402257	121	-	.	Target_ID=28186at4891_7;TCS_ID=28186at4891_7|contig_4|-|401405_mRNA;Parent=28186at4891_7|contig_4|-|401405
+contig_4	MetaEuk	exon	401406	402257	121	-	.	Target_ID=28186at4891_7;TCS_ID=28186at4891_7|contig_4|-|401405_exon_0;Parent=28186at4891_7|contig_4|-|401405_mRNA
+contig_4	MetaEuk	CDS	401406	402257	121	-	.	Target_ID=28186at4891_7;TCS_ID=28186at4891_7|contig_4|-|401405_CDS_0;Parent=28186at4891_7|contig_4|-|401405_exon_0

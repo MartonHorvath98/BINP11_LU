@@ -1,0 +1,4 @@
+contig_2	MetaEuk	gene	636229	640032	1465	-	.	Target_ID=3320at4891_2;TCS_ID=3320at4891_2|contig_2|-|636228
+contig_2	MetaEuk	mRNA	636229	640032	1465	-	.	Target_ID=3320at4891_2;TCS_ID=3320at4891_2|contig_2|-|636228_mRNA;Parent=3320at4891_2|contig_2|-|636228
+contig_2	MetaEuk	exon	636229	640032	1465	-	.	Target_ID=3320at4891_2;TCS_ID=3320at4891_2|contig_2|-|636228_exon_0;Parent=3320at4891_2|contig_2|-|636228_mRNA
+contig_2	MetaEuk	CDS	636229	640032	1465	-	.	Target_ID=3320at4891_2;TCS_ID=3320at4891_2|contig_2|-|636228_CDS_0;Parent=3320at4891_2|contig_2|-|636228_exon_0

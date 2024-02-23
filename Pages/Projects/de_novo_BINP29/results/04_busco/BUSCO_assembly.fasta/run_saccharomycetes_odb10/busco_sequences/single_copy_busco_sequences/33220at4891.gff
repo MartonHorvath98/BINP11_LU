@@ -1,0 +1,4 @@
+contig_7	MetaEuk	gene	400692	401174	174	-	.	Target_ID=33220at4891_2;TCS_ID=33220at4891_2|contig_7|-|400691
+contig_7	MetaEuk	mRNA	400692	401174	174	-	.	Target_ID=33220at4891_2;TCS_ID=33220at4891_2|contig_7|-|400691_mRNA;Parent=33220at4891_2|contig_7|-|400691
+contig_7	MetaEuk	exon	400692	401174	174	-	.	Target_ID=33220at4891_2;TCS_ID=33220at4891_2|contig_7|-|400691_exon_0;Parent=33220at4891_2|contig_7|-|400691_mRNA
+contig_7	MetaEuk	CDS	400692	401174	174	-	.	Target_ID=33220at4891_2;TCS_ID=33220at4891_2|contig_7|-|400691_CDS_0;Parent=33220at4891_2|contig_7|-|400691_exon_0

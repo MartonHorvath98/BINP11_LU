@@ -1,0 +1,4 @@
+contig_2	MetaEuk	gene	114509	116701	865	-	.	Target_ID=7422at4891_2;TCS_ID=7422at4891_2|contig_2|-|114508
+contig_2	MetaEuk	mRNA	114509	116701	865	-	.	Target_ID=7422at4891_2;TCS_ID=7422at4891_2|contig_2|-|114508_mRNA;Parent=7422at4891_2|contig_2|-|114508
+contig_2	MetaEuk	exon	114509	116701	865	-	.	Target_ID=7422at4891_2;TCS_ID=7422at4891_2|contig_2|-|114508_exon_0;Parent=7422at4891_2|contig_2|-|114508_mRNA
+contig_2	MetaEuk	CDS	114509	116701	865	-	.	Target_ID=7422at4891_2;TCS_ID=7422at4891_2|contig_2|-|114508_CDS_0;Parent=7422at4891_2|contig_2|-|114508_exon_0

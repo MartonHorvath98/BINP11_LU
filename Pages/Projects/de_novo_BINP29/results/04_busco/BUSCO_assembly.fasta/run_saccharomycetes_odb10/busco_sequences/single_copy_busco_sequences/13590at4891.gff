@@ -1,0 +1,4 @@
+contig_22	MetaEuk	gene	162501	163961	493	+	.	Target_ID=13590at4891_2;TCS_ID=13590at4891_2|contig_22|+|162500
+contig_22	MetaEuk	mRNA	162501	163961	493	+	.	Target_ID=13590at4891_2;TCS_ID=13590at4891_2|contig_22|+|162500_mRNA;Parent=13590at4891_2|contig_22|+|162500
+contig_22	MetaEuk	exon	162501	163961	493	+	.	Target_ID=13590at4891_2;TCS_ID=13590at4891_2|contig_22|+|162500_exon_0;Parent=13590at4891_2|contig_22|+|162500_mRNA
+contig_22	MetaEuk	CDS	162501	163961	493	+	.	Target_ID=13590at4891_2;TCS_ID=13590at4891_2|contig_22|+|162500_CDS_0;Parent=13590at4891_2|contig_22|+|162500_exon_0

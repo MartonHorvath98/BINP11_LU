@@ -1,0 +1,4 @@
+contig_19	MetaEuk	gene	316529	317989	691	-	.	Target_ID=6418at4891_2;TCS_ID=6418at4891_2|contig_19|-|316528
+contig_19	MetaEuk	mRNA	316529	317989	691	-	.	Target_ID=6418at4891_2;TCS_ID=6418at4891_2|contig_19|-|316528_mRNA;Parent=6418at4891_2|contig_19|-|316528
+contig_19	MetaEuk	exon	316529	317989	691	-	.	Target_ID=6418at4891_2;TCS_ID=6418at4891_2|contig_19|-|316528_exon_0;Parent=6418at4891_2|contig_19|-|316528_mRNA
+contig_19	MetaEuk	CDS	316529	317989	691	-	.	Target_ID=6418at4891_2;TCS_ID=6418at4891_2|contig_19|-|316528_CDS_0;Parent=6418at4891_2|contig_19|-|316528_exon_0

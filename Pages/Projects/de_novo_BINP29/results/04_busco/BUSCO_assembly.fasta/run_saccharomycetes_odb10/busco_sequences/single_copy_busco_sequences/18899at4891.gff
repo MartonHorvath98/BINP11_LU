@@ -1,0 +1,4 @@
+contig_20	MetaEuk	gene	902582	903535	584	-	.	Target_ID=18899at4891_1;TCS_ID=18899at4891_1|contig_20|-|902581
+contig_20	MetaEuk	mRNA	902582	903535	584	-	.	Target_ID=18899at4891_1;TCS_ID=18899at4891_1|contig_20|-|902581_mRNA;Parent=18899at4891_1|contig_20|-|902581
+contig_20	MetaEuk	exon	902582	903535	584	-	.	Target_ID=18899at4891_1;TCS_ID=18899at4891_1|contig_20|-|902581_exon_0;Parent=18899at4891_1|contig_20|-|902581_mRNA
+contig_20	MetaEuk	CDS	902582	903535	584	-	.	Target_ID=18899at4891_1;TCS_ID=18899at4891_1|contig_20|-|902581_CDS_0;Parent=18899at4891_1|contig_20|-|902581_exon_0

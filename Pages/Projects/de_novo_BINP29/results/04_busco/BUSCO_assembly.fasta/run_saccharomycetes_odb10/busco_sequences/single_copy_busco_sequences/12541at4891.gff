@@ -1,0 +1,14 @@
+contig_19	MetaEuk	gene	413983	416575	941	+	.	Target_ID=12541at4891_2;TCS_ID=12541at4891_2|contig_19|+|413982
+contig_19	MetaEuk	mRNA	413983	416575	941	+	.	Target_ID=12541at4891_2;TCS_ID=12541at4891_2|contig_19|+|413982_mRNA;Parent=12541at4891_2|contig_19|+|413982
+contig_19	MetaEuk	exon	413983	415245	770	+	.	Target_ID=12541at4891_2;TCS_ID=12541at4891_2|contig_19|+|413982_exon_0;Parent=12541at4891_2|contig_19|+|413982_mRNA
+contig_19	MetaEuk	CDS	413983	415245	770	+	.	Target_ID=12541at4891_2;TCS_ID=12541at4891_2|contig_19|+|413982_CDS_0;Parent=12541at4891_2|contig_19|+|413982_exon_0
+contig_19	MetaEuk	exon	416234	416575	170	+	.	Target_ID=12541at4891_2;TCS_ID=12541at4891_2|contig_19|+|413982_exon_1;Parent=12541at4891_2|contig_19|+|413982_mRNA
+contig_19	MetaEuk	CDS	416234	416575	170	+	.	Target_ID=12541at4891_2;TCS_ID=12541at4891_2|contig_19|+|413982_CDS_1;Parent=12541at4891_2|contig_19|+|413982_exon_1
+contig_20	MetaEuk	gene	616833	618068	341	+	.	Target_ID=12541at4891_1;TCS_ID=12541at4891_1|contig_20|+|616832
+contig_20	MetaEuk	mRNA	616833	618068	341	+	.	Target_ID=12541at4891_1;TCS_ID=12541at4891_1|contig_20|+|616832_mRNA;Parent=12541at4891_1|contig_20|+|616832
+contig_20	MetaEuk	exon	616833	618068	341	+	.	Target_ID=12541at4891_1;TCS_ID=12541at4891_1|contig_20|+|616832_exon_0;Parent=12541at4891_1|contig_20|+|616832_mRNA
+contig_20	MetaEuk	CDS	616833	618068	341	+	.	Target_ID=12541at4891_1;TCS_ID=12541at4891_1|contig_20|+|616832_CDS_0;Parent=12541at4891_1|contig_20|+|616832_exon_0
+contig_3	MetaEuk	gene	718190	719710	332	+	.	Target_ID=12541at4891_4;TCS_ID=12541at4891_4|contig_3|+|718189
+contig_3	MetaEuk	mRNA	718190	719710	332	+	.	Target_ID=12541at4891_4;TCS_ID=12541at4891_4|contig_3|+|718189_mRNA;Parent=12541at4891_4|contig_3|+|718189
+contig_3	MetaEuk	exon	718190	719710	332	+	.	Target_ID=12541at4891_4;TCS_ID=12541at4891_4|contig_3|+|718189_exon_0;Parent=12541at4891_4|contig_3|+|718189_mRNA
+contig_3	MetaEuk	CDS	718190	719710	332	+	.	Target_ID=12541at4891_4;TCS_ID=12541at4891_4|contig_3|+|718189_CDS_0;Parent=12541at4891_4|contig_3|+|718189_exon_0

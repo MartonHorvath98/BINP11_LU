@@ -1,0 +1,4 @@
+contig_3	MetaEuk	gene	977125	979935	955	+	.	Target_ID=3426at4891_2;TCS_ID=3426at4891_2|contig_3|+|977124
+contig_3	MetaEuk	mRNA	977125	979935	955	+	.	Target_ID=3426at4891_2;TCS_ID=3426at4891_2|contig_3|+|977124_mRNA;Parent=3426at4891_2|contig_3|+|977124
+contig_3	MetaEuk	exon	977125	979935	955	+	.	Target_ID=3426at4891_2;TCS_ID=3426at4891_2|contig_3|+|977124_exon_0;Parent=3426at4891_2|contig_3|+|977124_mRNA
+contig_3	MetaEuk	CDS	977125	979935	955	+	.	Target_ID=3426at4891_2;TCS_ID=3426at4891_2|contig_3|+|977124_CDS_0;Parent=3426at4891_2|contig_3|+|977124_exon_0

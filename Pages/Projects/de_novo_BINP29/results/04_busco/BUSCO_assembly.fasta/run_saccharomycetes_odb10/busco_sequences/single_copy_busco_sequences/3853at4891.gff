@@ -1,0 +1,4 @@
+contig_20	MetaEuk	gene	626197	629271	1507	-	.	Target_ID=3853at4891_2;TCS_ID=3853at4891_2|contig_20|-|626196
+contig_20	MetaEuk	mRNA	626197	629271	1507	-	.	Target_ID=3853at4891_2;TCS_ID=3853at4891_2|contig_20|-|626196_mRNA;Parent=3853at4891_2|contig_20|-|626196
+contig_20	MetaEuk	exon	626197	629271	1507	-	.	Target_ID=3853at4891_2;TCS_ID=3853at4891_2|contig_20|-|626196_exon_0;Parent=3853at4891_2|contig_20|-|626196_mRNA
+contig_20	MetaEuk	CDS	626197	629271	1507	-	.	Target_ID=3853at4891_2;TCS_ID=3853at4891_2|contig_20|-|626196_CDS_0;Parent=3853at4891_2|contig_20|-|626196_exon_0

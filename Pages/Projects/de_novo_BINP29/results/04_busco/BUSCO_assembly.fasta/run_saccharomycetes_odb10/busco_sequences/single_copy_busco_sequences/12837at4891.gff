@@ -1,0 +1,8 @@
+contig_6	MetaEuk	gene	156041	157300	302	-	.	Target_ID=12837at4891_0;TCS_ID=12837at4891_0|contig_6|-|156040
+contig_6	MetaEuk	mRNA	156041	157300	302	-	.	Target_ID=12837at4891_0;TCS_ID=12837at4891_0|contig_6|-|156040_mRNA;Parent=12837at4891_0|contig_6|-|156040
+contig_6	MetaEuk	exon	156041	157300	302	-	.	Target_ID=12837at4891_0;TCS_ID=12837at4891_0|contig_6|-|156040_exon_0;Parent=12837at4891_0|contig_6|-|156040_mRNA
+contig_6	MetaEuk	CDS	156041	157300	302	-	.	Target_ID=12837at4891_0;TCS_ID=12837at4891_0|contig_6|-|156040_CDS_0;Parent=12837at4891_0|contig_6|-|156040_exon_0
+contig_7	MetaEuk	gene	121181	122518	629	-	.	Target_ID=12837at4891_4;TCS_ID=12837at4891_4|contig_7|-|121180
+contig_7	MetaEuk	mRNA	121181	122518	629	-	.	Target_ID=12837at4891_4;TCS_ID=12837at4891_4|contig_7|-|121180_mRNA;Parent=12837at4891_4|contig_7|-|121180
+contig_7	MetaEuk	exon	121181	122518	629	-	.	Target_ID=12837at4891_4;TCS_ID=12837at4891_4|contig_7|-|121180_exon_0;Parent=12837at4891_4|contig_7|-|121180_mRNA
+contig_7	MetaEuk	CDS	121181	122518	629	-	.	Target_ID=12837at4891_4;TCS_ID=12837at4891_4|contig_7|-|121180_CDS_0;Parent=12837at4891_4|contig_7|-|121180_exon_0

@@ -1,0 +1,4 @@
+contig_25	MetaEuk	gene	631245	634280	1727	-	.	Target_ID=1947at4891_1;TCS_ID=1947at4891_1|contig_25|-|631244
+contig_25	MetaEuk	mRNA	631245	634280	1727	-	.	Target_ID=1947at4891_1;TCS_ID=1947at4891_1|contig_25|-|631244_mRNA;Parent=1947at4891_1|contig_25|-|631244
+contig_25	MetaEuk	exon	631245	634280	1727	-	.	Target_ID=1947at4891_1;TCS_ID=1947at4891_1|contig_25|-|631244_exon_0;Parent=1947at4891_1|contig_25|-|631244_mRNA
+contig_25	MetaEuk	CDS	631245	634280	1727	-	.	Target_ID=1947at4891_1;TCS_ID=1947at4891_1|contig_25|-|631244_CDS_0;Parent=1947at4891_1|contig_25|-|631244_exon_0

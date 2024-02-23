@@ -1,0 +1,4 @@
+contig_14	MetaEuk	gene	708621	713714	1931	-	.	Target_ID=1283at4891_2;TCS_ID=1283at4891_2|contig_14|-|708620
+contig_14	MetaEuk	mRNA	708621	713714	1931	-	.	Target_ID=1283at4891_2;TCS_ID=1283at4891_2|contig_14|-|708620_mRNA;Parent=1283at4891_2|contig_14|-|708620
+contig_14	MetaEuk	exon	708621	713714	1931	-	.	Target_ID=1283at4891_2;TCS_ID=1283at4891_2|contig_14|-|708620_exon_0;Parent=1283at4891_2|contig_14|-|708620_mRNA
+contig_14	MetaEuk	CDS	708621	713714	1931	-	.	Target_ID=1283at4891_2;TCS_ID=1283at4891_2|contig_14|-|708620_CDS_0;Parent=1283at4891_2|contig_14|-|708620_exon_0

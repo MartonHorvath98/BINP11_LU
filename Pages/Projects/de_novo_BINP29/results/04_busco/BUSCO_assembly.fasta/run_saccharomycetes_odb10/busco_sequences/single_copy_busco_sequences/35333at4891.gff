@@ -1,0 +1,4 @@
+contig_13	MetaEuk	gene	70331	70876	201	-	.	Target_ID=35333at4891_9;TCS_ID=35333at4891_9|contig_13|-|70330
+contig_13	MetaEuk	mRNA	70331	70876	201	-	.	Target_ID=35333at4891_9;TCS_ID=35333at4891_9|contig_13|-|70330_mRNA;Parent=35333at4891_9|contig_13|-|70330
+contig_13	MetaEuk	exon	70331	70876	201	-	.	Target_ID=35333at4891_9;TCS_ID=35333at4891_9|contig_13|-|70330_exon_0;Parent=35333at4891_9|contig_13|-|70330_mRNA
+contig_13	MetaEuk	CDS	70331	70876	201	-	.	Target_ID=35333at4891_9;TCS_ID=35333at4891_9|contig_13|-|70330_CDS_0;Parent=35333at4891_9|contig_13|-|70330_exon_0

@@ -1,0 +1,4 @@
+contig_25	MetaEuk	gene	202152	203687	361	-	.	Target_ID=37398at4891_6;TCS_ID=37398at4891_6|contig_25|-|202151
+contig_25	MetaEuk	mRNA	202152	203687	361	-	.	Target_ID=37398at4891_6;TCS_ID=37398at4891_6|contig_25|-|202151_mRNA;Parent=37398at4891_6|contig_25|-|202151
+contig_25	MetaEuk	exon	202152	203687	361	-	.	Target_ID=37398at4891_6;TCS_ID=37398at4891_6|contig_25|-|202151_exon_0;Parent=37398at4891_6|contig_25|-|202151_mRNA
+contig_25	MetaEuk	CDS	202152	203687	361	-	.	Target_ID=37398at4891_6;TCS_ID=37398at4891_6|contig_25|-|202151_CDS_0;Parent=37398at4891_6|contig_25|-|202151_exon_0

@@ -1,0 +1,32 @@
+#                                                                                               --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name                           accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#                   ------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+7410at4891_2|contig_25:299367-301640    -            758 7410at4891           -            442  5.8e-129  428.0  28.3   1   4      0.78   1.7e+02   -2.0   0.0    14    27   119   132    95   146 0.56 -
+7410at4891_2|contig_25:299367-301640    -            758 7410at4891           -            442  5.8e-129  428.0  28.3   2   4   2.8e-58   6.3e-56  187.3   7.1    51   260   235   505   214   511 0.77 -
+7410at4891_2|contig_25:299367-301640    -            758 7410at4891           -            442  5.8e-129  428.0  28.3   3   4   1.4e-16   3.1e-14   49.9   0.4   258   310   522   581   517   586 0.89 -
+7410at4891_2|contig_25:299367-301640    -            758 7410at4891           -            442  5.8e-129  428.0  28.3   4   4   7.8e-61   1.7e-58  195.7   3.7   310   442   601   758   594   758 0.87 -
+18487at4891_3|contig_22:483138-484877   -            580 7410at4891           -            442   4.4e-10   36.2   2.9   1   1   3.2e-12   7.1e-10   35.5   2.9   389   438   232   280   198   283 0.87 -
+17898at4891_7|contig_3:301977-303614    -            546 7410at4891           -            442   4.9e-07   26.2   3.1   1   3       4.3   9.6e+02   -4.4   4.0   269   269    61    61     2   120 0.40 -
+17898at4891_7|contig_3:301977-303614    -            546 7410at4891           -            442   4.9e-07   26.2   3.1   2   3       0.3        66   -0.6   3.3   164   219   149   203   126   212 0.66 -
+17898at4891_7|contig_3:301977-303614    -            546 7410at4891           -            442   4.9e-07   26.2   3.1   3   3   2.2e-09   4.9e-07   26.2   3.1   408   438   367   397   331   399 0.67 -
+36316at4891_3|contig_20:222211-222345   -             45 7410at4891           -            442   1.5e-06   24.6   4.5   1   1   7.1e-09   1.6e-06   24.5   4.5   395   436     1    45     1    45 0.90 -
+36316at4891_3|contig_4:452039-452194    -             52 7410at4891           -            442   5.2e-05   19.5   4.0   1   1   2.4e-07   5.2e-05   19.5   4.0   394   436     7    52     1    52 0.79 -
+9030at4891_2|contig_16:236943-240434    -           1164 7410at4891           -            442    0.0008   15.6   3.5   1   1   5.4e-06    0.0012   15.0   3.5   388   439   902   959   897   962 0.83 -
+5523at4891_1|contig_12:438701-443242    -           1514 7410at4891           -            442    0.0015   14.7   3.5   1   1   1.4e-05    0.0031   13.7   3.5   390   436  1196  1239  1179  1243 0.89 -
+26469at4891_6|contig_14:1063174-1064010 -            279 7410at4891           -            442     0.003   13.7   1.2   1   2       2.7   5.9e+02   -3.7   4.4   390   428    11    50     7    54 0.81 -
+26469at4891_6|contig_14:1063174-1064010 -            279 7410at4891           -            442     0.003   13.7   1.2   2   2   1.3e-05     0.003   13.7   1.2   392   432   215   255   200   261 0.85 -
+23747at4891_2|contig_26:108579-109790   -            404 7410at4891           -            442    0.0073   12.4   5.6   1   1     7e-05     0.016   11.4   5.6   393   435    17    56     8    61 0.90 -
+36316at4891_1|contig_14:427395-427889   -            165 7410at4891           -            442     0.032   10.3   4.7   1   1   0.00019     0.043    9.9   4.7   410   438    66    97    47    99 0.82 -
+36106at4891_8|contig_3:70930-71292      -            121 7410at4891           -            442     0.039   10.0   6.4   1   1    0.0003     0.066    9.3   6.4   413   434    88   109    46   115 0.90 -
+34378at4891_1|contig_14:972867-973823   -            319 7410at4891           -            442      0.21    7.6  18.1   1   2      0.15        32    0.4   0.1   204   244   134   173    92   215 0.73 -
+34378at4891_1|contig_14:972867-973823   -            319 7410at4891           -            442      0.21    7.6  18.1   2   2   0.00043     0.095    8.8  14.1   394   439   268   310   262   313 0.84 -
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29/busco_downloads/lineages/saccharomycetes_odb10/hmms/7410at4891.hmm
+# Target file:     /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29/results/04_busco/BUSCO_assembly.fasta/run_saccharomycetes_odb10/metaeuk_output/initial_results/assembly.fasta.modified.fas
+# Option settings: hmmsearch --domtblout /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29/results/04_busco/BUSCO_assembly.fasta/run_saccharomycetes_odb10/hmmer_output/initial_run_results/7410at4891.out --cpu 1 /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29/busco_downloads/lineages/saccharomycetes_odb10/hmms/7410at4891.hmm /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29/results/04_busco/BUSCO_assembly.fasta/run_saccharomycetes_odb10/metaeuk_output/initial_results/assembly.fasta.modified.fas 
+# Current dir:     /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29
+# Date:            Fri Feb 23 20:15:40 2024
+# [ok]

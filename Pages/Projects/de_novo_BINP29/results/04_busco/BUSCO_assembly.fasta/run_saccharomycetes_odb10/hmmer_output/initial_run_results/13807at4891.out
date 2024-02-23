@@ -1,0 +1,28 @@
+#                                                                                             --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name                         accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#                 ------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+13807at4891_2|contig_25:247898-252058 -           1387 13807at4891          -            849  1.2e-268  891.1  43.1   1   6   1.4e-60   7.4e-58  193.7   7.8     5   216    74   309    70   352 0.84 -
+13807at4891_2|contig_25:247898-252058 -           1387 13807at4891          -            849  1.2e-268  891.1  43.1   2   6     0.002       1.1    4.6   0.1   223   247   357   381   312   390 0.76 -
+13807at4891_2|contig_25:247898-252058 -           1387 13807at4891          -            849  1.2e-268  891.1  43.1   3   6   8.3e-09   4.5e-06   22.4   0.8   243   293   410   461   396   532 0.79 -
+13807at4891_2|contig_25:247898-252058 -           1387 13807at4891          -            849  1.2e-268  891.1  43.1   4   6   1.3e-16   7.1e-14   48.2   0.8   251   420   579   791   574   797 0.74 -
+13807at4891_2|contig_25:247898-252058 -           1387 13807at4891          -            849  1.2e-268  891.1  43.1   5   6   8.9e-05     0.048    9.1   0.1   402   432   809   839   804   850 0.89 -
+13807at4891_2|contig_25:247898-252058 -           1387 13807at4891          -            849  1.2e-268  891.1  43.1   6   6  4.3e-189  2.3e-186  618.9   5.8   428   849   884  1387   880  1387 0.87 -
+7263at4891_6|contig_13:257831-260560  -            910 13807at4891          -            849   1.6e-45  153.0   1.9   1   1   9.6e-48   5.1e-45  151.3   1.4   513   844   540   906   500   910 0.83 -
+61at4891_7|contig_14:1343576-1353379  -           3268 13807at4891          -            849     1e-36  123.8   0.2   1   5     0.015       8.2    1.7   0.1   178   300   778   904   757   911 0.81 -
+61at4891_7|contig_14:1343576-1353379  -           3268 13807at4891          -            849     1e-36  123.8   0.2   2   5       0.2   1.1e+02   -2.0   0.3   295   354  1458  1518  1420  1527 0.69 -
+61at4891_7|contig_14:1343576-1353379  -           3268 13807at4891          -            849     1e-36  123.8   0.2   3   5      0.35   1.9e+02   -2.8   0.1   278   348  1733  1803  1714  1825 0.63 -
+61at4891_7|contig_14:1343576-1353379  -           3268 13807at4891          -            849     1e-36  123.8   0.2   4   5      0.45   2.4e+02   -3.1   2.0   347   427  2616  2697  2600  2760 0.54 -
+61at4891_7|contig_14:1343576-1353379  -           3268 13807at4891          -            849     1e-36  123.8   0.2   5   5   1.9e-39     1e-36  123.8   0.2   529   848  2913  3267  2900  3268 0.80 -
+3802at4891_2|contig_17:410956-413382  -            809 13807at4891          -            849     2e-30  103.0   0.1   1   1   5.3e-33   2.9e-30  102.5   0.1   528   842   456   803   436   807 0.81 -
+7263at4891_5|contig_7:493935-495323   -            463 13807at4891          -            849   6.1e-26   88.2   0.4   1   2     0.017         9    1.6   0.1   528   568    96   137    47   221 0.69 -
+7263at4891_5|contig_7:493935-495323   -            463 13807at4891          -            849   6.1e-26   88.2   0.4   2   2   1.9e-27     1e-24   84.1   0.0   661   843   279   461   276   463 0.88 -
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29/busco_downloads/lineages/saccharomycetes_odb10/hmms/13807at4891.hmm
+# Target file:     /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29/results/04_busco/BUSCO_assembly.fasta/run_saccharomycetes_odb10/metaeuk_output/initial_results/assembly.fasta.modified.fas
+# Option settings: hmmsearch --domtblout /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29/results/04_busco/BUSCO_assembly.fasta/run_saccharomycetes_odb10/hmmer_output/initial_run_results/13807at4891.out --cpu 1 /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29/busco_downloads/lineages/saccharomycetes_odb10/hmms/13807at4891.hmm /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29/results/04_busco/BUSCO_assembly.fasta/run_saccharomycetes_odb10/metaeuk_output/initial_results/assembly.fasta.modified.fas 
+# Current dir:     /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29
+# Date:            Fri Feb 23 20:13:36 2024
+# [ok]

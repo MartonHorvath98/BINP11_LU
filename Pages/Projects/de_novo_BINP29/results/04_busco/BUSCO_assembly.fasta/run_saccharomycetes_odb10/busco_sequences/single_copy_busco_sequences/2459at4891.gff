@@ -1,0 +1,4 @@
+contig_5	MetaEuk	gene	72701	76306	943	-	.	Target_ID=2459at4891_2;TCS_ID=2459at4891_2|contig_5|-|72700
+contig_5	MetaEuk	mRNA	72701	76306	943	-	.	Target_ID=2459at4891_2;TCS_ID=2459at4891_2|contig_5|-|72700_mRNA;Parent=2459at4891_2|contig_5|-|72700
+contig_5	MetaEuk	exon	72701	76306	943	-	.	Target_ID=2459at4891_2;TCS_ID=2459at4891_2|contig_5|-|72700_exon_0;Parent=2459at4891_2|contig_5|-|72700_mRNA
+contig_5	MetaEuk	CDS	72701	76306	943	-	.	Target_ID=2459at4891_2;TCS_ID=2459at4891_2|contig_5|-|72700_CDS_0;Parent=2459at4891_2|contig_5|-|72700_exon_0

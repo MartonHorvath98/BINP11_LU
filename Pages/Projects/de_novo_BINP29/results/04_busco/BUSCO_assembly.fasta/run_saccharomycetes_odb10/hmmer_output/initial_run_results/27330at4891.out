@@ -1,0 +1,35 @@
+#                                                                                             --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name                         accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#                 ------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+27330at4891_7|contig_20:803246-803785 -            180 27330at4891          -            164   2.5e-92  304.3   0.0   1   1   2.2e-94     3e-92  304.1   0.0     3   164     1   180     1   180 0.94 -
+28105at4891_5|contig_14:110214-110747 -            178 27330at4891          -            164   1.4e-26   90.5   0.0   1   1   1.2e-28   1.7e-26   90.3   0.0    10   162    12   175     3   177 0.87 -
+28105at4891_2|contig_14:210404-210943 -            180 27330at4891          -            164   5.9e-26   88.5   0.0   1   1   5.5e-28   7.3e-26   88.2   0.0    11   162    13   175     4   177 0.87 -
+28105at4891_1|contig_4:251680-252228  -            183 27330at4891          -            164   6.8e-26   88.3   0.0   1   1   6.4e-28   8.6e-26   88.0   0.0     8   162    11   176     4   178 0.88 -
+28105at4891_2|contig_3:503460-503984  -            175 27330at4891          -            164     2e-24   83.5   0.0   1   1   1.8e-26   2.3e-24   83.3   0.0    13   153    15   166     4   175 0.81 -
+26336at4891_7|contig_20:482104-482697 -            198 27330at4891          -            164   1.2e-20   71.2   0.0   1   1   1.1e-22   1.4e-20   71.0   0.0     9   141     9   157     1   182 0.80 -
+28105at4891_7|contig_2:390757-391272  -            172 27330at4891          -            164   9.7e-13   45.5   0.0   1   1     1e-14   1.4e-12   45.0   0.0    14   132     2   134     1   168 0.73 -
+25808at4891_9|contig_2:663395-664018  -            208 27330at4891          -            164   3.9e-07   27.3   0.0   1   1   5.8e-09   7.8e-07   26.3   0.0    17   129    10   138     3   170 0.73 -
+15514at4891_2|contig_22:457927-459342 -            472 27330at4891          -            164   4.6e-07   27.0   0.5   1   2     0.034       4.5    4.3   0.1    15    36    41    62    25    68 0.85 -
+15514at4891_2|contig_22:457927-459342 -            472 27330at4891          -            164   4.6e-07   27.0   0.5   2   2   2.2e-06    0.0003   17.9   0.0    46   101   300   355   288   405 0.74 -
+26145at4891_1|contig_27:215778-216395 -            206 27330at4891          -            164   7.3e-07   26.4   0.0   1   1   7.7e-09     1e-06   25.9   0.0    17   121    10   125     3   147 0.81 -
+28703at4891_1|contig_3:676866-677216  -            117 27330at4891          -            164   1.1e-06   25.8   0.0   1   1   9.8e-09   1.3e-06   25.6   0.0    17   121     1   115     1   117 0.82 -
+26506at4891_1|contig_3:490945-491490  -            182 27330at4891          -            164   1.8e-05   21.9   0.0   1   1   1.8e-07   2.5e-05   21.4   0.0    16   126     7   128     3   140 0.80 -
+37641at4891_1|contig_25:511159-511887 -            243 27330at4891          -            164   3.5e-05   20.9   0.0   1   1     5e-07   6.6e-05   20.0   0.0    17   100    40   127    23   158 0.79 -
+23913at4891_9|contig_17:196306-197403 -            366 27330at4891          -            164   3.6e-05   20.9   0.4   1   2     0.011       1.4    5.9   0.1     8    36    34    62    30    69 0.89 -
+23913at4891_9|contig_17:196306-197403 -            366 27330at4891          -            164   3.6e-05   20.9   0.4   2   2   8.1e-05     0.011   12.8   0.0    58   103   207   252   184   294 0.83 -
+21604at4891_4|contig_2:610270-611751  -            494 27330at4891          -            164   4.6e-05   20.5   0.1   1   1   6.6e-06   0.00088   16.4   0.1    11   154   238   400   229   408 0.67 -
+6770at4891_2|contig_22:121325-122812  -            496 27330at4891          -            164   6.5e-05   20.1   0.0   1   1   1.3e-06   0.00018   18.6   0.0    16   125   326   454   316   471 0.69 -
+26145at4891_2|contig_13:820168-820653 -            162 27330at4891          -            164    0.0001   19.5   0.0   1   1     9e-07   0.00012   19.2   0.0    17   130     2   126     1   155 0.75 -
+32172at4891_2|contig_25:207425-208066 -            214 27330at4891          -            164    0.0004   17.5   0.0   1   1   6.9e-06   0.00092   16.3   0.0    17   125     2   130     1   160 0.73 -
+33356at4891_7|contig_27:140667-141311 -            215 27330at4891          -            164     0.004   14.3   0.0   1   1   4.4e-05    0.0059   13.7   0.0    15   120    20   136     6   152 0.74 -
+26145at4891_7|contig_19:440365-440862 -            166 27330at4891          -            164     0.016   12.3   0.0   1   1   0.00014     0.019   12.0   0.0    64   133    53   129     1   146 0.59 -
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29/busco_downloads/lineages/saccharomycetes_odb10/hmms/27330at4891.hmm
+# Target file:     /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29/results/04_busco/BUSCO_assembly.fasta/run_saccharomycetes_odb10/metaeuk_output/initial_results/assembly.fasta.modified.fas
+# Option settings: hmmsearch --domtblout /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29/results/04_busco/BUSCO_assembly.fasta/run_saccharomycetes_odb10/hmmer_output/initial_run_results/27330at4891.out --cpu 1 /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29/busco_downloads/lineages/saccharomycetes_odb10/hmms/27330at4891.hmm /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29/results/04_busco/BUSCO_assembly.fasta/run_saccharomycetes_odb10/metaeuk_output/initial_results/assembly.fasta.modified.fas 
+# Current dir:     /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29
+# Date:            Fri Feb 23 20:14:25 2024
+# [ok]

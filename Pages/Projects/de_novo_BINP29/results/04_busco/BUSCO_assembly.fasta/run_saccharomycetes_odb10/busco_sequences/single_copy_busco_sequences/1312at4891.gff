@@ -1,0 +1,16 @@
+contig_16	MetaEuk	gene	144983	148714	151	-	.	Target_ID=1312at4891_6;TCS_ID=1312at4891_6|contig_16|-|144982
+contig_16	MetaEuk	mRNA	144983	148714	151	-	.	Target_ID=1312at4891_6;TCS_ID=1312at4891_6|contig_16|-|144982_mRNA;Parent=1312at4891_6|contig_16|-|144982
+contig_16	MetaEuk	exon	144983	148714	151	-	.	Target_ID=1312at4891_6;TCS_ID=1312at4891_6|contig_16|-|144982_exon_0;Parent=1312at4891_6|contig_16|-|144982_mRNA
+contig_16	MetaEuk	CDS	144983	148714	151	-	.	Target_ID=1312at4891_6;TCS_ID=1312at4891_6|contig_16|-|144982_CDS_0;Parent=1312at4891_6|contig_16|-|144982_exon_0
+contig_27	MetaEuk	gene	148564	152199	170	-	.	Target_ID=1312at4891_4;TCS_ID=1312at4891_4|contig_27|-|148563
+contig_27	MetaEuk	mRNA	148564	152199	170	-	.	Target_ID=1312at4891_4;TCS_ID=1312at4891_4|contig_27|-|148563_mRNA;Parent=1312at4891_4|contig_27|-|148563
+contig_27	MetaEuk	exon	148564	152199	170	-	.	Target_ID=1312at4891_4;TCS_ID=1312at4891_4|contig_27|-|148563_exon_0;Parent=1312at4891_4|contig_27|-|148563_mRNA
+contig_27	MetaEuk	CDS	148564	152199	170	-	.	Target_ID=1312at4891_4;TCS_ID=1312at4891_4|contig_27|-|148563_CDS_0;Parent=1312at4891_4|contig_27|-|148563_exon_0
+contig_27	MetaEuk	gene	50231	53734	262	+	.	Target_ID=1312at4891_5;TCS_ID=1312at4891_5|contig_27|+|50230
+contig_27	MetaEuk	mRNA	50231	53734	262	+	.	Target_ID=1312at4891_5;TCS_ID=1312at4891_5|contig_27|+|50230_mRNA;Parent=1312at4891_5|contig_27|+|50230
+contig_27	MetaEuk	exon	50231	53734	262	+	.	Target_ID=1312at4891_5;TCS_ID=1312at4891_5|contig_27|+|50230_exon_0;Parent=1312at4891_5|contig_27|+|50230_mRNA
+contig_27	MetaEuk	CDS	50231	53734	262	+	.	Target_ID=1312at4891_5;TCS_ID=1312at4891_5|contig_27|+|50230_CDS_0;Parent=1312at4891_5|contig_27|+|50230_exon_0
+contig_7	MetaEuk	gene	285564	289253	1505	-	.	Target_ID=1312at4891_2;TCS_ID=1312at4891_2|contig_7|-|285563
+contig_7	MetaEuk	mRNA	285564	289253	1505	-	.	Target_ID=1312at4891_2;TCS_ID=1312at4891_2|contig_7|-|285563_mRNA;Parent=1312at4891_2|contig_7|-|285563
+contig_7	MetaEuk	exon	285564	289253	1505	-	.	Target_ID=1312at4891_2;TCS_ID=1312at4891_2|contig_7|-|285563_exon_0;Parent=1312at4891_2|contig_7|-|285563_mRNA
+contig_7	MetaEuk	CDS	285564	289253	1505	-	.	Target_ID=1312at4891_2;TCS_ID=1312at4891_2|contig_7|-|285563_CDS_0;Parent=1312at4891_2|contig_7|-|285563_exon_0

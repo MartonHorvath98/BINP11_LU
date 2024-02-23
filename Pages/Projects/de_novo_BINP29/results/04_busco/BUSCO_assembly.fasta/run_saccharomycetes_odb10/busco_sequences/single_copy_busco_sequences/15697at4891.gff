@@ -1,0 +1,4 @@
+contig_17	MetaEuk	gene	408372	409826	409	-	.	Target_ID=15697at4891_3;TCS_ID=15697at4891_3|contig_17|-|408371
+contig_17	MetaEuk	mRNA	408372	409826	409	-	.	Target_ID=15697at4891_3;TCS_ID=15697at4891_3|contig_17|-|408371_mRNA;Parent=15697at4891_3|contig_17|-|408371
+contig_17	MetaEuk	exon	408372	409826	409	-	.	Target_ID=15697at4891_3;TCS_ID=15697at4891_3|contig_17|-|408371_exon_0;Parent=15697at4891_3|contig_17|-|408371_mRNA
+contig_17	MetaEuk	CDS	408372	409826	409	-	.	Target_ID=15697at4891_3;TCS_ID=15697at4891_3|contig_17|-|408371_CDS_0;Parent=15697at4891_3|contig_17|-|408371_exon_0

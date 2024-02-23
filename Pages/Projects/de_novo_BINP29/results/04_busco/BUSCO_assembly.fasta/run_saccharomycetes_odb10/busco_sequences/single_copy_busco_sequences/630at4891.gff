@@ -1,0 +1,4 @@
+contig_14	MetaEuk	gene	771971	777343	2523	-	.	Target_ID=630at4891_7;TCS_ID=630at4891_7|contig_14|-|771970
+contig_14	MetaEuk	mRNA	771971	777343	2523	-	.	Target_ID=630at4891_7;TCS_ID=630at4891_7|contig_14|-|771970_mRNA;Parent=630at4891_7|contig_14|-|771970
+contig_14	MetaEuk	exon	771971	777343	2523	-	.	Target_ID=630at4891_7;TCS_ID=630at4891_7|contig_14|-|771970_exon_0;Parent=630at4891_7|contig_14|-|771970_mRNA
+contig_14	MetaEuk	CDS	771971	777343	2523	-	.	Target_ID=630at4891_7;TCS_ID=630at4891_7|contig_14|-|771970_CDS_0;Parent=630at4891_7|contig_14|-|771970_exon_0

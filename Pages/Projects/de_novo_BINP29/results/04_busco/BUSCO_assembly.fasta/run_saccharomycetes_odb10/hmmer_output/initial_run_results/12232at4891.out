@@ -1,0 +1,17 @@
+#                                                                                             --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name                         accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#                 ------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+12232at4891_1|contig_19:280767-281834 -            356 12232at4891          -            297  1.8e-159  526.8   0.0   1   1  4.8e-162  3.2e-159  526.0   0.0     1   297     1   346     1   346 0.93 -
+3593at4891_6|contig_2:503960-506107   -            716 12232at4891          -            297   1.3e-06   25.0   0.1   1   1   3.8e-09   2.6e-06   24.0   0.1    79   151    80   151    62   178 0.78 -
+3593at4891_1|contig_25:428115-430265  -            717 12232at4891          -            297   9.7e-06   22.1   0.0   1   1   2.5e-08   1.7e-05   21.3   0.0    79   153    80   153    56   172 0.82 -
+7831at4891_2|contig_2:69902-71431     -            510 12232at4891          -            297   0.00013   18.3   0.0   1   1   3.4e-07   0.00023   17.6   0.0    80   157    71   148    57   164 0.86 -
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29/busco_downloads/lineages/saccharomycetes_odb10/hmms/12232at4891.hmm
+# Target file:     /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29/results/04_busco/BUSCO_assembly.fasta/run_saccharomycetes_odb10/metaeuk_output/initial_results/assembly.fasta.modified.fas
+# Option settings: hmmsearch --domtblout /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29/results/04_busco/BUSCO_assembly.fasta/run_saccharomycetes_odb10/hmmer_output/initial_run_results/12232at4891.out --cpu 1 /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29/busco_downloads/lineages/saccharomycetes_odb10/hmms/12232at4891.hmm /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29/results/04_busco/BUSCO_assembly.fasta/run_saccharomycetes_odb10/metaeuk_output/initial_results/assembly.fasta.modified.fas 
+# Current dir:     /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29
+# Date:            Fri Feb 23 20:13:21 2024
+# [ok]

@@ -1,0 +1,4 @@
+contig_3	MetaEuk	gene	1013036	1013899	468	-	.	Target_ID=24692at4891_2;TCS_ID=24692at4891_2|contig_3|-|1013035
+contig_3	MetaEuk	mRNA	1013036	1013899	468	-	.	Target_ID=24692at4891_2;TCS_ID=24692at4891_2|contig_3|-|1013035_mRNA;Parent=24692at4891_2|contig_3|-|1013035
+contig_3	MetaEuk	exon	1013036	1013899	468	-	.	Target_ID=24692at4891_2;TCS_ID=24692at4891_2|contig_3|-|1013035_exon_0;Parent=24692at4891_2|contig_3|-|1013035_mRNA
+contig_3	MetaEuk	CDS	1013036	1013899	468	-	.	Target_ID=24692at4891_2;TCS_ID=24692at4891_2|contig_3|-|1013035_CDS_0;Parent=24692at4891_2|contig_3|-|1013035_exon_0

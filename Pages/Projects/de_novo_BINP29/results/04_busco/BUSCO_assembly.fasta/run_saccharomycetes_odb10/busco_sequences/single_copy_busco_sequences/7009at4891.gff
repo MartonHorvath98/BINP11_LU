@@ -1,0 +1,12 @@
+contig_2	MetaEuk	gene	722340	724742	1299	+	.	Target_ID=7009at4891_2;TCS_ID=7009at4891_2|contig_2|+|722339
+contig_2	MetaEuk	mRNA	722340	724742	1299	+	.	Target_ID=7009at4891_2;TCS_ID=7009at4891_2|contig_2|+|722339_mRNA;Parent=7009at4891_2|contig_2|+|722339
+contig_2	MetaEuk	exon	722340	724742	1299	+	.	Target_ID=7009at4891_2;TCS_ID=7009at4891_2|contig_2|+|722339_exon_0;Parent=7009at4891_2|contig_2|+|722339_mRNA
+contig_2	MetaEuk	CDS	722340	724742	1299	+	.	Target_ID=7009at4891_2;TCS_ID=7009at4891_2|contig_2|+|722339_CDS_0;Parent=7009at4891_2|contig_2|+|722339_exon_0
+contig_4	MetaEuk	gene	40637	42397	262	-	.	Target_ID=7009at4891_9;TCS_ID=7009at4891_9|contig_4|-|40636
+contig_4	MetaEuk	mRNA	40637	42397	262	-	.	Target_ID=7009at4891_9;TCS_ID=7009at4891_9|contig_4|-|40636_mRNA;Parent=7009at4891_9|contig_4|-|40636
+contig_4	MetaEuk	exon	40637	42397	262	-	.	Target_ID=7009at4891_9;TCS_ID=7009at4891_9|contig_4|-|40636_exon_0;Parent=7009at4891_9|contig_4|-|40636_mRNA
+contig_4	MetaEuk	CDS	40637	42397	262	-	.	Target_ID=7009at4891_9;TCS_ID=7009at4891_9|contig_4|-|40636_CDS_0;Parent=7009at4891_9|contig_4|-|40636_exon_0
+contig_7	MetaEuk	gene	294396	296228	253	-	.	Target_ID=7009at4891_2;TCS_ID=7009at4891_2|contig_7|-|294395
+contig_7	MetaEuk	mRNA	294396	296228	253	-	.	Target_ID=7009at4891_2;TCS_ID=7009at4891_2|contig_7|-|294395_mRNA;Parent=7009at4891_2|contig_7|-|294395
+contig_7	MetaEuk	exon	294396	296228	253	-	.	Target_ID=7009at4891_2;TCS_ID=7009at4891_2|contig_7|-|294395_exon_0;Parent=7009at4891_2|contig_7|-|294395_mRNA
+contig_7	MetaEuk	CDS	294396	296228	253	-	.	Target_ID=7009at4891_2;TCS_ID=7009at4891_2|contig_7|-|294395_CDS_0;Parent=7009at4891_2|contig_7|-|294395_exon_0

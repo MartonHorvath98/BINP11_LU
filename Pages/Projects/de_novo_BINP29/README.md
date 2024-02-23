@@ -31,7 +31,20 @@
 ├── environment.yml
 └── workflow.sh
 ```
+## Set up the environment
+Download and install mamba through the recommended miniforge [installation](https://github.com/conda-forge/miniforge) process.
+```bash
+wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh
+bash Miniforge3-Linux-x86_64.sh
+```
+Then, use mamba to set up the environment based on the *.yaml* file.
+```bash
+mamba create --name denovo --no-default-packages
+mamba env update -n denovo --file denovo.yml
+mamba activate denovo
+```
 ## Usage
+After the environment is all set up, we can run the whole script to go through the analysis process.
 ```bash
 bash workflow.sh SRR13577846 #SRR code for sample
 ```
@@ -57,8 +70,8 @@ flye --pacbio-hifi ${indir}/SRR13577846.fastq --out-dir results/02_assembly --th
 quast -o results/03_quast  -r ${indir}/reference.fna -t 10 --no-icarus results/02_assembly/assembly.fasta
 ```
 Running the assembler failed on my local machine using 4 threads and 4 Gb-s of RAM, while it took about 22 minutes on the university server using 10 cores. The results were:
-| | |
-|:---:|:---:|
+| Genome statistics | Results |
+|:--|:-:|
 | Total length | 12119387 |
 | Fragments | 21 |
 | N50 | 809075 |
@@ -66,4 +79,26 @@ Running the assembler failed on my local machine using 4 threads and 4 Gb-s of R
 | Scaffolds | 0 |
 | Mean coverage | 87 |
 
+Visualising de novo assembly graphs with Bandage. 
+
 ![Plot 1](results/02_assembly/graph.png "Plot 1 - Visualising de novo assembly graphs with Bandage")
+
+## 4. BUSCO assessment
+We analyze the assembly quality based on the coverage and fragmentation of BUSCO genes using the busco package (v5.6.1). We configure BUSCO with local environment using the `-l saccharomycetes_odb10` parameter to set the lineage datbase to that of the baker's yeasts' (eukaryota, 2024-01-08).
+```bash
+busco -i ${assembly}/assembly.fasta -m genome -c 12 --out_path ${BUSCO}/ -l saccharomycetes_odb10
+generate_plot.py -wd ${BUSCO}/BUSCO_assembly.fasta/
+```
+|Results from dataset saccharomycetes_odb10        |
+|---|
+|C:99.6%[S:97.4%,D:2.2%],F:0.1%,M:0.3%,n:2137      |
+|2129    Complete BUSCOs (C)                       |
+|2081    Complete and single-copy BUSCOs (S)       |
+|48    Complete and duplicated BUSCOs (D)          |
+|2    Fragmented BUSCOs (F)                        |
+|6    Missing BUSCOs (M)                           |
+|2137    Total BUSCO groups searched               |
+
+![Plot 2](results/04_busco/BUSCO_assembly.fasta/busco_figure.png "Plot 2 - Completeness of BUSCO genes in the assembled genome")
+
+

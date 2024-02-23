@@ -1,0 +1,4 @@
+contig_14	MetaEuk	gene	188456	192052	1839	-	.	Target_ID=665at4891_4;TCS_ID=665at4891_4|contig_14|-|188455
+contig_14	MetaEuk	mRNA	188456	192052	1839	-	.	Target_ID=665at4891_4;TCS_ID=665at4891_4|contig_14|-|188455_mRNA;Parent=665at4891_4|contig_14|-|188455
+contig_14	MetaEuk	exon	188456	192052	1839	-	.	Target_ID=665at4891_4;TCS_ID=665at4891_4|contig_14|-|188455_exon_0;Parent=665at4891_4|contig_14|-|188455_mRNA
+contig_14	MetaEuk	CDS	188456	192052	1839	-	.	Target_ID=665at4891_4;TCS_ID=665at4891_4|contig_14|-|188455_CDS_0;Parent=665at4891_4|contig_14|-|188455_exon_0

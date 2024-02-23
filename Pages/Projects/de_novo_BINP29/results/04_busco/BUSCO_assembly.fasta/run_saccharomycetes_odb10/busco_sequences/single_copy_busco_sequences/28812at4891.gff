@@ -1,0 +1,4 @@
+contig_17	MetaEuk	gene	360367	361116	365	+	.	Target_ID=28812at4891_1;TCS_ID=28812at4891_1|contig_17|+|360366
+contig_17	MetaEuk	mRNA	360367	361116	365	+	.	Target_ID=28812at4891_1;TCS_ID=28812at4891_1|contig_17|+|360366_mRNA;Parent=28812at4891_1|contig_17|+|360366
+contig_17	MetaEuk	exon	360367	361116	365	+	.	Target_ID=28812at4891_1;TCS_ID=28812at4891_1|contig_17|+|360366_exon_0;Parent=28812at4891_1|contig_17|+|360366_mRNA
+contig_17	MetaEuk	CDS	360367	361116	365	+	.	Target_ID=28812at4891_1;TCS_ID=28812at4891_1|contig_17|+|360366_CDS_0;Parent=28812at4891_1|contig_17|+|360366_exon_0

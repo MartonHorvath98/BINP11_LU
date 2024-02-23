@@ -1,0 +1,4 @@
+contig_2	MetaEuk	gene	822161	823714	824	+	.	Target_ID=6748at4891_6;TCS_ID=6748at4891_6|contig_2|+|822160
+contig_2	MetaEuk	mRNA	822161	823714	824	+	.	Target_ID=6748at4891_6;TCS_ID=6748at4891_6|contig_2|+|822160_mRNA;Parent=6748at4891_6|contig_2|+|822160
+contig_2	MetaEuk	exon	822161	823714	824	+	.	Target_ID=6748at4891_6;TCS_ID=6748at4891_6|contig_2|+|822160_exon_0;Parent=6748at4891_6|contig_2|+|822160_mRNA
+contig_2	MetaEuk	CDS	822161	823714	824	+	.	Target_ID=6748at4891_6;TCS_ID=6748at4891_6|contig_2|+|822160_CDS_0;Parent=6748at4891_6|contig_2|+|822160_exon_0

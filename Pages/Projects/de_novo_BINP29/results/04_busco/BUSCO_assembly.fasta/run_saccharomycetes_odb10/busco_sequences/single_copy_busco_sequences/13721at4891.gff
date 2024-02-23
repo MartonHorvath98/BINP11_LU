@@ -1,0 +1,8 @@
+contig_14	MetaEuk	gene	801806	802543	53	+	.	Target_ID=13721at4891_1;TCS_ID=13721at4891_1|contig_14|+|801805
+contig_14	MetaEuk	mRNA	801806	802543	53	+	.	Target_ID=13721at4891_1;TCS_ID=13721at4891_1|contig_14|+|801805_mRNA;Parent=13721at4891_1|contig_14|+|801805
+contig_14	MetaEuk	exon	801806	802543	53	+	.	Target_ID=13721at4891_1;TCS_ID=13721at4891_1|contig_14|+|801805_exon_0;Parent=13721at4891_1|contig_14|+|801805_mRNA
+contig_14	MetaEuk	CDS	801806	802543	53	+	.	Target_ID=13721at4891_1;TCS_ID=13721at4891_1|contig_14|+|801805_CDS_0;Parent=13721at4891_1|contig_14|+|801805_exon_0
+contig_6	MetaEuk	gene	264713	266116	638	+	.	Target_ID=13721at4891_2;TCS_ID=13721at4891_2|contig_6|+|264712
+contig_6	MetaEuk	mRNA	264713	266116	638	+	.	Target_ID=13721at4891_2;TCS_ID=13721at4891_2|contig_6|+|264712_mRNA;Parent=13721at4891_2|contig_6|+|264712
+contig_6	MetaEuk	exon	264713	266116	638	+	.	Target_ID=13721at4891_2;TCS_ID=13721at4891_2|contig_6|+|264712_exon_0;Parent=13721at4891_2|contig_6|+|264712_mRNA
+contig_6	MetaEuk	CDS	264713	266116	638	+	.	Target_ID=13721at4891_2;TCS_ID=13721at4891_2|contig_6|+|264712_CDS_0;Parent=13721at4891_2|contig_6|+|264712_exon_0

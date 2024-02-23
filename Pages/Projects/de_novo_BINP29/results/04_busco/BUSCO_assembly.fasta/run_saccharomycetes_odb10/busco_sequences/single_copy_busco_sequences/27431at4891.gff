@@ -1,0 +1,16 @@
+contig_22	MetaEuk	gene	372425	372997	49	+	.	Target_ID=27431at4891;TCS_ID=27431at4891|contig_22|+|372424
+contig_22	MetaEuk	mRNA	372425	372997	49	+	.	Target_ID=27431at4891;TCS_ID=27431at4891|contig_22|+|372424_mRNA;Parent=27431at4891|contig_22|+|372424
+contig_22	MetaEuk	exon	372425	372997	49	+	.	Target_ID=27431at4891;TCS_ID=27431at4891|contig_22|+|372424_exon_0;Parent=27431at4891|contig_22|+|372424_mRNA
+contig_22	MetaEuk	CDS	372425	372997	49	+	.	Target_ID=27431at4891;TCS_ID=27431at4891|contig_22|+|372424_CDS_0;Parent=27431at4891|contig_22|+|372424_exon_0
+contig_22	MetaEuk	gene	373658	374317	42	+	.	Target_ID=27431at4891_9;TCS_ID=27431at4891_9|contig_22|+|373657
+contig_22	MetaEuk	mRNA	373658	374317	42	+	.	Target_ID=27431at4891_9;TCS_ID=27431at4891_9|contig_22|+|373657_mRNA;Parent=27431at4891_9|contig_22|+|373657
+contig_22	MetaEuk	exon	373658	374317	42	+	.	Target_ID=27431at4891_9;TCS_ID=27431at4891_9|contig_22|+|373657_exon_0;Parent=27431at4891_9|contig_22|+|373657_mRNA
+contig_22	MetaEuk	CDS	373658	374317	42	+	.	Target_ID=27431at4891_9;TCS_ID=27431at4891_9|contig_22|+|373657_CDS_0;Parent=27431at4891_9|contig_22|+|373657_exon_0
+contig_25	MetaEuk	gene	298258	298926	359	-	.	Target_ID=27431at4891_2;TCS_ID=27431at4891_2|contig_25|-|298257
+contig_25	MetaEuk	mRNA	298258	298926	359	-	.	Target_ID=27431at4891_2;TCS_ID=27431at4891_2|contig_25|-|298257_mRNA;Parent=27431at4891_2|contig_25|-|298257
+contig_25	MetaEuk	exon	298258	298926	359	-	.	Target_ID=27431at4891_2;TCS_ID=27431at4891_2|contig_25|-|298257_exon_0;Parent=27431at4891_2|contig_25|-|298257_mRNA
+contig_25	MetaEuk	CDS	298258	298926	359	-	.	Target_ID=27431at4891_2;TCS_ID=27431at4891_2|contig_25|-|298257_CDS_0;Parent=27431at4891_2|contig_25|-|298257_exon_0
+contig_3	MetaEuk	gene	572853	573482	35	-	.	Target_ID=27431at4891_5;TCS_ID=27431at4891_5|contig_3|-|572852
+contig_3	MetaEuk	mRNA	572853	573482	35	-	.	Target_ID=27431at4891_5;TCS_ID=27431at4891_5|contig_3|-|572852_mRNA;Parent=27431at4891_5|contig_3|-|572852
+contig_3	MetaEuk	exon	572853	573482	35	-	.	Target_ID=27431at4891_5;TCS_ID=27431at4891_5|contig_3|-|572852_exon_0;Parent=27431at4891_5|contig_3|-|572852_mRNA
+contig_3	MetaEuk	CDS	572853	573482	35	-	.	Target_ID=27431at4891_5;TCS_ID=27431at4891_5|contig_3|-|572852_CDS_0;Parent=27431at4891_5|contig_3|-|572852_exon_0

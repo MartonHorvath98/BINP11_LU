@@ -1,0 +1,4 @@
+contig_19	MetaEuk	gene	702190	703374	548	+	.	Target_ID=18047at4891_2;TCS_ID=18047at4891_2|contig_19|+|702189
+contig_19	MetaEuk	mRNA	702190	703374	548	+	.	Target_ID=18047at4891_2;TCS_ID=18047at4891_2|contig_19|+|702189_mRNA;Parent=18047at4891_2|contig_19|+|702189
+contig_19	MetaEuk	exon	702190	703374	548	+	.	Target_ID=18047at4891_2;TCS_ID=18047at4891_2|contig_19|+|702189_exon_0;Parent=18047at4891_2|contig_19|+|702189_mRNA
+contig_19	MetaEuk	CDS	702190	703374	548	+	.	Target_ID=18047at4891_2;TCS_ID=18047at4891_2|contig_19|+|702189_CDS_0;Parent=18047at4891_2|contig_19|+|702189_exon_0

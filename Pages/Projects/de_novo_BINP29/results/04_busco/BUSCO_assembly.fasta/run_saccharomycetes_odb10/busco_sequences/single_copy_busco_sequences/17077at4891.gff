@@ -1,0 +1,16 @@
+contig_13	MetaEuk	gene	310122	310964	52	+	.	Target_ID=17077at4891_3;TCS_ID=17077at4891_3|contig_13|+|310121
+contig_13	MetaEuk	mRNA	310122	310964	52	+	.	Target_ID=17077at4891_3;TCS_ID=17077at4891_3|contig_13|+|310121_mRNA;Parent=17077at4891_3|contig_13|+|310121
+contig_13	MetaEuk	exon	310122	310964	52	+	.	Target_ID=17077at4891_3;TCS_ID=17077at4891_3|contig_13|+|310121_exon_0;Parent=17077at4891_3|contig_13|+|310121_mRNA
+contig_13	MetaEuk	CDS	310122	310964	52	+	.	Target_ID=17077at4891_3;TCS_ID=17077at4891_3|contig_13|+|310121_CDS_0;Parent=17077at4891_3|contig_13|+|310121_exon_0
+contig_17	MetaEuk	gene	290337	291191	83	+	.	Target_ID=17077at4891_2;TCS_ID=17077at4891_2|contig_17|+|290336
+contig_17	MetaEuk	mRNA	290337	291191	83	+	.	Target_ID=17077at4891_2;TCS_ID=17077at4891_2|contig_17|+|290336_mRNA;Parent=17077at4891_2|contig_17|+|290336
+contig_17	MetaEuk	exon	290337	291191	83	+	.	Target_ID=17077at4891_2;TCS_ID=17077at4891_2|contig_17|+|290336_exon_0;Parent=17077at4891_2|contig_17|+|290336_mRNA
+contig_17	MetaEuk	CDS	290337	291191	83	+	.	Target_ID=17077at4891_2;TCS_ID=17077at4891_2|contig_17|+|290336_CDS_0;Parent=17077at4891_2|contig_17|+|290336_exon_0
+contig_20	MetaEuk	gene	675145	676479	620	+	.	Target_ID=17077at4891_7;TCS_ID=17077at4891_7|contig_20|+|675144
+contig_20	MetaEuk	mRNA	675145	676479	620	+	.	Target_ID=17077at4891_7;TCS_ID=17077at4891_7|contig_20|+|675144_mRNA;Parent=17077at4891_7|contig_20|+|675144
+contig_20	MetaEuk	exon	675145	676479	620	+	.	Target_ID=17077at4891_7;TCS_ID=17077at4891_7|contig_20|+|675144_exon_0;Parent=17077at4891_7|contig_20|+|675144_mRNA
+contig_20	MetaEuk	CDS	675145	676479	620	+	.	Target_ID=17077at4891_7;TCS_ID=17077at4891_7|contig_20|+|675144_CDS_0;Parent=17077at4891_7|contig_20|+|675144_exon_0
+contig_27	MetaEuk	gene	153723	154367	92	-	.	Target_ID=17077at4891_6;TCS_ID=17077at4891_6|contig_27|-|153722
+contig_27	MetaEuk	mRNA	153723	154367	92	-	.	Target_ID=17077at4891_6;TCS_ID=17077at4891_6|contig_27|-|153722_mRNA;Parent=17077at4891_6|contig_27|-|153722
+contig_27	MetaEuk	exon	153723	154367	92	-	.	Target_ID=17077at4891_6;TCS_ID=17077at4891_6|contig_27|-|153722_exon_0;Parent=17077at4891_6|contig_27|-|153722_mRNA
+contig_27	MetaEuk	CDS	153723	154367	92	-	.	Target_ID=17077at4891_6;TCS_ID=17077at4891_6|contig_27|-|153722_CDS_0;Parent=17077at4891_6|contig_27|-|153722_exon_0

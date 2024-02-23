@@ -1,0 +1,4 @@
+contig_26	MetaEuk	gene	300074	302242	556	-	.	Target_ID=6711at4891_3;TCS_ID=6711at4891_3|contig_26|-|300073
+contig_26	MetaEuk	mRNA	300074	302242	556	-	.	Target_ID=6711at4891_3;TCS_ID=6711at4891_3|contig_26|-|300073_mRNA;Parent=6711at4891_3|contig_26|-|300073
+contig_26	MetaEuk	exon	300074	302242	556	-	.	Target_ID=6711at4891_3;TCS_ID=6711at4891_3|contig_26|-|300073_exon_0;Parent=6711at4891_3|contig_26|-|300073_mRNA
+contig_26	MetaEuk	CDS	300074	302242	556	-	.	Target_ID=6711at4891_3;TCS_ID=6711at4891_3|contig_26|-|300073_CDS_0;Parent=6711at4891_3|contig_26|-|300073_exon_0

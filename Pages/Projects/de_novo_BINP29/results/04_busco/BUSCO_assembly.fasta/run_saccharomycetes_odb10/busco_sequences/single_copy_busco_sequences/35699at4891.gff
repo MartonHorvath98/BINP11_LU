@@ -1,0 +1,4 @@
+contig_22	MetaEuk	gene	62109	63275	302	+	.	Target_ID=35699at4891_4;TCS_ID=35699at4891_4|contig_22|+|62108
+contig_22	MetaEuk	mRNA	62109	63275	302	+	.	Target_ID=35699at4891_4;TCS_ID=35699at4891_4|contig_22|+|62108_mRNA;Parent=35699at4891_4|contig_22|+|62108
+contig_22	MetaEuk	exon	62109	63275	302	+	.	Target_ID=35699at4891_4;TCS_ID=35699at4891_4|contig_22|+|62108_exon_0;Parent=35699at4891_4|contig_22|+|62108_mRNA
+contig_22	MetaEuk	CDS	62109	63275	302	+	.	Target_ID=35699at4891_4;TCS_ID=35699at4891_4|contig_22|+|62108_CDS_0;Parent=35699at4891_4|contig_22|+|62108_exon_0

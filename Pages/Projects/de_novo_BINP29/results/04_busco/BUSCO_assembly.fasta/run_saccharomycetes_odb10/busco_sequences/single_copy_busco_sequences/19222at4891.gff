@@ -1,0 +1,4 @@
+contig_22	MetaEuk	gene	174506	175441	431	+	.	Target_ID=19222at4891_4;TCS_ID=19222at4891_4|contig_22|+|174505
+contig_22	MetaEuk	mRNA	174506	175441	431	+	.	Target_ID=19222at4891_4;TCS_ID=19222at4891_4|contig_22|+|174505_mRNA;Parent=19222at4891_4|contig_22|+|174505
+contig_22	MetaEuk	exon	174506	175441	431	+	.	Target_ID=19222at4891_4;TCS_ID=19222at4891_4|contig_22|+|174505_exon_0;Parent=19222at4891_4|contig_22|+|174505_mRNA
+contig_22	MetaEuk	CDS	174506	175441	431	+	.	Target_ID=19222at4891_4;TCS_ID=19222at4891_4|contig_22|+|174505_CDS_0;Parent=19222at4891_4|contig_22|+|174505_exon_0

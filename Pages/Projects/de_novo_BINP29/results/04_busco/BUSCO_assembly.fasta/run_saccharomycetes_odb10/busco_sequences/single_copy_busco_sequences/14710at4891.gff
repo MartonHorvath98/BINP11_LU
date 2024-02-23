@@ -1,0 +1,4 @@
+contig_13	MetaEuk	gene	418180	419616	736	+	.	Target_ID=14710at4891_6;TCS_ID=14710at4891_6|contig_13|+|418179
+contig_13	MetaEuk	mRNA	418180	419616	736	+	.	Target_ID=14710at4891_6;TCS_ID=14710at4891_6|contig_13|+|418179_mRNA;Parent=14710at4891_6|contig_13|+|418179
+contig_13	MetaEuk	exon	418180	419616	736	+	.	Target_ID=14710at4891_6;TCS_ID=14710at4891_6|contig_13|+|418179_exon_0;Parent=14710at4891_6|contig_13|+|418179_mRNA
+contig_13	MetaEuk	CDS	418180	419616	736	+	.	Target_ID=14710at4891_6;TCS_ID=14710at4891_6|contig_13|+|418179_CDS_0;Parent=14710at4891_6|contig_13|+|418179_exon_0

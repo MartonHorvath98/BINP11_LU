@@ -1,0 +1,25 @@
+#                                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name                        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#                ------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+7621at4891_7|contig_14:782265-784304 -            680 7621at4891           -            403  4.6e-235  777.1   5.5   1   1  1.9e-237  5.6e-235  776.8   5.5     1   403   236   678   236   678 0.95 -
+7621at4891_2|contig_20:240716-242020 -            435 7621at4891           -            403     2e-85  284.3   0.1   1   1   1.1e-87   3.3e-85  283.5   0.1    18   401     1   433     1   435 0.82 -
+7621at4891_2|contig_4:341120-342424  -            435 7621at4891           -            403     2e-85  284.3   0.1   1   1   1.1e-87   3.3e-85  283.5   0.1    18   401     1   433     1   435 0.82 -
+6549at4891_2|contig_25:74605-76428   -            608 7621at4891           -            403   4.1e-63  210.8   0.0   1   1   2.8e-65   8.4e-63  209.7   0.0    19   402   165   607   155   608 0.75 -
+14521at4891_7|contig_3:679299-680492 -            398 7621at4891           -            403   5.1e-29   98.5   1.5   1   1   4.3e-30   1.3e-27   93.9   1.5    17   318     6   313     2   396 0.76 -
+6549at4891_7|contig_3:470104-472281  -            726 7621at4891           -            403   1.7e-08   30.9   0.0   1   2   1.2e-09   3.5e-07   26.6   0.0    21   208   271   479   260   519 0.72 -
+6549at4891_7|contig_3:470104-472281  -            726 7621at4891           -            403   1.7e-08   30.9   0.0   2   2     0.059        17    1.2   0.0   287   342   522   577   515   601 0.74 -
+6437at4891_2|contig_3:272854-274761  -            636 7621at4891           -            403   2.7e-05   20.3   1.5   1   2     0.034        10    2.0   0.1    22    36   107   121    89   133 0.79 -
+6437at4891_2|contig_3:272854-274761  -            636 7621at4891           -            403   2.7e-05   20.3   1.5   2   2     1e-06   0.00031   16.9   0.2    98   207   154   264   131   337 0.66 -
+2825at4891_2|contig_16:177548-179779 -            744 7621at4891           -            403   0.00076   15.6   0.1   1   1   4.3e-06    0.0013   14.8   0.1    23   149    56   176    34   190 0.73 -
+6624at4891_2|contig_17:206121-207701 -            527 7621at4891           -            403   0.00089   15.4   0.1   1   2      0.33        97   -1.2   0.0    16    37    96   117    90   133 0.81 -
+6624at4891_2|contig_17:206121-207701 -            527 7621at4891           -            403   0.00089   15.4   0.1   2   2   1.1e-05    0.0033   13.5   0.0    98   169   187   252   183   293 0.76 -
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29/busco_downloads/lineages/saccharomycetes_odb10/hmms/7621at4891.hmm
+# Target file:     /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29/results/04_busco/BUSCO_assembly.fasta/run_saccharomycetes_odb10/metaeuk_output/initial_results/assembly.fasta.modified.fas
+# Option settings: hmmsearch --domtblout /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29/results/04_busco/BUSCO_assembly.fasta/run_saccharomycetes_odb10/hmmer_output/initial_run_results/7621at4891.out --cpu 1 /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29/busco_downloads/lineages/saccharomycetes_odb10/hmms/7621at4891.hmm /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29/results/04_busco/BUSCO_assembly.fasta/run_saccharomycetes_odb10/metaeuk_output/initial_results/assembly.fasta.modified.fas 
+# Current dir:     /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/de_novo_BINP29
+# Date:            Fri Feb 23 20:16:01 2024
+# [ok]

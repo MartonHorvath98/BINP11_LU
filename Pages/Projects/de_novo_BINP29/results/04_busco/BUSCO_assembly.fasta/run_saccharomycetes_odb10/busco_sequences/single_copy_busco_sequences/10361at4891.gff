@@ -1,0 +1,14 @@
+contig_22	MetaEuk	gene	374594	376483	144	-	.	Target_ID=10361at4891_9;TCS_ID=10361at4891_9|contig_22|-|374593
+contig_22	MetaEuk	mRNA	374594	376483	144	-	.	Target_ID=10361at4891_9;TCS_ID=10361at4891_9|contig_22|-|374593_mRNA;Parent=10361at4891_9|contig_22|-|374593
+contig_22	MetaEuk	exon	374594	376483	144	-	.	Target_ID=10361at4891_9;TCS_ID=10361at4891_9|contig_22|-|374593_exon_0;Parent=10361at4891_9|contig_22|-|374593_mRNA
+contig_22	MetaEuk	CDS	374594	376483	144	-	.	Target_ID=10361at4891_9;TCS_ID=10361at4891_9|contig_22|-|374593_CDS_0;Parent=10361at4891_9|contig_22|-|374593_exon_0
+contig_27	MetaEuk	gene	177211	178041	73	+	.	Target_ID=10361at4891_7;TCS_ID=10361at4891_7|contig_27|+|177210
+contig_27	MetaEuk	mRNA	177211	178041	73	+	.	Target_ID=10361at4891_7;TCS_ID=10361at4891_7|contig_27|+|177210_mRNA;Parent=10361at4891_7|contig_27|+|177210
+contig_27	MetaEuk	exon	177211	178041	73	+	.	Target_ID=10361at4891_7;TCS_ID=10361at4891_7|contig_27|+|177210_exon_0;Parent=10361at4891_7|contig_27|+|177210_mRNA
+contig_27	MetaEuk	CDS	177211	178041	73	+	.	Target_ID=10361at4891_7;TCS_ID=10361at4891_7|contig_27|+|177210_CDS_0;Parent=10361at4891_7|contig_27|+|177210_exon_0
+contig_20	MetaEuk	gene	281577	285026	862	-	.	Target_ID=10361at4891_9;TCS_ID=10361at4891_9|contig_20|-|281576
+contig_20	MetaEuk	mRNA	281577	285026	862	-	.	Target_ID=10361at4891_9;TCS_ID=10361at4891_9|contig_20|-|281576_mRNA;Parent=10361at4891_9|contig_20|-|281576
+contig_20	MetaEuk	exon	283704	285026	477	-	.	Target_ID=10361at4891_9;TCS_ID=10361at4891_9|contig_20|-|281576_exon_0;Parent=10361at4891_9|contig_20|-|281576_mRNA
+contig_20	MetaEuk	CDS	283704	285026	477	-	.	Target_ID=10361at4891_9;TCS_ID=10361at4891_9|contig_20|-|281576_CDS_0;Parent=10361at4891_9|contig_20|-|281576_exon_0
+contig_20	MetaEuk	exon	281577	283439	396	-	.	Target_ID=10361at4891_9;TCS_ID=10361at4891_9|contig_20|-|281576_exon_1;Parent=10361at4891_9|contig_20|-|281576_mRNA
+contig_20	MetaEuk	CDS	281577	283439	396	-	.	Target_ID=10361at4891_9;TCS_ID=10361at4891_9|contig_20|-|281576_CDS_1;Parent=10361at4891_9|contig_20|-|281576_exon_1

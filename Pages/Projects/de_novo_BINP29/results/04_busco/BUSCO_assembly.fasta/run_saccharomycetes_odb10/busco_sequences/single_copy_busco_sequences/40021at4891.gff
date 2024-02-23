@@ -1,0 +1,4 @@
+contig_7	MetaEuk	gene	81189	81971	301	-	.	Target_ID=40021at4891_2;TCS_ID=40021at4891_2|contig_7|-|81188
+contig_7	MetaEuk	mRNA	81189	81971	301	-	.	Target_ID=40021at4891_2;TCS_ID=40021at4891_2|contig_7|-|81188_mRNA;Parent=40021at4891_2|contig_7|-|81188
+contig_7	MetaEuk	exon	81189	81971	301	-	.	Target_ID=40021at4891_2;TCS_ID=40021at4891_2|contig_7|-|81188_exon_0;Parent=40021at4891_2|contig_7|-|81188_mRNA
+contig_7	MetaEuk	CDS	81189	81971	301	-	.	Target_ID=40021at4891_2;TCS_ID=40021at4891_2|contig_7|-|81188_CDS_0;Parent=40021at4891_2|contig_7|-|81188_exon_0

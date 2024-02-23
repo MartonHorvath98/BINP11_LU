@@ -1,0 +1,4 @@
+contig_3	MetaEuk	gene	725170	728607	2143	-	.	Target_ID=594at4891_1;TCS_ID=594at4891_1|contig_3|-|725169
+contig_3	MetaEuk	mRNA	725170	728607	2143	-	.	Target_ID=594at4891_1;TCS_ID=594at4891_1|contig_3|-|725169_mRNA;Parent=594at4891_1|contig_3|-|725169
+contig_3	MetaEuk	exon	725170	728607	2143	-	.	Target_ID=594at4891_1;TCS_ID=594at4891_1|contig_3|-|725169_exon_0;Parent=594at4891_1|contig_3|-|725169_mRNA
+contig_3	MetaEuk	CDS	725170	728607	2143	-	.	Target_ID=594at4891_1;TCS_ID=594at4891_1|contig_3|-|725169_CDS_0;Parent=594at4891_1|contig_3|-|725169_exon_0

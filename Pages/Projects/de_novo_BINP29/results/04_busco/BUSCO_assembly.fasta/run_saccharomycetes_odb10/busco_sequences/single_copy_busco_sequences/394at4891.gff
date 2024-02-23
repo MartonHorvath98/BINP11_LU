@@ -1,0 +1,4 @@
+contig_26	MetaEuk	gene	54134	60400	2430	-	.	Target_ID=394at4891_2;TCS_ID=394at4891_2|contig_26|-|54133
+contig_26	MetaEuk	mRNA	54134	60400	2430	-	.	Target_ID=394at4891_2;TCS_ID=394at4891_2|contig_26|-|54133_mRNA;Parent=394at4891_2|contig_26|-|54133
+contig_26	MetaEuk	exon	54134	60400	2430	-	.	Target_ID=394at4891_2;TCS_ID=394at4891_2|contig_26|-|54133_exon_0;Parent=394at4891_2|contig_26|-|54133_mRNA
+contig_26	MetaEuk	CDS	54134	60400	2430	-	.	Target_ID=394at4891_2;TCS_ID=394at4891_2|contig_26|-|54133_CDS_0;Parent=394at4891_2|contig_26|-|54133_exon_0

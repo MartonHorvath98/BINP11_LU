@@ -22,21 +22,33 @@ mv GCF_000146045.2_R64_genomic.fna reference.fna
 cd ..
 
 # Quality check
-folder_01='01_QC'
-mkdir -p results/${folder_00}
-fastqc -o results/${folder_00} -f fastq -t 10 ${indir}/SRR13577846.fastq
+qc='results/01_QC'
+mkdir -p ${qc}
+fastqc -o ${qc} -f fastq -t 10 ${indir}/${reads}.fastq
 
 # de novo assembly
 
 echo '#########################'
 echo '# De novo genome assembly'
 echo '#########################'
-folder_02='02_assembly'
-mkdir -p results/${folder_02}
-flye --pacbio-hifi ${indir}/${reads}.fastq --out-dir results/${folder_02} --threads 10
+assembly='results/02_assembly'
+mkdir -p ${assembly}
+flye --pacbio-hifi ${indir}/${reads}.fastq --out-dir ${assembly} --threads 10
 
 # Polishing assembly
-folder_03='03_quast'
-mkdir -p results/${folder_03}
-quast -o results/${folder_03}  -r ${indir}/reference.fna -t 10 --no-icarus results/${folder_02}/assembly.fasta
+polishing='results/03_quast'
+mkdir -p ${polishing}
+quast -o ${polishing}  -r ${indir}/reference.fna -t 10 --no-icarus ${assembly}/assembly.fasta
 
+# analyzing assembly quality based on the coverage and fragmentation of BUSCO genes
+echo '#####################'
+echo '# BUSCO gene analysis'
+echo '#####################'
+BUSCO='results/04_busco'
+mkdir -p ${BUSCO}
+busco -i ${assembly}/assembly.fasta -m genome -c 12 --out_path ${BUSCO}/ -l saccharomycetes_odb10
+generate_plot.py -wd ${BUSCO}/BUSCO_assembly.fasta/
+
+echo '######################'
+echo '# Analysis finished...'
+echo '######################'
