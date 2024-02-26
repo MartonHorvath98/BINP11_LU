@@ -4,31 +4,51 @@
 ```bash
 .
 ├── README.md
-├── data/
-│   ├── GCF_000146045.2_R64_genomic.fna
-│   └── SRR13577846_1.fastq
-├── results/
-│   ├── 00_fastqc/
-│   │   ├── multiqc_data/
-│   │   └── multiqc_report.html
-│   ├── 01_quality/
-│   ├── 02_assembly/
-│   │   ├── 00-assembly/
-│   │   ├── 10-consensus/
-│   │   ├── 20-repeat/
-│   │   ├── 30-contigger/
-│   │   ├── 40-polishing/
-│   │   ├── assembly.fasta
-│   │   ├── flye.log
-│   └── 03_quast/
-│       ├── aligned_stats/
-│       ├── basic_stats/
-│       ├── contigs_reports/
-│       ├── genome_stats/
-│       ├── multiqc_data/
-│       ├── multiqc_report.html
-│       ├── report.txt
+├── busco_downloads
+│   ├── file_versions.tsv
+│   └── lineages
+│       └── saccharomycetes_odb10
+├── data
+│   ├── GCF_000146045.2_R64_genomic.fna.gz
+│   ├── SRR13577846
+│   │   └── SRR13577846.sra
+│   └── SRR13577846_1.fastq
 ├── environment.yml
+├── results
+│   ├── 01_QC
+│   │   ├── SRR13577846_1_fastqc.html
+│   │   ├── SRR13577846_1_fastqc.zip
+│   │   ├── multiqc_data
+│   │   └── multiqc_report.html
+│   ├── 02_assembly
+│   │   ├── 00-assembly
+│   │   ├── 10-consensus
+│   │   ├── 20-repeat
+│   │   ├── 30-contigger
+│   │   ├── 40-polishing
+│   │   ├── assembly.fasta
+│   │   ├── assembly_graph.gfa
+│   │   ├── assembly_graph.gv
+│   │   ├── assembly_info.txt
+│   │   ├── flye.log
+│   │   ├── graph.png
+│   │   └── params.json
+│   ├── 03_quast
+│   │   ├── basic_stats
+│   │   ├── contigs_reports
+│   │   ├── genome_stats
+│   │   ├── multiqc_data
+│   │   ├── multiqc_report.html
+│   │   ├── quast.log
+│   │   ├── report.html
+│   │   ├── report.tex
+│   │   ├── report.tsv
+│   │   ├── report.txt
+│   │   ├── transposed_report.tex
+│   │   ├── transposed_report.tsv
+│   │   └── transposed_report.txt
+│   └── 04_busco
+│       └── BUSCO_assembly.fasta
 └── workflow.sh
 ```
 ## Set up the environment
