@@ -25,7 +25,7 @@ with open(sys.argv[1], 'r') as fin:
         else:
             seq[id] += line.upper()
 
-with open(sys.argv[3], 'w') as fout:
+with open('{}.fa'.format(sys.argv[3]), 'w') as fout:
     for id in ids:
         if len(seq[id]) < int(sys.argv[4]):
             continue
@@ -37,9 +37,10 @@ with open(sys.argv[3], 'w') as fout:
 
         if gc <= float(sys.argv[2]) / 100:
             outGC = round(gc, 2)
-            print('>' + id + ' GC=' + str(outGC) + ' Length=' + str(len(seq[id])), file=fout)
+            print('>' + id, file=fout) # + ' GC=' + str(outGC) + ' Length=' + str(len(seq[id])), file=fout)
             print(seq[id], file=fout)
 
 plt.hist(gc_array, bins=100)
 plt.axvline(x = float(sys.argv[2]) / 100, color = 'r')
 plt.savefig('{}.png'.format(sys.argv[3]))
+

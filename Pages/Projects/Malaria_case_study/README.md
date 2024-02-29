@@ -1,4 +1,51 @@
+# The origin of human malaria
+
+The species - belonging to the genera *Plasmodium* - that causes most malaria infections in humans is *Plasmodium falciparum*. Working with a set of genomes from *Plasmodium* parasites, including a newly sequenced species - *Haemoproteus tartakovskyi* - that infects birds, we try to uncover the phylogeny of the human pathogen.  
+
+## Directory tree
+```bash
+.
+├── README.md
+├── data
+│   ├── raw_genomes
+│   ├── clean_genomes
+│   └── uniprot
+├── environment.yml
+├── results
+│   ├── 01_QC
+│   │   ├── raw
+│   │   ├── clean
+│   ├── 02_gene_prediction
+│   │   ├── raw
+│   │   ├── clean
+│   ├── 03_cleaned_genomes
+│   │   ├── gene_prediction
+│   │   ├── blastp
+│   │   ├── clean_genome
+│   └── 04_busco
+│       └── BUSCO_assembly.fasta
+└── workflow.sh
+```
+## Set up the environment
+Download and install mamba through the recommended miniforge [installation](https://github.com/conda-forge/miniforge) process.
+```bash
+wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh
+bash Miniforge3-Linux-x86_64.sh
+```
+Then, use mamba to set up the environment based on the *.yaml* file.
+```bash
+mamba create -f environment.yml
+mamba activate malaria
+```
+## Usage
+After the environment is all set up, we can run the whole script to go through the analysis process.
+```bash
+bash workflow.sh --clean Haemoproteus_tartakovskyi
+```
 ## Quality check
+
+(base) hmarton (Malaria) Malaria_case_study> awk -v pattern="^>" '{print} $0 ~ pattern {getline; next}' Plasmodium_knowlesi.genome | less
+
 seqkit stats ../../data/Haemoproteus_tartakovskyi.genome -Ta -o H_tartakovskyi.stats
 
 awk '/^>/ {printf("%s\n",$0);next; } { printf("%s",$0);}  END {printf("\n");}' < Haemoproteus_tartakovskyi.genome | sed 's/>/\n>/g' > Haemoproteus_tartakovskyi.oneline 
