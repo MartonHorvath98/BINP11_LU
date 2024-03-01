@@ -5,25 +5,23 @@ The species - belonging to the genera *Plasmodium* - that causes most malaria in
 ## Directory tree
 ```bash
 .
-├── README.md
+├── bin
+│   ├── cleanAves.sh
+│   ├── genePred.sh
+│   ├── gffParse.pl
+│   ├── QC.sh
+│   └── removeScaffold.py
 ├── data
-│   ├── raw_genomes
-│   ├── clean_genomes
-│   └── uniprot
+│   ├── raw_genomes
+│   └── uniprot
 ├── environment.yml
+├── __pycache__
+│   └── utils.cpython-312.pyc
 ├── results
-│   ├── 01_QC
-│   │   ├── raw
-│   │   ├── clean
-│   ├── 02_gene_prediction
-│   │   ├── raw
-│   │   ├── clean
-│   ├── 03_cleaned_genomes
-│   │   ├── gene_prediction
-│   │   ├── blastp
-│   │   ├── clean_genome
-│   └── 04_busco
-│       └── BUSCO_assembly.fasta
+│   ├── 01_QC
+│   ├── 02_gene_prediction
+│   └── 03_cleaned_genomes
+├── Snakefile
 └── workflow.sh
 ```
 ## Set up the environment
@@ -44,6 +42,7 @@ snakemake -p -j 16 --config ht="Haemoproteus_tartakovskyi"
 # where -j [--cores] is a mandatory argument assigning the number of cores for parallel computations
 #       --config is a user argument to select which genome should be addressed for cleaning 
 ```
+
 ## Quality check
 
 After a quick preliminary quality check we can realise that one of the genome files has an errorenous format with the fasta header lines being repeated, that we have to correct before running anything:
@@ -74,51 +73,76 @@ We can see there are huge differences in the scaffold sizes of the assemblies an
 
 ## Predicting genes
 
-The gene prediction step was executed from the Genemark-ES.hmm3 algorithm from the gmes suite using the `gmes_petap.pl` function. It is a rather time consuming step as well as the suite requires a licence to allow usage, hence this step must be run on the university servers. COnsidering that there was many assemblies with low contig length, I used a low contig length of 1000 for the initial round of gene prediction. 
+The gene prediction step was executed from the Genemark-ES.hmm3 algorithm from the gmes suite using the `gmes_petap.pl` function. It is a rather time consuming step as well as the suite requires a licence to allow usage, hence this step must be run on the university servers. COnsidering that there was many assemblies with low contig length, I used a low contig length of 1000 for the initial round of gene prediction.  As an intermediate rule of the snakemake pipeline we call the genePred.sh script from the /bin folder to execute the quality check:
 
-gmes_petap.pl --ES --min_contig 3000 --cores 30 --sequence HT.27.clean.genome --work_dir GC27
+```bash
+# Running the Genemark-ES.hmm3 algorithm
+gmes_petap.pl --ES --min_contig ${min_contig} --cores 100 --sequence ${f} --work_dir ${wd}
+# --min_contig was set to 1000, individual output directories were created for each species 
+# using their initials - e.g., Haemoproteus tartakovskyi => Ht
+```
+Because `gmes_petap.pl` attaches extra information to the header of the fasta sequences on its output .gtf file, we have to execute an extra step to remove these for further steps of the workflow. Otherwise, we will face compatibility issues. I used a for loop to copy and modify each output .gtf file:
+```bash
+# Visit the output directory, move the gene prediction files to the main output directory
+for d in ${out_dir}/*; do
+    echo "$out_dir"
+    if [ -d "$d" ]; then
+        species=$(basename $d)
+        cat ${out_dir}/${d}/genemark.gtf | sed -e "s/\s*length=[[:digit:]]*.*numreads=[[:digit:]]*\b//gm" > ${out_dir}/genemark.${species}.gtf
+        # remove the length and numreads labels and rename the files to include the species names
+    fi
+done
+```
 
+## Removing contamination from avian hosts from the *H. tartakovskyi* genome
 
-cat results/02_gene_prediction/genemark.HT27.gtf | sed -e "s/\sGC=.*Length=[[:digit:]]*\b//gm" > genemark.HT27_fixed.gtf 
+To execute this action, the cleanAves.sh script was called from the bin/ folder during during the next rule in the Snakefile workflow. This script is used to remove contigs from the genome assembly that map to bird genomes! It takes the assembly in fasta format and a gtf file as input and outputs a filtered genome assembly in fasta format. The script uses the custom scripts removeScaffold.py and gffParser.pl: 
+1. removeScaffold.py is used to remove contigs below a given GC threshold and length 
+```bash
+# Run the removeScaffold.py script
+python bin/removeScaffold.py $fasta $gc_threshold $gene_dir/$output"_GC"$gc_threshold 3000
+# removeScaffold.py usage: removeScaffolds.py [arg1] [arg2] [arg3] [arg4]
+#   -   sys.argv[1] is input fasta file name
+#   -   sys.argv[2] is threshold GC content as integer
+#   -   sys.argv[3] is the output file
+#   -   sys.argv[4] is the minimum length for scaffolds to keep
+```
+2. gffParser.pl is used to extract hypothetical proteins from the genome assembly.
+```bash
+# Run the gffParser.pl script
+perl bin/gffParse.pl -i $gene_dir/$output"_GC"$gc_threshold".fa" -g $gtf -d $gene_dir/pred -b $output"_GC"$gc_threshold"_pred" -p -c    
+# gffParser.py usage: gffParser.py -i -g -d -b -p* -c*
+#   -   [-i] input fasta file
+#   -   [-g] input gff file
+#   -   [-d] output directory (MUST BE A NEW DIRECTORY)
+#   -   [-b] output basename
+#   -   [-p] if set the program outputs a protein file
+#   -   [-c] if set, when an internal stop codon is found the program will try the next reading frame
+```
+The removeScaffold script already executes a prefiltration step to remove short sequences and sequences with a GC bias different from the species *H. tartakovskyi*. I selected to exclude anything abouve the mean GC (27%). Then, the script uses blastp to compare the proteins to the bird protein database downloaded from SwissProt and removes contigs that match any bird proteins among the top 5 hits. 
+```bash
+# Run blastp to compare the proteins to the bird protein database
+blastp -query $gene_dir/$output"_GC"$gc_threshold"_pred.faa" -db SwissProt -outfmt 6 \
+    -num_threads 160 -evalue 0.05 -out $blast_dir/$output"_GC"$gc_threshold"_hits.tsv" 
+    # evalue cutoff is set to 0.05; the output format is tabular (6); the number of threads is set to 16
+```
+With 16 cores the blast search takes hours to run, using 160 cores on the server it was done within a few minutes. The bird database that has been used to select matching hits was download from UniProtDB. Taxonomy filter was set to taxid=8782 (Aves) and the resulting table was downloaded - `uniprotkb_taxid_aves.tsv`: including around 5.7 million proteins.
 
-## Extract protein and dna sequences from the assembly 
-perl bin/gffParse.pl -i results/01_qc/HT.27.genome -g results/02_gene_prediction/genemark.HT27_fixed.gtf -d results/03_clean_sequence/GC27 -b HT27  -p -c
+![fig1](results/03_cleaned_genomes/gene_prediction/Ht_GC27.png)
 
-Download bird protein names from UniProtDB - filtered for taxonomy - taxid=8782 (Aves):
-uniprotkb_taxid_aves.tsv (5.7 million proteins)
-
-## Blasting the predicted proteins with blastp algorithm on the SwissProt database
-Run BLATSP on the UniProt database (1098 hits), then filter out hits with expect value lower than 0.05 (718 hits):
-blastp -query ../04_clean_sequence/GC27/HT27.fna -db SwissProt -outfmt 6 -num_threads 16 -out  HT27_blastp_hits.tsv
-cat ../03_blastp/HT27_blastp_hits.tsv | awk '$11 < 0.05 {print}' > HT27_blastp_exp05.tsv 
-
-1. Approach - Remove any proteins that have hits in birds (315 hits):
-cat ../03_blastp/HT27_blastp_exp05.tsv | grep -Ff <(cut -f 2 ../../data/uniprotkb_taxid_aves.tsv) | cut -f1 | sort | uniq > ../03_blastp/bird_genes.txt
-cat HT27_blastp_exp05.tsv | grep -vFf bird_genes.txt > HT27_blastp_nobird.tsv
-
-2. Approach - Remove protiens where one of the top five hits is from a bird (656 hits):
-cat ../03_blastp/HT27_blastp_exp05.tsv | awk 'NR==1 {value=$1; count=1} $1!=value {value=$1; count=1} $1==value && count<=5 {print; count++}' | grep -Ff <(cut -f 2 ../../data/uniprotkb_taxid_aves.tsv) | cut -f1 | sort | uniq > ../03_blastp/bird_top5_genes.txt
-cat HT27_blastp_exp05.tsv | grep -vFf bird_top5_genes.txt > HT27_blastp_nobird_top5.tsv
-
-## Removing contigs with bird protein encoding genes
-Get contigs that contain bird related proteins: in case of using a GC threshold of 27, there were 1602 scaffolds containing 2788 genes.
-1. Searching for genes with top bird blastp hit, 15 (0.93%) contigs were excluded
-2. Searching for proteins, where bird was among the top 5 hits, 67 (4.18%) scaffold were excluded
-
-cat genemark.HT27_fixed.gtf | grep -wFf ../03_blastp/GC27/GC27_top.txt | cut -f1 | sort | uniq > GC27_top_contig.txt
-
-Get contigs that contain bird related proteins: in case of using a GC threshold of 30, there were 2114 scaffolds containing 3688 genes.
-1. Searching for genes with top bird blastp hit, 23 (0.62%) contigs were excluded
-2. Searching for proteins, where bird was among the top 5 hits, 105 (2.85%) scaffold were excluded
-
-cat genemark.HT30_fixed.gtf | grep -wFf ../03_blastp/GC30/GC30_top.txt | cut -f1 | sort | uniq > GC30_top_contig.txt
-
-Top 5 hits excluded less than 5% of the contigs, hence I went with it end removed these contigs from the genome that has been previously filtered for GC content and assembly length previously. For the GC27 and GC30 genomes, this step removed 5.47% and 6.5% of the total sequences. 
-
-cat ../01_qc/HT.27.genome | grep -vFf ../02_gene_prediction/GC27_top5_contig.txt | grep -A 1 "^>" --no-group-separator > HT.27.clean.genome
-cat ../01_qc/HT.30.genome | grep -vFf ../02_gene_prediction/GC30_top5_contig.txt | grep -A 1 "^>" --no-group-separator > HT.30.clean.genome
-
-
+Removing contigs with bird protein encoding genes in case of using a GC threshold of 27, there were 5074 scaffolds containing 6736 genes. Searching for proteins, where bird was among the top 5 hits, 67 (1.35%) scaffold were excluded. The top 5 hits excluded less than 2% of the contigs, hence I went with it end removed these contigs from the genome that has been previously filtered for GC content and assembly length previously. For the GC27 and GC30 genomes, this step removed 5.47% and 6.5% of the total sequences. Together with the GC and length filter 57.8% of the original assemlby was got filtered out.
+```bash
+cat $blast_dir/$output"_GC"$gc_threshold"_hits.tsv" |\
+     awk 'NR==1 {value=$1; count=1} $1!=value {value=$1; count=1} $1==value && count<=5 {print; count++}' |\
+     grep -Ff <(cut -f2 $bird_db) | cut -f1 | sort | uniq > $filtered_dir/$output"_GC"$gc_threshold"_genes.txt"
+    # Find the contigs where the genes encoding these proteins are located
+    cat $gtf | grep -wFf $filtered_dir/$output"_GC"$gc_threshold"_genes.txt" | cut -f1 | sort | uniq >\
+     $filtered_dir/$output"_GC"$gc_threshold"_contigs.txt"
+    # Remove these contigs from the genome assembly
+    cat $gene_dir/$output"_GC"$gc_threshold".fa" |\
+        grep -vFf $filtered_dir/$output"_GC"$gc_threshold"_contigs.txt" | grep -A 1 "^>" --no-group-separator >\
+        $filtered_dir/$(basename $fasta)
+```
 
 
 
