@@ -41,7 +41,32 @@ get_initials() {
 # Read in files from the input fasta file and gtf file using the -fa or -gtf flags
 if [ -f "$fasta" ]
 then
+    
+    echo "Gene predition for $(basename $fasta)"
+    output=$(get_initials "$(basename $fasta)")
 
+    # Create a gene prediction directory
+    gene_dir=${out_dir}gene_prediction
+    mkdir -p $gene_dir   
+    # Run the removeScaffold.py script
+    python bin/removeScaffold.py $fasta $gc_threshold $gene_dir/$output"_GC"$gc_threshold 3000
+    # Run the gffParser.pl script
+    perl bin/gffParse.pl -i $gene_dir/$output"_GC"$gc_threshold".fa" -g $gtf -d $gene_dir/pred -b $output"_GC"$gc_threshold"_pred" -p -c
+    cp $gene_dir/pred/$output"_GC"$gc_threshold"_pred.faa" $gene_dir/$output"_GC"$gc_threshold"_pred.faa"
+
+    echo "Running blastp on $(basename $f)"
+    echo "This will take a WHILE... go stretch, take a coffee :)"
+    # Create a blastp directory
+    blast_dir=${out_dir}blastp
+    mkdir -p $blast_dir
+    # Run blastp to compare the proteins to the bird protein database
+    blastp -query $gene_dir/$output"_GC"$gc_threshold"_pred.faa" -db SwissProt -outfmt 6 \
+        -num_threads 160 -evalue 0.05 -out $blast_dir/$output"_GC"$gc_threshold"_hits.tsv" 
+    # evalue cutoff is set to 0.05; the output format is tabular (6); the number of threads is set to 16
+
+    # Create a filtered genome directory
+    filtered_dir=${out_dir}clean_genome
+    mkdir -p $filtered_dir
 
     echo "Filtering $(basename $fasta)"
     # Find proteins that match any bird proteins among the top 5 hits
