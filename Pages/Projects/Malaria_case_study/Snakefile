@@ -1,0 +1,65 @@
+# Snakefile:
+# This is the main Snakefile for the project
+
+# Load the environment
+configfile: 'environment.yml'
+
+# Rules
+rule all:
+    input:
+        "results/03_cleaned_genomes/clean_genome/Haemoproteus_tartakovskyi.genome"
+
+# Create the results directory
+rule create_qc_results_dir:
+    output:
+        "results/01_QC"
+    shell:
+        """
+        mkdir -p {output}
+        """
+# Run the QC pipeline
+rule run_qc_pipeline:
+    input:
+        data="data/raw_genomes",
+        output="results/01_QC"
+    output:
+        "results/01_QC/qc_output.txt"
+    shell:
+        """
+        source bin/QC.sh -d {input.data} -o {output}
+        """
+
+# Create the gene prediction results directory
+rule create_gene_prediction_results_dir:
+    output:
+        "results/02_gene_prediction"
+    shell:
+        """
+        mkdir -p {output}
+        """
+
+# Run the gene prediction pipeline
+rule run_gene_prediction_pipeline:
+    input:
+        data="data/raw_genomes",
+        output="results/02_gene_prediction"
+    output:
+        "results/02_gene_prediction/gene_prediction_output.txt"
+    shell:
+        """
+        source bin/genePred.sh -d {input.data} -m 3000 -o {output}
+        """
+
+# Create the cleaned genomes directory
+rule run_genome_assembly_cleaning_pipeline:
+    input:
+        genome_name="data/raw_genomes/{ht}.genome",
+        gtf="results/02_gene_prediction/genemark.Ht.gtf",
+        database="data/uniprot/aves_taxid.tsv"
+    output:
+        "results/03_cleaned_genomes/clean_genome/{ht}.genome"
+    shell:
+        """
+        mkdir -p results/03_cleaned_genomes
+        source bin/cleanAves.sh -fa {input.genome_name} -g {input.gtf} -db {input.database} -gc 27 -o results/03_cleaned_genomes
+        """

@@ -5,10 +5,10 @@
 while getopts d:f:m:o: flag
 do
     case "${flag}" in
-        d) dir=${OPTARG};;
-        f) file=${OPTARG};;
+        d) dir2=${OPTARG};;
+        f) file2=${OPTARG};;
         m) min_contig=${OPTARG};;
-        o) out_dir=${OPTARG};;
+        o) out_dir2=${OPTARG};;
     esac
 done
 
@@ -19,34 +19,38 @@ get_initials() {
 
 
 # Read in files from the input file or directory using -f or -d flags
-if [ -z "$file" ]
+if [ -z "$file2" ]
 then
-    for f in $dir/*; do
+    for f in $dir2/*; do
         if [ -f "$f" ]; then
-            echo "Processing $(basename $f) file..."
+            echo "Predicting $(basename $f) file..."
             # Create a unique output directory based on the initials of the species name
-            output=$(get_initials "$(basename $f)")
+            output2=$(get_initials "$(basename $f)")
             # Run the gene prediction function
-            gmes_petap.pl --ES --min_contig $min_contig --cores 16 --sequence $f --work_dir $out_dir/$output
+            wd="$out_dir2/$output2"
+            mkdir -p ${wd}
+            gmes_petap.pl --ES --min_contig ${min_contig} --cores 100 --sequence ${f} --work_dir ${wd}
         fi
     done
 else
-    echo "Processing $(basename $file) file..."
+    echo "Predicting $(basename $file2) file..."
     # Create a unique output directory based on the initials of the species name
-    output=$(get_initials "$(basename $file)")
+    output2=$(get_initials "$(basename $file2)")
     # Run the gene prediction function
-    gmes_petap.pl --ES --min_contig $min_contig --cores 16 --sequence $file --work_dir $out_dir/$output
+
+    wd="$out_dir2/$output2"
+    mkdir -p ${wd}
+    gmes_petap.pl --ES --min_contig ${min_contig} --cores 100 --sequence ${file2} --work_dir ${out_dir2}/${output2}
 fi
 
 # Visit the output directory, move the gene prediction files to the main output directory
 # and rename the files to include the species name
-for d in $out_dir/*; do
+for d in ${out_dir2}/*; do
+    echo "$out_dir2"
     if [ -d "$d" ]; then
         species=$(basename $d)
-        mv $d/*.gtf $out_dir/genemark.${species}.gtf # Gene prediction file
-        mv $d/*.log $out_dir/${species}.log # Log file
-        # Remove the directory
-        rm -r $d
+        cat ${out_dir2}/${d}/genemark.gtf | sed -e "s/\s*length=[[:digit:]]*.*numreads=[[:digit:]]*\b//gm" >\
+            ${out_dir2}/genemark.${species}.gtf # remove the length and numreads attributes
     fi
 done
 

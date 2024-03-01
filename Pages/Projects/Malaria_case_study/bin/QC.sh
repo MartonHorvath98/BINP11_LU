@@ -4,29 +4,30 @@
 while getopts d:f:o: flag
 do
     case "${flag}" in
-        d) dir=${OPTARG};;
-        f) file=${OPTARG};;
-        o) out_dir=${OPTARG};;
+        d) dir1=${OPTARG};;
+        f) file1=${OPTARG};;
+        o) out_dir1=${OPTARG};;
     esac
 done
 
+echo "$dir1, $file1, $out_dir1"
 # Read in files from the input file or directory using -f or -d flags
-if [ -z "$file" ]
+if [ -z "$file1" ]
 then
-    for f in $dir/*; do
+    for f in $dir1/*; do
         if [ -f "$f" ]; then
-            echo "Processing $f file..."
+            echo "Processing  $(basename $f) file..."
             # Run the QC pipeline
-            seqkit stats $f -Ta >> $out_dir/stats.tsv
+            seqkit stats $f -Ta >> ${out_dir1}/stats.txt
         fi
     done
 else
-    echo "Processing $file file..."
+    echo "Processing $file1 file..."
     # Run the QC pipeline
-    seqkit stats $file -Ta >> $out_dir/stats.txt
+    seqkit stats $file1 -Ta >> $out_dir1/stats.txt
 fi
 
 # Clean seqkit output: remove repetitive headers and remove the path from the file name
-stat_file=$out_dir/stats.txt
-awk 'NR==1 || NR%2==0' $stat_file | awk -F'\t' -v OFS='\t' '{sub(".*/", "", $1)} 1' > $out_dir/stats_table.tsv 
+stat_file=$out_dir1/stats.txt
+awk 'NR==1 || NR%2==0' $stat_file | awk -F'\t' -v OFS='\t' '{sub(".*/", "", $1)} 1' > $out_dir1/stats_table.tsv 
 rm $stat_file

@@ -5,11 +5,8 @@ channels:
   - defaults
 dependencies:
   - busco=5.6.1
-  - fastqc=0.12.1
-  - multiqc=1.19
   - proteinortho=6.3.1
   - seqkit=2.7.0
-  - pip=23.3.2
-- pip:
-  - numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-  - matplotlib-3.8.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+  - pip
+  - numpy=1.26.4
+  - matplotlib=3.8.3
