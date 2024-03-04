@@ -40,7 +40,7 @@ else
 
     wd="$out_dir2/$output2"
     mkdir -p ${wd}
-    gmes_petap.pl --ES --min_contig ${min_contig} --cores 100 --sequence ${file2} --work_dir ${out_dir2}/${output2}
+    gmes_petap.pl --ES --min_contig ${min_contig} --cores 100 --sequence ${file2} --work_dir ${wd}
 fi
 
 # Visit the output directory, move the gene prediction files to the main output directory
@@ -50,7 +50,10 @@ for d in ${out_dir2}/*; do
     if [ -d "$d" ]; then
         species=$(basename $d)
         cat ${out_dir2}/${d}/genemark.gtf | sed -e "s/\s*length=[[:digit:]]*.*numreads=[[:digit:]]*\b//gm" >\
-            ${out_dir2}/genemark.${species}.gtf # remove the length and numreads attributes
+            ${out_dir2}/genemark.${species}.gtf # Gene prediction file
+        # mv ${out_dir2}/${d}/*.log ${out_dir2}/${species}.log # Log file
+        # Remove the directory
+        #rm -r $d
     fi
 done
 
