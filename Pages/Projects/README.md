@@ -10,7 +10,7 @@ complete Master studies in Bioinformatics.
 	* Project aims:
 
 3. [mtDNA Heritage Explorer](mtDNA_Heritage_Explorer/)
-        * Project aims:
+	* Project aims:
 
 
 
