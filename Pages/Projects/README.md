@@ -9,7 +9,7 @@ complete Master studies in Bioinformatics.
 2. [Malaria case-study](Malaria_case_study/)
 	* Project aims:
 
-3. [mtDNA Heritage Explorer](mtDNA_Heritage_Explorer/)
+3. [mtDNA Heritage Explorer](mtDNA_explorer/)
 	* Project aims:
 
 
