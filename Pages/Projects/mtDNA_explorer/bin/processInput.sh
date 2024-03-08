@@ -17,16 +17,16 @@ if [ "$num_columns" -eq 3 ]; then
     file=$(awk -v FS="$delimiter" -v OFS="$delimiter" '
     NR> 1 && $1 ~ /^rs/ && $2 ~ /^(MT|0|26)$/ {
         split($4, chars, "");
-        print $1, $3, chars[1], chars[2]
+        print $1, $3, chars[1]
     }' "$input_file")
 fi
 # else if there are 5 columns it is already the correct format
 if [ "$num_columns" -eq 4 ]; then
     file=$(awk -v FS="$delimiter" -v OFS="$delimiter" '
     NR > 1 && $1 ~ /^rs/ && $2 ~ /^(MT|0|26)$/ {
-        print $1, $3, $4, $5
+        print $1, $3, $4
     }' "$input_file")
 fi
 
-output=$(echo -e "rsid\tposition\tallele1\tallele2\n$file")
+output=$(echo -e "rsid\tposition\tnucleotide\n$file")
 echo "$output"

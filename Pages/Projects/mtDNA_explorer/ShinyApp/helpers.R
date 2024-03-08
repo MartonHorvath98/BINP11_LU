@@ -20,5 +20,6 @@ if (!require("dplyr")) install.packages("dplyr")
 library(dplyr)
 if (!require("Biostrings")) install.packages("Biostrings")
 library(Biostrings)
-
+if (!require("seqinr")) install.packages("seqinr", repos="http://R-Forge.R-project.org")
+library(seqinr)
 

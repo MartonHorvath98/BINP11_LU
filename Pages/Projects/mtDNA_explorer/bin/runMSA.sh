@@ -50,16 +50,48 @@ then
 
     # Use bioawk to calculate base information content
     echo "Calculating information content from MSA..."
-    bioawk -c fastx '{print $name, $seq}' "${in_file%.fasta}_msa.fasta" | awk '{print $1, length($2)}' > "${in_file%.fasta}_info_content.txt"
 
-    
-    # bioawk -c fastx '{for (i=1; i<=length($seq); i++) { base_count[substr($seq, i, 1)]++ }} 
-    #    END { for (base in base_count) { 
-    #            p = base_count[base] / length($seq)
-    #            if (p > 0) { entropy -= p * log(p) / log(2) }
-    #        } 
-    #        print 2 - entropy
-    #    }' "${in_file%.fasta}_msa.fasta" > "${in_file%.fasta}_info_content.txt"
+    awk '/^>/ { if (NR>1) print ""; print $0; next} { printf "%s", $0 } END {print ""}' "${in_file%.fasta}_msa.fasta" | \
+        grep -v "^>" | \
+        awk 'BEGIN { FS = "" } { 
+            for (i = 1; i <= NF; i++) {
+                a[NR, i] = $i 
+            } 
+        } 
+        NF > p { 
+            p = NF 
+        } 
+        END { 
+            for (j = 1; j <= p; j++) { 
+                str = a[1, j]; 
+                for (i = 2; i <= NR; i++) { 
+                    str = str a[i, j] 
+                } 
+                print str 
+            } 
+        }' > "${in_file%.fasta}_transposed.txt"
+
+    awk 'BEGIN { FS = ""; OFS="\t"; OFMT = "%.4f"; print "Pos", "Info" }
+    {
+        delete charCounts
+        rowLength = length($0)
+        sum = 0
+
+        # Count occurrences of each character
+        for (i = 1; i <= rowLength; i++) {
+            charCounts[$i]++
+        }
+
+        # Calculate and sum up p * log(p) for each character, where log is natural log
+        for (char in charCounts) {
+            p = charCounts[char] / rowLength
+            if (p > 0) {
+                sum -= p * log(p)
+            }
+        }
+
+        print NR, 2 - sum
+    }' "${in_file%.fasta}_transposed.txt" > "${in_file%.fasta}_info_content.txt
 
 else
     echo "Input file does not exist. Please check the file path and try again."
