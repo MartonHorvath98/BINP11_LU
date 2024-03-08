@@ -1,20 +1,19 @@
 source("ShinyApp/helpers.R")
 
-msa_file <- "data/mtDNA_meta/mtdb_sequences_msa.fasta"
+# Load the ancient metadata
+metadata <- read.csv("data/mtDNA_meta/mtdb_metadata.txt", sep = "\t", header = TRUE)
 
-calculate_base_information_content <- function(msa_file) {
-  # Read the MSA file
-  alignment <- readAAStringSet(msa_file)
-  
-  # Calculate base information content
-  base_info_content <- sapply(1:width(alignment), function(i) {
-    column <- alignment[, i]
-    counts <- table(column)
-    entropy <- -sum((counts / sum(counts)) * log2(counts / sum(counts)))
-    return(2 - entropy)  # Shannon's entropy normalized by log2(4)
-  })
-  
-  return(base_info_content)
-}
+# Load the consensus mtDNA sequence fasta file
+fasta <- read.fasta("data/mtDNA_meta/mtdb_consensus.fasta")
 
-base_info_content <- calculate_base_information_content(msa_file)
+# Load information content list
+info_content <- read.csv("data/mtDNA_meta/msa_info_content.txt", sep = "\t",
+                         header = TRUE)
+info_content <- info_content %>% 
+  # create a ggplot with columns, where Pos is on the x-axis and Info is on the y-axis,
+  # and the color of the line is determined by Info, color scheme viridis
+  ggplot(aes(x = Pos, y = Info, color = Info)) +
+  geom_col() +
+  scale_color_viridis() +
+  theme_minimal()
+  
