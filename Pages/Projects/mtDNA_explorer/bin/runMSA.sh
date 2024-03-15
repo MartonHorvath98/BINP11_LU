@@ -2,7 +2,7 @@
 
 # Define variables for environment name and Python version
 ENV_NAME="MSA"
-CONFIG="../config/environment.yml"
+CONFIG="./config/environment.yml"
 
 # Check if the environment already exists
 if ! mamba env list | grep -q "^$ENV_NAME"; then
@@ -23,6 +23,7 @@ do
     case "${flag}" in
         i) in_file=${OPTARG};; # input file
         f) filter=${OPTARG};; # filter file
+        t) threads=${OPTARG};; # number of threads
     esac
 done
 # check if the input file exists then run mafft on the input file
@@ -34,8 +35,8 @@ then
         exit 1
     fi
     # Remove line breaks from the FASTA file
-    echo "Converting FASTA file to one-line format..."
-    awk '/^>/ {if (NR>1) print ""; print $0; next} {printf "%s", $0} END {print ""}' "$fasta_file" > "${in_file%.fasta}_oneline.fasta"
+    echo -e "Converting FASTA file to one-line format...\n"
+    awk '/^>/ {if (NR>1) print ""; print $0; next} {printf "%s", $0} END {print ""}' "$in_file" > "${in_file%.fasta}_oneline.fasta"
 
     # Filter the input file based on the filter file
     echo "Filtering input file based on the filter file..."
@@ -44,15 +45,22 @@ then
         grep -A 1 -wFf "$filter" --no-group-separator "${in_file%.fasta}_oneline.fasta" > "${in_file%.fasta}_filtered.fasta"
     fi
 
-    # Run multiple sequence alignment using MAFFT
-    echo "Running multiple sequence alignment..."
-    mafft --auto --thread 4 "${in_file%.fasta}_oneline.fasta" > "${in_file%.fasta}_msa.fasta"
+    # Run multiple sequence alignment using mafft
+    echo -e "Running multiple sequence alignment...\n"
+    mafft --auto --thread "$threads" "${in_file%.fasta}_filtered.fasta" > "${in_file%.fasta}_msa.fasta"
+    # download the rCRS reference sequence from NCBI
+    reference="data/reference/"
+    mkdir -p $reference
+    esearch -db nuccore -query "NC_012920.1" | efetch -format fasta > "$reference/rCRS.fasta"
+    # Re-run the MSA with the rCRS reference sequence
+    mafft --add "$reference/rCRS.fasta" "${in_file%.fasta}_msa.fasta" > "${in_file%.fasta}_msa.fasta"
 
     # Use bioawk to calculate base information content
-    echo "Calculating information content from MSA..."
+    echo -e "Calculating information content from MSA...\n"
 
-    awk '/^>/ { if (NR>1) print ""; print $0; next} { printf "%s", $0 } END {print ""}' "${in_file%.fasta}_msa.fasta" | \
-        grep -v "^>" | \
+    # Transpose the MSA to calculate information content
+    awk '/^>/ { if (NR>1) print ""; print $0; next} { printf "%s", $0 } END {print ""}' "${in_file%.fasta}_msa_ref.fasta" |\
+        grep -v "^>" |\
         awk 'BEGIN { FS = "" } { 
             for (i = 1; i <= NF; i++) {
                 a[NR, i] = $i 
@@ -71,8 +79,8 @@ then
             } 
         }' > "${in_file%.fasta}_transposed.txt"
 
-    awk 'BEGIN { FS = ""; OFS="\t"; OFMT = "%.4f"; print "Pos", "Info" }
-    {
+    awk 'BEGIN { FS = ""; OFS="\t"; OFMT = "%.4f"; print "Pos", "Info" } {
+
         delete charCounts
         rowLength = length($0)
         sum = 0
@@ -89,10 +97,22 @@ then
                 sum -= p * log(p)
             }
         }
-
+        
         print NR, 2 - sum
-    }' "${in_file%.fasta}_transposed.txt" > "${in_file%.fasta}_info_content.txt
+    }' "${in_file%.fasta}_transposed.txt" > "${in_file%.fasta}_info_content.txt"
+
+    echo "Multiple sequence alignment and information content calculation completed successfully!"
+
+    # Remove intermediate files
+    rm "${in_file%.fasta}_oneline.fasta" "${in_file%.fasta}_filtered.fasta" "${in_file%.fasta}_transposed.txt"
+
+    # Find variants in the MSA
+    echo -e "Finding variants in the MSA...\n"
+    snp-sites -v "${in_file%.fasta}_msa_ref.fasta" > "${in_file%.fasta}_variants.vcf"   
 
 else
     echo "Input file does not exist. Please check the file path and try again."
 fi
+
+
+ awk '/^>/ { if (NR>1) print ""; print $0; next} { printf "%s", $0 } END {print ""}' data/mtDNA/mtdb_sequences_msa_ref.fasta | grep -v "^>" | awk 'BEGIN { FS = "" } { for (i = 1; i <= NF; i++) { a[NR, i] = $i }} NF > p { p = NF } END { for (j = 1; j <= p; j++) { str = a[1, j]; for (i = 2; i <= NR; i++) { str = str a[i, j] } print str }}' > data/mtDNA/mtdb_sequences_transposed.txt

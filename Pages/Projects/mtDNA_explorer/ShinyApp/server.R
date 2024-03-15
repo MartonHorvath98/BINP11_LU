@@ -4,7 +4,7 @@ shinyServer(function(input, output, session){
 })
 })
 
-options(shiny.maxRequestSize=1024^10)
+#options(shiny.maxRequestSize=1024^10)
 source("helpers.R")
 shinyServer(function(input,output,session) {
   source("server-inread.R",local=T)
