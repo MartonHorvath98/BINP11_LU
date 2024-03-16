@@ -1,0 +1,17 @@
+2024-03-16 12:45:58 INFO:__main__	****************** Start plot generation at 03/16/2024 12:45:58 ******************
+2024-03-16 12:45:58 INFO:__main__	Load data ...
+2024-03-16 12:45:58 INFO:__main__	Loaded ./Ht/short_summary.specific.apicomplexa_odb10.BUSCO_Haemoproteus_tartakovskyi.genome.txt successfully
+2024-03-16 12:45:58 INFO:__main__	Generate the R code ...
+2024-03-16 12:45:58 INFO:__main__	Run the R code ...
+2024-03-16 12:46:02 INFO:__main__	
+[1] "Plotting the figure ..."
+[1] "Done"
+
+2024-03-16 12:46:02 ERROR:__main__	
+Warning message:
+The `size` argument of `element_line()` is deprecated as of ggplot2 3.4.0.
+ℹ Please use the `linewidth` argument instead. 
+
+2024-03-16 12:46:02 INFO:__main__	Plot generation done. Total running time: 3.6716129779815674 seconds
+2024-03-16 12:46:02 INFO:__main__	Results written in ./Ht/
+
