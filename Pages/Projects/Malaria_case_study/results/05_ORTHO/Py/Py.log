@@ -1,0 +1,36 @@
+INFO: Program was run as gffParse.pl -c -p -i data/02_clean//Plasmodium_yoelii.genome -g results/02_gene_prediction/clean//genemark.Py.gtf -d results/05_ORTHO/Py -b Py
+
+INFO: The gff or gtf file results/02_gene_prediction/clean//genemark.Py.gtf has successfully been parsed.
+      There were 116 scaffolds containing genes.
+      The scaffolds contained 4863 genes.
+      The genes contained the feature CDS 14539 times.
+
+INFO: The scaffold/genome file data/02_clean//Plasmodium_yoelii.genome was successfully parsed.
+      There were 130 scaffolds. This number may be higher than the one above.
+
+INFO: Following files were output in the directory
+      results/05_ORTHO/Py:
+      Py.fna (fasta file containing the genes)
+      Py.log (log file)
+      Py.faa (fasta file containing translated genes)
+
+WARNINGS:
+
+Gene 1_g (- strand) contains internal stop codons. Phase 2 of sequence is used instead.
+Gene 7_g (- strand) contains internal stop codons. Phase 2 of sequence is used instead.
+Gene 169_g (+ strand) contains internal stop codons. Phase 3 of sequence is used instead.
+Gene 608_g (+ strand) contains internal stop codons. Phase 3 of sequence is used instead.
+Gene 928_g (+ strand) contains internal stop codons. Phase 3 of sequence is used instead.
+Gene 940_g (- strand) contains internal stop codons. Phase 3 of sequence is used instead.
+Gene 1794_g (- strand) contains internal stop codons. Phase 3 of sequence is used instead.
+Gene 4246_g (+ strand) contains internal stop codons. Phase 3 of sequence is used instead.
+Gene 4461_g (+ strand) contains internal stop codons. Phase 3 of sequence is used instead.
+Gene 4464_g (- strand) contains internal stop codons. Phase 2 of sequence is used instead.
+Gene 4467_g (- strand) contains internal stop codons. Phase 2 of sequence is used instead.
+Gene 4594_g (- strand) contains internal stop codons. Phase 3 of sequence is used instead.
+Gene 4638_g (+ strand) contains internal stop codons. Phase 2 of sequence is used instead.
+Gene 4835_g (+ strand) contains internal stop codons. Phase 2 of sequence is used instead.
+Gene 4840_g (- strand) contains internal stop codons. Phase 2 of sequence is used instead.
+Gene 4845_g (+ strand) contains internal stop codons. Phase 3 of sequence is used instead.
+Gene 4854_g (+ strand) contains internal stop codons. Phase 2 of sequence is used instead.
+Gene 4859_g (+ strand) contains internal stop codons. Phase 2 of sequence is used instead.

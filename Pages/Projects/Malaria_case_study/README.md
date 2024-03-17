@@ -128,7 +128,7 @@ blastp -query $gene_dir/$output"_GC"$gc_threshold"_pred.faa" -db SwissProt -outf
 ```
 With 16 cores the blast search takes hours to run, using 160 cores on the server it was done within a few minutes. The bird database that has been used to select matching hits was download from UniProtDB. Taxonomy filter was set to taxid=8782 (Aves) and the resulting table was downloaded - `uniprotkb_taxid_aves.tsv`: including around 5.7 million proteins.
 
-![fig1](results/03_cleaned_genomes/gene_prediction/Ht_GC27.png)
+![fig1](results/01_QC/Ht_GC27.png)
 
 Removing contigs with bird protein encoding genes in case of using a GC threshold of 27, there were 5074 scaffolds containing 6736 genes. Searching for proteins, where bird was among the top 5 hits, 67 (1.35%) scaffold were excluded. The top 5 hits excluded less than 2% of the contigs, hence I went with it end removed these contigs from the genome that has been previously filtered for GC content and assembly length previously. For the GC27 and GC30 genomes, this step removed 5.47% and 6.5% of the total sequences. Together with the GC and length filter 57.8% of the original assemlby was got filtered out.
 ```bash

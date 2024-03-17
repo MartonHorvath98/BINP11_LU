@@ -1,0 +1,273 @@
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:12 2024] /usr/local/bin/probuild --reformat_fasta --uppercase --allow_x --letters_per_line 60 --out data/dna.fna --label _dna --trace info/dna.trace --in /home/inf-42-2023/binp29/Malaria_new/data/clean_genomes/Plasmodium_knowlesi.genome  --mask_soft 1000 --mask_margin 0 --low2gff data/in_mask.gff 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:12 2024] cat  in_mask.gff   >> plus.gff
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:12 2024] /usr/local/bin/probuild  --seq data/dna.fna  --allow_x  --stat info/dna.general  --details
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:13 2024] /usr/local/bin/probuild  --seq data/dna.fna  --allow_x  --stat_fasta info/dna.multi_fasta
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:13 2024] /usr/local/bin/probuild  --seq data/dna.fna  --allow_x  --substring_n_distr info/dna.gap_distr
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:14 2024] /usr/local/bin/gc_distr.pl --in data/dna.fna  --out info/dna.gc.csv  --w 1000,8000
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:14 2024] /usr/local/bin/probuild  --seq /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/data/dna.fna  --split dna.fa  --max_contig 5000000 --min_contig 3000 --letters_per_line 100 --split_at_n 5000 --split_at_x 5000 --allow_x --x_to_n  --trace ../../info/training.trace 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:15 2024] /usr/local/bin/probuild --seq data/training.fna --stat info/training.general --allow_x  --GC_PRECISION 0  --details
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:16 2024] /usr/local/bin/build_mod.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg  --section ES_ini --def /home2/resources/binp28/Programs/Genemark/gmes_linux_64/heu_dir/heu_05_gcode_1_gc_39.mod 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:16 2024] ln -sf  /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run/ES_ini/es_ini.mod  run/ini.mod
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:16 2024] 62 contigs in list
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:34 2024] ln -sf /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run/ES_ini/es_ini.mod  /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run/ES_A_1/prev.mod
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:35 2024] /usr/local/bin/parse_set.pl --section ES_A --cfg  /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg  --v 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:35 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section start_ATG   --format INI
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:35 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section stop_TAA    --format TERM_TAA
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:35 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section stop_TAG    --format TERM_TAG
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:35 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section stop_TGA    --format TERM_TGA
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:35 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section donor_GT    --format DONOR 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:35 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section acceptor_AG --format ACCEPTOR 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:36 2024] /usr/local/bin/probuild --cod cod.seq --non non.seq --mkmod_euk mkch    --MKCHAIN_L_MARGING 0  --MKCHAIN_R_MARGING 0  --MKCHAIN_PSEUDOCOUNTS 1  --MKCHAIN_PRECISION 8 --revcomp_non  --ORDM 5 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:36 2024] /usr/local/bin/build_mod.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section ES_A --def prev.mod  --out ES_A_1.mod 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:36 2024] 62 contigs in list
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:55 2024] ln -sf /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run/ES_A_1/ES_A_1.mod  /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run/ES_A_2/prev.mod
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:56 2024] /usr/local/bin/parse_set.pl --section ES_A --cfg  /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg  --v 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:56 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section start_ATG   --format INI
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:56 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section stop_TAA    --format TERM_TAA
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:56 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section stop_TAG    --format TERM_TAG
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:56 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section stop_TGA    --format TERM_TGA
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:56 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section donor_GT    --format DONOR 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:56 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section acceptor_AG --format ACCEPTOR 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:57 2024] /usr/local/bin/probuild --cod cod.seq --non non.seq --mkmod_euk mkch    --MKCHAIN_L_MARGING 0  --MKCHAIN_R_MARGING 0  --MKCHAIN_PSEUDOCOUNTS 1  --MKCHAIN_PRECISION 8 --revcomp_non  --ORDM 5 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:57 2024] /usr/local/bin/build_mod.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section ES_A --def prev.mod  --out ES_A_2.mod 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:01:57 2024] 62 contigs in list
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:16 2024] ln -sf /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run/ES_A_2/ES_A_2.mod  /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run/ES_B_1/prev.mod
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:16 2024] /usr/local/bin/parse_set.pl --section ES_B --cfg  /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg  --v
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:16 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section start_ATG   --format INI
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:17 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section stop_TAA    --format TERM_TAA
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:17 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section stop_TAG    --format TERM_TAG
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:17 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section stop_TGA    --format TERM_TGA
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:17 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section donor_GT    --format DONOR_0    --phase 0 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:17 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section acceptor_AG --format ACCEPTOR_0 --phase 0 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:17 2024]  cat  GT.mat > donor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:17 2024]  cat  AG.mat > acceptor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:17 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section donor_GT    --format DONOR_1    --phase 1 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:17 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section acceptor_AG --format ACCEPTOR_1 --phase 1 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:17 2024]  cat  GT.mat >> donor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:17 2024]  cat  AG.mat >> acceptor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:17 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section donor_GT    --format DONOR_2    --phase 2 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:18 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section acceptor_AG --format ACCEPTOR_2 --phase 2 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:18 2024]  cat  GT.mat >> donor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:18 2024]  cat  AG.mat >> acceptor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:18 2024]  mv donor.mat     GT.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:18 2024]  mv acceptor.mat  AG.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:18 2024] /usr/local/bin/probuild --cod cod.seq --non non.seq --mkmod_euk mkch    --MKCHAIN_L_MARGING 0  --MKCHAIN_R_MARGING 0  --MKCHAIN_PSEUDOCOUNTS 1  --MKCHAIN_PRECISION 8 --revcomp_non  --ORDM 5 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:20 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section intron_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:21 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section initial_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:21 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section internal_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:22 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section terminal_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:22 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section single_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:22 2024] /usr/local/bin/build_mod.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section ES_B --def prev.mod  --out ES_B_1.mod 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:22 2024] 62 contigs in list
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:41 2024] ln -sf /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run/ES_B_1/ES_B_1.mod  /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run/ES_C_1/prev.mod
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:42 2024] /usr/local/bin/parse_set.pl --section ES_C --cfg  /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg  --v
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:42 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section start_ATG   --format INI
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:42 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section stop_TAA    --format TERM_TAA
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:42 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section stop_TAG    --format TERM_TAG
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:42 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section stop_TGA    --format TERM_TGA
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:42 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section donor_GT    --format DONOR_0    --phase 0  --quiet
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:43 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section acceptor_AG --format ACCEPTOR_0 --phase 0 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:43 2024]  cat  GT.mat > donor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:43 2024]  cat  AG.mat > acceptor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:43 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section donor_GT    --format DONOR_1    --phase 1  --quiet
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:43 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section acceptor_AG --format ACCEPTOR_1 --phase 1 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:43 2024]  cat  GT.mat >> donor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:43 2024]  cat  AG.mat >> acceptor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:43 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section donor_GT    --format DONOR_2    --phase 2  --quiet
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:43 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section acceptor_AG --format ACCEPTOR_2 --phase 2 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:43 2024]  cat  GT.mat >> donor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:43 2024]  cat  AG.mat >> acceptor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:43 2024]  mv donor.mat     GT.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:43 2024]  mv acceptor.mat  AG.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:43 2024] /usr/local/bin/make_nt_freq_mat.pl  --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg  --section donor_GC  --format DONOR_GC_0  --phase 0  --force
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:43 2024]  cat  GC.mat > donor_GC.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:43 2024] /usr/local/bin/make_nt_freq_mat.pl  --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg  --section donor_GC  --format DONOR_GC_1  --phase 1  --force
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:43 2024]  cat  GC.mat >> donor_GC.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:44 2024] /usr/local/bin/make_nt_freq_mat.pl  --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg  --section donor_GC  --format DONOR_GC_2  --phase 2  --force
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:44 2024]  cat  GC.mat >> donor_GC.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:44 2024]  mv donor_GC.mat GC.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:44 2024] /usr/local/bin/probuild --cod cod.seq --non non.seq --mkmod_euk mkch    --MKCHAIN_L_MARGING 0  --MKCHAIN_R_MARGING 0  --MKCHAIN_PSEUDOCOUNTS 1  --MKCHAIN_PRECISION 8 --revcomp_non  --ORDM 5 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:48 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section intron_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:48 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section initial_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:48 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section internal_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:49 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section terminal_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:02:49 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section single_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:13 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section intergenic_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:13 2024] /usr/local/bin/build_mod.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section ES_C --def prev.mod  --out ES_C_1.mod 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:13 2024] 62 contigs in list
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:39 2024] ln -sf /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run/ES_C_1/ES_C_1.mod  /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run/ES_C_2/prev.mod
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:40 2024] /usr/local/bin/parse_set.pl --section ES_C --cfg  /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg  --v
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:40 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section start_ATG   --format INI
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:40 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section stop_TAA    --format TERM_TAA
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:40 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section stop_TAG    --format TERM_TAG
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:41 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section stop_TGA    --format TERM_TGA
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:41 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section donor_GT    --format DONOR_0    --phase 0  --quiet
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:41 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section acceptor_AG --format ACCEPTOR_0 --phase 0 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:41 2024]  cat  GT.mat > donor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:41 2024]  cat  AG.mat > acceptor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:41 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section donor_GT    --format DONOR_1    --phase 1  --quiet
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:41 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section acceptor_AG --format ACCEPTOR_1 --phase 1 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:41 2024]  cat  GT.mat >> donor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:41 2024]  cat  AG.mat >> acceptor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:41 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section donor_GT    --format DONOR_2    --phase 2  --quiet
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:41 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section acceptor_AG --format ACCEPTOR_2 --phase 2 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:41 2024]  cat  GT.mat >> donor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:41 2024]  cat  AG.mat >> acceptor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:41 2024]  mv donor.mat     GT.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:41 2024]  mv acceptor.mat  AG.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:42 2024] /usr/local/bin/make_nt_freq_mat.pl  --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg  --section donor_GC  --format DONOR_GC_0  --phase 0  --force
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:42 2024]  cat  GC.mat > donor_GC.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:42 2024] /usr/local/bin/make_nt_freq_mat.pl  --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg  --section donor_GC  --format DONOR_GC_1  --phase 1  --force
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:42 2024]  cat  GC.mat >> donor_GC.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:42 2024] /usr/local/bin/make_nt_freq_mat.pl  --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg  --section donor_GC  --format DONOR_GC_2  --phase 2  --force
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:42 2024]  cat  GC.mat >> donor_GC.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:42 2024]  mv donor_GC.mat GC.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:42 2024] /usr/local/bin/probuild --cod cod.seq --non non.seq --mkmod_euk mkch    --MKCHAIN_L_MARGING 0  --MKCHAIN_R_MARGING 0  --MKCHAIN_PSEUDOCOUNTS 1  --MKCHAIN_PRECISION 8 --revcomp_non  --ORDM 5 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:46 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section intron_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:47 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section initial_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:47 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section internal_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:47 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section terminal_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:03:48 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section single_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:12 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section intergenic_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:13 2024] /usr/local/bin/build_mod.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section ES_C --def prev.mod  --out ES_C_2.mod 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:13 2024] 62 contigs in list
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:38 2024] ln -sf /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run/ES_C_2/ES_C_2.mod  /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run/ES_C_3/prev.mod
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:39 2024] /usr/local/bin/parse_set.pl --section ES_C --cfg  /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg  --v
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:39 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section start_ATG   --format INI
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:40 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section stop_TAA    --format TERM_TAA
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:40 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section stop_TAG    --format TERM_TAG
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:40 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section stop_TGA    --format TERM_TGA
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:40 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section donor_GT    --format DONOR_0    --phase 0  --quiet
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:40 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section acceptor_AG --format ACCEPTOR_0 --phase 0 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:40 2024]  cat  GT.mat > donor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:40 2024]  cat  AG.mat > acceptor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:40 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section donor_GT    --format DONOR_1    --phase 1  --quiet
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:40 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section acceptor_AG --format ACCEPTOR_1 --phase 1 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:40 2024]  cat  GT.mat >> donor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:40 2024]  cat  AG.mat >> acceptor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:41 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section donor_GT    --format DONOR_2    --phase 2  --quiet
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:41 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section acceptor_AG --format ACCEPTOR_2 --phase 2 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:41 2024]  cat  GT.mat >> donor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:41 2024]  cat  AG.mat >> acceptor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:41 2024]  mv donor.mat     GT.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:41 2024]  mv acceptor.mat  AG.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:41 2024] /usr/local/bin/make_nt_freq_mat.pl  --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg  --section donor_GC  --format DONOR_GC_0  --phase 0  --force
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:41 2024]  cat  GC.mat > donor_GC.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:41 2024] /usr/local/bin/make_nt_freq_mat.pl  --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg  --section donor_GC  --format DONOR_GC_1  --phase 1  --force
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:41 2024]  cat  GC.mat >> donor_GC.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:41 2024] /usr/local/bin/make_nt_freq_mat.pl  --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg  --section donor_GC  --format DONOR_GC_2  --phase 2  --force
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:41 2024]  cat  GC.mat >> donor_GC.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:41 2024]  mv donor_GC.mat GC.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:42 2024] /usr/local/bin/probuild --cod cod.seq --non non.seq --mkmod_euk mkch    --MKCHAIN_L_MARGING 0  --MKCHAIN_R_MARGING 0  --MKCHAIN_PSEUDOCOUNTS 1  --MKCHAIN_PRECISION 8 --revcomp_non  --ORDM 5 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:46 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section intron_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:46 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section initial_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:47 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section internal_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:47 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section terminal_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:04:47 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section single_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:12 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section intergenic_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:12 2024] /usr/local/bin/build_mod.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section ES_C --def prev.mod  --out ES_C_3.mod 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:12 2024] 62 contigs in list
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:38 2024] ln -sf /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run/ES_C_3/ES_C_3.mod  /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run/ES_C_4/prev.mod
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:39 2024] /usr/local/bin/parse_set.pl --section ES_C --cfg  /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg  --v
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:39 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section start_ATG   --format INI
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:39 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section stop_TAA    --format TERM_TAA
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:39 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section stop_TAG    --format TERM_TAG
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:39 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section stop_TGA    --format TERM_TGA
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:39 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section donor_GT    --format DONOR_0    --phase 0  --quiet
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:40 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section acceptor_AG --format ACCEPTOR_0 --phase 0 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:40 2024]  cat  GT.mat > donor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:40 2024]  cat  AG.mat > acceptor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:40 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section donor_GT    --format DONOR_1    --phase 1  --quiet
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:40 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section acceptor_AG --format ACCEPTOR_1 --phase 1 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:40 2024]  cat  GT.mat >> donor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:40 2024]  cat  AG.mat >> acceptor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:40 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section donor_GT    --format DONOR_2    --phase 2  --quiet
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:40 2024] /usr/local/bin/make_nt_freq_mat.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section acceptor_AG --format ACCEPTOR_2 --phase 2 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:40 2024]  cat  GT.mat >> donor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:40 2024]  cat  AG.mat >> acceptor.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:40 2024]  mv donor.mat     GT.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:40 2024]  mv acceptor.mat  AG.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:40 2024] /usr/local/bin/make_nt_freq_mat.pl  --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg  --section donor_GC  --format DONOR_GC_0  --phase 0  --force
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:40 2024]  cat  GC.mat > donor_GC.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:41 2024] /usr/local/bin/make_nt_freq_mat.pl  --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg  --section donor_GC  --format DONOR_GC_1  --phase 1  --force
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:41 2024]  cat  GC.mat >> donor_GC.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:41 2024] /usr/local/bin/make_nt_freq_mat.pl  --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg  --section donor_GC  --format DONOR_GC_2  --phase 2  --force
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:41 2024]  cat  GC.mat >> donor_GC.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:41 2024]  mv donor_GC.mat GC.mat 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:41 2024] /usr/local/bin/probuild --cod cod.seq --non non.seq --mkmod_euk mkch    --MKCHAIN_L_MARGING 0  --MKCHAIN_R_MARGING 0  --MKCHAIN_PSEUDOCOUNTS 1  --MKCHAIN_PRECISION 8 --revcomp_non  --ORDM 5 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:45 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section intron_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:45 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section initial_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:46 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section internal_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:46 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section terminal_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:05:47 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section single_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:11 2024] /usr/local/bin/histogram.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section intergenic_DUR
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:12 2024] /usr/local/bin/build_mod.pl --cfg /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run.cfg --section ES_C --def prev.mod  --out ES_C_4.mod 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:12 2024] cp /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/run/ES_C_4/ES_C_4.mod /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/gmhmm.mod
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:12 2024] cp /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/gmhmm.mod output/gmhmm.mod
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:12 2024] /usr/local/bin/probuild  --seq /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/data/dna.fna  --split dna.fa  --max_contig 5000000 --min_contig 500 --letters_per_line 100 --split_at_n 5000 --split_at_x 5000 --allow_x --x_to_n  --trace ../../info/prediction.trace 
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:12 2024] 62 contigs in list
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] 62 contigs in list
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_1.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_2.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_3.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_4.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_5.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_6.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_7.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_8.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_9.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_10.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_11.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_12.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_13.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_14.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_15.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_16.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_17.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_18.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_19.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_20.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_21.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_22.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_23.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_24.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_25.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_26.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_27.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_28.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_29.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_30.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_31.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_32.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_33.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_34.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_35.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_36.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_37.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_38.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_39.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_40.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_41.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_42.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_43.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_44.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_45.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_46.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_47.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_48.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_49.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_50.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_51.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_52.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_53.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_54.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_55.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_56.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_57.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_58.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_59.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_60.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_61.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] cat /home/inf-42-2023/binp29/Malaria_new/results/02_gene_prediction/clean/Pk/output/gmhmm/dna.fa_62.out >> genemark.gtf
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] /usr/local/bin/reformat_gff.pl --out genemark.gtf.tmp --trace info/dna.trace --in genemark.gtf  --back
+/usr/local/bin/gmes_petap.pl : [Fri Mar  1 14:06:38 2024] mv genemark.gtf.tmp genemark.gtf

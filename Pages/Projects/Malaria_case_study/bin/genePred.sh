@@ -45,13 +45,11 @@ fi
 
 # Visit the output directory, move the gene prediction files to the main output directory
 # and rename the files to include the species name
-for d in ${out_dir2}/*; do
-    echo "$out_dir2"
+for d in ${out_dir}/*; do
     if [ -d "$d" ]; then
-        species=$(basename $d)
-        cat ${out_dir2}/${d}/genemark.gtf | sed -e "s/\s*length=[[:digit:]]*.*numreads=[[:digit:]]*\b//gm" >\
-            ${out_dir2}/genemark.${species}.gtf # Gene prediction file
-        # mv ${out_dir2}/${d}/*.log ${out_dir2}/${species}.log # Log file
+        species=$(sed 's#.*/##' <<< $d)
+        cat "${d}/genemark.gtf" | sed -e "s/\s*length=[[:digit:]]*.*numreads=[[:digit:]]*\b//gm" > "${out_dir}/genemark.${species}.gtf" # Gene prediction file
+        mv "${d}/gmes.log" "${out_dir}/${species}.log" # Log file
         # Remove the directory
         #rm -r $d
     fi

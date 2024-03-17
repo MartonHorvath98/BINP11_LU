@@ -1,2 +1,4 @@
-data/
-results/
+*.genome
+aves_taxid.tsv
+apicomplexa_odb10
+
