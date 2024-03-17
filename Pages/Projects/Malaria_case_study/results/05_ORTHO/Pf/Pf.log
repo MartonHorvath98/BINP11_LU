@@ -1,0 +1,19 @@
+INFO: Program was run as gffParse.pl -c -p -i data/02_clean//Plasmodium_faciparum.genome -g results/02_gene_prediction/clean//genemark.Pf.gtf -d results/05_ORTHO/Pf -b Pf
+
+INFO: The gff or gtf file results/02_gene_prediction/clean//genemark.Pf.gtf has successfully been parsed.
+      There were 15 scaffolds containing genes.
+      The scaffolds contained 5204 genes.
+      The genes contained the feature CDS 15638 times.
+
+INFO: The scaffold/genome file data/02_clean//Plasmodium_faciparum.genome was successfully parsed.
+      There were 15 scaffolds. This number may be higher than the one above.
+
+INFO: Following files were output in the directory
+      results/05_ORTHO/Pf:
+      Pf.fna (fasta file containing the genes)
+      Pf.log (log file)
+      Pf.faa (fasta file containing translated genes)
+
+WARNINGS:
+
+Gene 1289_g (+ strand) contains internal stop codons. Phase 2 of sequence is used instead.
