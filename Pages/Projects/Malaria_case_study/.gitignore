@@ -1,6 +1,7 @@
-*.genome
-aves_taxid.tsv
-apicomplexa_odb10
-busco_downloads
-*.protein
+data/
+busco_downloads/
+logs/
+run_apicomplexa_odb10/
+*.R
+*.json
 
