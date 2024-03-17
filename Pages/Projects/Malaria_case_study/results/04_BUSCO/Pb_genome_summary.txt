@@ -1,0 +1,30 @@
+# BUSCO version is: 5.6.1 
+# The lineage dataset is:  (Creation date: 2024-01-08, number of genomes: 54, number of BUSCOs: 446)
+# Summarized benchmarking in BUSCO notation for file /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/Malaria_case_study/data/02_clean/Plasmodium_berghei.genome
+# BUSCO was run in mode: euk_genome_met
+# Gene predictor used: metaeuk
+
+	***** Results: *****
+
+	C:83.9%[S:81.4%,D:2.5%],F:11.7%,M:4.4%,n:446	   
+	374	Complete BUSCOs (C)			   
+	363	Complete and single-copy BUSCOs (S)	   
+	11	Complete and duplicated BUSCOs (D)	   
+	52	Fragmented BUSCOs (F)			   
+	20	Missing BUSCOs (M)			   
+	446	Total BUSCO groups searched		   
+
+Assembly Statistics:
+	7479	Number of scaffolds
+	7500	Number of contigs
+	17954629	Total length
+	0.011%	Percent gaps
+	4 KB	Scaffold N50
+	4 KB	Contigs N50
+
+
+Dependencies and versions:
+	hmmsearch: 3.1
+	bbtools: 39.01
+	metaeuk: 6.a5d39d9
+	busco: 5.6.1

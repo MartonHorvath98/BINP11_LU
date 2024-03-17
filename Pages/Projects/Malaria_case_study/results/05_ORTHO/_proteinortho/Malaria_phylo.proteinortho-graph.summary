@@ -1,0 +1,67 @@
+# Malaria_phylo.proteinortho.tsv statistics:
+# number of groups that contains at least p% species:
+# p	species	groups	genes in groups
+0%	0	5456 (100%)	29523 (100%)	
+20%	1	5456 (100%)	29523 (100%)	
+30%	2	5456 (100%)	29523 (100%)	
+40%	3	4600 (84.31%)	27664 (93.7%)	
+50%	4	4132 (75.73%)	26241 (88.88%)	
+70%	5	3819 (69.99%)	24959 (84.54%)	
+80%	6	3042 (55.75%)	21019 (71.19%)	
+90%	7	1440 (26.39%)	11229 (38.03%)	
+100%	8	322 (5.9%)	2931 (9.92%)	
+# NOTE: p=100% correspond to the core proteome and p=0% to all groups
+# number of groups for each input species:
+Pv.fixed.faa	4727	86.63%
+Pc.fixed.faa	4693	86.01%
+Pk.fixed.faa	4451	81.57%
+Py.fixed.faa	4273	78.31%
+Pf.fixed.faa	4057	74.35%
+Pb.fixed.faa	3500	64.14%
+Ht.fixed.faa	1637	30%
+Tg.fixed.faa	929	17.02%
+
+# ----------------------------------
+# graph file statistics:
+
+# The adjacency matrix, the number of edges between 2 species
+# file	Ht.fixed.faa	Pb.fixed.faa	Pc.fixed.faa	Pf.fixed.faa	Pk.fixed.faa	Pv.fixed.faa	Py.fixed.faa	Tg.fixed.faa	
+Ht.fixed.faa	0	1115	1315	1393	1354	1359	1380	614
+Pb.fixed.faa	1115	0	2593	2680	2643	2658	3286	1213
+Pc.fixed.faa	1315	2593	0	3534	4206	4586	3499	1423
+Pf.fixed.faa	1393	2680	3534	0	3709	3678	3664	1434
+Pk.fixed.faa	1354	2643	4206	3709	0	4310	3605	1503
+Pv.fixed.faa	1359	2658	4586	3678	4310	0	3650	1533
+Py.fixed.faa	1380	3286	3499	3664	3605	3650	0	1393
+Tg.fixed.faa	614	1213	1423	1434	1503	1533	1393	0
+
+# file	average number of edges
+Ht.fixed.faa	1066.25	
+Pb.fixed.faa	2023.5	
+Pc.fixed.faa	2644.5	
+Pf.fixed.faa	2511.5	
+Pk.fixed.faa	2666.25	
+Pv.fixed.faa	2721.75	
+Py.fixed.faa	2559.625	
+Tg.fixed.faa	1139.125	
+
+# The 2-path matrix, the number of paths between 2 species of length 2
+# file	Ht.fixed.faa	Pb.fixed.faa	Pc.fixed.faa	Pf.fixed.faa	Pk.fixed.faa	Pv.fixed.faa	Py.fixed.faa	Tg.fixed.faa	
+Ht.fixed.faa(0)	10874492	19613341	25443697	23592594	25399504	25931716	24065849	11262051
+Pb.fixed.faa(1)	39226682	41468852	47467204	44075214	47481137	48508582	41350551	20842110
+Pc.fixed.faa(2)	50887394	94934408	73931792	56109315	56259739	54758000	57167643	27246538
+Pf.fixed.faa(3)	47185188	88150428	112218630	64377622	55049568	56781163	51887493	25451977
+Pk.fixed.faa(4)	50799008	94962274	112519478	110099136	74097016	57257947	56685167	26970154
+Pv.fixed.faa(5)	51863432	97017164	109516000	113562326	114515894	77719614	57805233	27421090
+Py.fixed.faa(6)	48131698	82701102	114335286	103774986	113370334	115610466	66629067	26080256
+Tg.fixed.faa(7)	22524102	41684220	54493076	50903954	53940308	54842180	52160512	12479197
+
+# file	average number of 2-paths
+Ht.fixed.faa(0)	40186499.5
+Pb.fixed.faa(1)	72518141.25
+Pc.fixed.faa(2)	90354508
+Pf.fixed.faa(3)	86284033.75
+Pk.fixed.faa(4)	90537931
+Pv.fixed.faa(5)	91830884.5
+Py.fixed.faa(6)	87089181.375
+Tg.fixed.faa(7)	42878443.625

@@ -1,4 +1,6 @@
 *.genome
 aves_taxid.tsv
 apicomplexa_odb10
+busco_downloads
+*.protein
 

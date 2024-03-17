@@ -1,0 +1,8 @@
+SYSTEMCALL of Sun Mar 17 15:05:35 2024:
+proteinortho -project=Malaria_phylo /Ht.fixed.faa /Pb.fixed.faa /Pc.fixed.faa /Pf.fixed.faa /Pk.fixed.faa /Pv.fixed.faa /Py.fixed.faa /Tg.fixed.faa
+
+Parameter-vector : (version=6.3.1,step=0,verbose=1,debug=0,synteny=0,duplication=2,cs=3,alpha=0.5,connectivity=0.1,cpus=0,evalue=1e-05,purity=-1,coverage=50,identity=25,blastmode=diamond,sim=0.95,report=3,keep=0,force=0,selfblast=0,twilight=0,core=0,coreMinSpecies=0,coreMaxProts=10,pseudo=1,omni=0,identical=0,range=-1,singles=0,clean=0,blastOptions=,makeBlastOptions=,nograph=0,xml=0,desc=0,tmp_path=./proteinortho_cache_Malaria_phylo/,blastversion=unknown,binpath=,makedb=,blast=,jobs_todo=0,project=Malaria_phylo,inproject=Malaria_phylo,po_path=/root/miniforge3/envs/malaria/bin/,run_id=,threads_per_process=1,um=0)--------
+SYSTEMCALL of Sun Mar 17 15:06:13 2024:
+proteinortho -project=Malaria_phylo Ht.fixed.faa Pb.fixed.faa Pc.fixed.faa Pf.fixed.faa Pk.fixed.faa Pv.fixed.faa Py.fixed.faa Tg.fixed.faa
+
+Parameter-vector : (version=6.3.1,step=0,verbose=1,debug=0,synteny=0,duplication=2,cs=3,alpha=0.5,connectivity=0.1,cpus=0,evalue=1e-05,purity=-1,coverage=50,identity=25,blastmode=diamond,sim=0.95,report=3,keep=0,force=0,selfblast=0,twilight=0,core=0,coreMinSpecies=0,coreMaxProts=10,pseudo=1,omni=0,identical=0,range=-1,singles=0,clean=0,blastOptions=,makeBlastOptions=,nograph=0,xml=0,desc=0,tmp_path=./proteinortho_cache_Malaria_phylo/,blastversion=unknown,binpath=,makedb=,blast=,jobs_todo=0,project=Malaria_phylo,inproject=Malaria_phylo,po_path=/root/miniforge3/envs/malaria/bin/,run_id=,threads_per_process=1,um=0)--------

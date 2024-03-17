@@ -1,0 +1,18 @@
+# BUSCO version is: 5.6.1 
+# The lineage dataset is:  (Creation date: 2024-01-08, number of genomes: 54, number of BUSCOs: 446)
+# Summarized benchmarking in BUSCO notation for file /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/Malaria_case_study/results/05_ORTHO/Tg.fixed.faa
+# BUSCO was run in mode: proteins
+
+	***** Results: *****
+
+	C:86.6%[S:0.9%,D:85.7%],F:4.5%,M:8.9%,n:446	   
+	386	Complete BUSCOs (C)			   
+	4	Complete and single-copy BUSCOs (S)	   
+	382	Complete and duplicated BUSCOs (D)	   
+	20	Fragmented BUSCOs (F)			   
+	40	Missing BUSCOs (M)			   
+	446	Total BUSCO groups searched		   
+
+Dependencies and versions:
+	hmmsearch: 3.1
+	busco: 5.6.1

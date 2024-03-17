@@ -1,0 +1,30 @@
+# BUSCO version is: 5.6.1 
+# The lineage dataset is:  (Creation date: 2024-01-08, number of genomes: 54, number of BUSCOs: 446)
+# Summarized benchmarking in BUSCO notation for file /mnt/c/Users/HMarton/GitHub/LundUni/Pages/Projects/Malaria_case_study/data/02_clean/Plasmodium_yoelii.genome
+# BUSCO was run in mode: euk_genome_met
+# Gene predictor used: metaeuk
+
+	***** Results: *****
+
+	C:99.3%[S:99.3%,D:0.0%],F:0.4%,M:0.3%,n:446	   
+	443	Complete BUSCOs (C)			   
+	443	Complete and single-copy BUSCOs (S)	   
+	0	Complete and duplicated BUSCOs (D)	   
+	2	Fragmented BUSCOs (F)			   
+	1	Missing BUSCOs (M)			   
+	446	Total BUSCO groups searched		   
+
+Assembly Statistics:
+	130	Number of scaffolds
+	1131	Number of contigs
+	22222369	Total length
+	4.569%	Percent gaps
+	1 MB	Scaffold N50
+	72 KB	Contigs N50
+
+
+Dependencies and versions:
+	hmmsearch: 3.1
+	bbtools: 39.01
+	metaeuk: 6.a5d39d9
+	busco: 5.6.1
