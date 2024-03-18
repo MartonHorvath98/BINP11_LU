@@ -268,13 +268,13 @@ In contrary, when working with the ProteinOrtho outputs I used clusters, which c
 
 | cluster  | Alg.-Conn. | sequences | Description | AIC |
 |----------|:----------:|-----------|-------------|-----|
-| Group317 | 0.75       | 272_g_Ht,3054_g_Pb,571_g_Pc,3594_g_Pf,591_g_Pk,551_g_Pv,4261_g_Py,7471_g_Tg  | Methylthiotransferase, N-terminal | -10407.905 |
-| Group316 | 0.75       | 1603_g_Ht,1584_g_Pb,2940_g_Pc,1145_g_Pf,3037_g_Pk,2912_g_Pv,3372_g_Py,11682_g_Tg | | -10354.286 |
-| Group315 | 0.75       | 1202_g_Ht,2842_g_Pb,1544_g_Pc,1620_g_Pf,1605_g_Pk,1522_g_Pv,2698_g_Py,12004_g_Tg | Cyclic nucleotide-binding, conserved site | -7791.550  |
-| Group311 | 1          | 1328_g_Ht,4351_g_Pb,2239_g_Pc,2238_g_Pf,2313_g_Pk,2200_g_Pv,1296_g_Py,4158_g_Tg  | -4663.740  | 
-| Group312 | 1          | 346_g_Ht,3769_g_Pb,2103_g_Pc,805_g_Pf,2164_g_Pk,2063_g_Pv,1162_g_Py,8008_g_Tg  | | -4263.997  |
-| Group313 | 1          | 76_g_Ht,3353_g_Pb,592_g_Pc,3574_g_Pf,613_g_Pk,570_g_Pv,4281_g_Py,8640_g_Tg | Matrin/U1-C-like, C2H2-type zinc finger | -2532.645  |
-| Group314 | 1          | 909_g_Ht,3720_g_Pb,1029_g_Pc,239_g_Pf,1070_g_Pk,1013_g_Pv,401_g_Py,12407_g_Tg | | -2241.070  |
+| Group317 | 0.75       | 272_g_Ht, 3054_g_Pb, 571_g_Pc, 3594_g_Pf, 591_g_Pk, 551_g_Pv, 4261_g_Py, 7471_g_Tg  | Methylthiotransferase, N-terminal | -10407.905 |
+| Group316 | 0.75       | 1603_g_Ht, 1584_g_Pb, 2940_g_Pc, 1145_g_Pf, 3037_g_Pk, 2912_g_Pv, 3372_g_Py, 11682_g_Tg | | -10354.286 |
+| Group315 | 0.75       | 1202_g_Ht, 2842_g_Pb, 1544_g_Pc, 1620_g_Pf, 1605_g_Pk, 1522_g_Pv, 2698_g_Py, 12004_g_Tg | Cyclic nucleotide-binding, conserved site | -7791.550  |
+| Group311 | 1          | 1328_g_Ht, 4351_g_Pb, 2239_g_Pc, 2238_g_Pf, 2313_g_Pk, 2200_g_Pv, 1296_g_Py, 4158_g_Tg  | | -4663.740  | 
+| Group312 | 1          | 346_g_Ht, 3769_g_Pb, 2103_g_Pc, 805_g_Pf, 2164_g_Pk, 2063_g_Pv, 1162_g_Py, 8008_g_Tg  | | -4263.997  |
+| Group313 | 1          | 76_g_Ht, 3353_g_Pb, 592_g_Pc, 3574_g_Pf, 613_g_Pk, 570_g_Pv, 4281_g_Py, 8640_g_Tg | Matrin/U1-C-like, C2H2-type zinc finger | -2532.645  |
+| Group314 | 1          | 909_g_Ht, 3720_g_Pb, 1029_g_Pc, 239_g_Pf, 1070_g_Pk, 1013_g_Pv, 401_g_Py, 12407_g_Tg | | -2241.070  |
 
 ## Creating phylogenetic trees
 
