@@ -57,9 +57,9 @@ rule run_genome_assembly_cleaning_pipeline:
         gtf="results/02_gene_prediction/genemark.Ht.gtf",
         database="data/uniprot/aves_taxid.tsv"
     output:
-        "results/03_cleaned_genomes/clean_genome/{ht}.genome"
+        "data/02_clean/clean_genome/{ht}.genome"
     shell:
         """
-        mkdir -p results/03_cleaned_genomes
-        source bin/cleanAves.sh -fa {input.genome_name} -g {input.gtf} -db {input.database} -gc 27 -o results/03_cleaned_genomes
+        mkdir -p data/02_clean
+        source bin/cleanAves.sh -fa {input.genome_name} -g {input.gtf} -db {input.database} -gc 27 -o data/02_clean
         """
