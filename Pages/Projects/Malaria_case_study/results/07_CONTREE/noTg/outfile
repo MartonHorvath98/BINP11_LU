@@ -1,0 +1,73 @@
+
+Consensus tree program, version 3.697
+
+Species in order: 
+
+  1. Ht
+  2. Pb
+  3. Py
+  4. Pf
+  5. Pc
+  6. Pv
+  7. Pk
+
+
+Sets included in the consensus tree
+
+Set (species in order)     How many times out of  305.00
+
+.**....                    301.00
+....***                    289.00
+....**.                    173.00
+.**.***                    146.00
+
+
+Sets NOT included in consensus tree:
+
+Set (species in order)     How many times out of  305.00
+
+....*.*                    84.00
+...****                    77.00
+.***...                    76.00
+.....**                    44.00
+.**...*                     4.00
+.****.*                     2.00
+.**.*.*                     2.00
+.*.*...                     2.00
+.**.*..                     2.00
+...***.                     2.00
+.****..                     2.00
+...*.*.                     2.00
+.*****.                     2.00
+...**..                     2.00
+.*.****                     2.00
+.***..*                     2.00
+.*.**..                     2.00
+.**..*.                     2.00
+
+
+Extended majority rule consensus tree
+
+CONSENSUS TREE:
+the numbers on the branches indicate the number
+of times the partition of the species into the two sets
+which are separated by that branch occurred
+among the trees, out of 305.00 trees
+
+                                  +-------Pb
+                  +---------301.0-|
+                  |               +-------Py
+          +-146.0-|
+          |       |       +---------------Pk
+          |       +-289.0-|
+  +-------|               |       +-------Pv
+  |       |               +-173.0-|
+  |       |                       +-------Pc
+  |       |
+  |       +-------------------------------Pf
+  |
+  +---------------------------------------Ht
+
+
+  remember: this is an unrooted tree!
+

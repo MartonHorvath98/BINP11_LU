@@ -9,6 +9,9 @@ dependencies:
   - proteinortho=6.3.1
   - seqkit=2.7.0
   - bbmap=39.06
+  - clustalo=1.2.4
+  - iqtree=2.3
+  - phylip=3.697
   - pip
   - numpy=1.26.4
   - matplotlib=3.8.3

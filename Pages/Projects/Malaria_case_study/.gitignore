@@ -4,4 +4,15 @@ logs/
 run_apicomplexa_odb10/
 *.R
 *.json
+*.contree
+*.fna
+*.aln
+*.faa
+*.bionj
+*.gz
+*.iqtree
+*.mldist
+*.iqtree
+*.mldist
+*.nex
 
