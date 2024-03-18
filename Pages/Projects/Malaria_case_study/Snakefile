@@ -4,62 +4,99 @@
 # Load the environment
 configfile: 'environment.yml'
 
-# Rules
 rule all:
     input:
-        "results/03_cleaned_genomes/clean_genome/Haemoproteus_tartakovskyi.genome"
+        "results/07_CONTREE/complete",
+        "results/07_CONTREE/minOut"
 
-# Create the results directory
-rule create_qc_results_dir:
-    output:
-        "results/01_QC"
+rule create_environment:
     shell:
-        """
-        mkdir -p {output}
-        """
-# Run the QC pipeline
+        "mamba create -f environment.yml && mamba activate malaria"
+
 rule run_qc_pipeline:
     input:
-        data="data/raw_genomes",
-        output="results/01_QC"
+        raw_data="data/00_raw"
     output:
-        "results/01_QC/qc_output.txt"
+        qc_folder="results/01_QC"
     shell:
         """
-        source bin/QC.sh -d {input.data} -o {output}
+        mkdir -p {output.qc_folder}
+        source bin/QC.sh -d {input.raw_data} -o {output.qc_folder}
         """
 
-# Create the gene prediction results directory
-rule create_gene_prediction_results_dir:
-    output:
-        "results/02_gene_prediction"
-    shell:
-        """
-        mkdir -p {output}
-        """
-
-# Run the gene prediction pipeline
-rule run_gene_prediction_pipeline:
+rule run_gene_prediction:
     input:
-        data="data/raw_genomes",
-        output="results/02_gene_prediction"
+        raw_data="data/00_raw"
     output:
-        "results/02_gene_prediction/gene_prediction_output.txt"
+        gene_folder_raw="results/02_gene_prediction/raw"
     shell:
         """
-        source bin/genePred.sh -d {input.data} -m 3000 -o {output}
+        mkdir -p {output.gene_folder_raw}
+        source bin/genePred.sh -d {input.raw_data} -o {output.gene_folder_raw} -m 1000
         """
 
-# Create the cleaned genomes directory
-rule run_genome_assembly_cleaning_pipeline:
+rule clean_genome_assembly:
     input:
-        genome_name="data/raw_genomes/{ht}.genome",
-        gtf="results/02_gene_prediction/genemark.Ht.gtf",
-        database="data/uniprot/aves_taxid.tsv"
+        raw_data="data/00_raw/Haemoproteus_tartakovskyi.genome",
+        gene_folder="results/02_gene_prediction/raw/genemark.Ht.gtf",
+        uniprot_db="data/01_uniprot/aves_taxid.tsv"
     output:
-        "data/02_clean/clean_genome/{ht}.genome"
+        clean_data="data/02_clean"
     shell:
         """
-        mkdir -p data/02_clean
-        source bin/cleanAves.sh -fa {input.genome_name} -g {input.gtf} -db {input.database} -gc 27 -o data/02_clean
+        mkdir -p {output.clean_data}
+        source bin/cleanAves.sh -fa {input.raw_data} -g {input.gene_folder} -db {input.uniprot_db} -gc 27 -o {output.clean_data}
+        """
+
+rule rerun_gene_prediction:
+    input:
+        clean_data="data/02_clean"
+    output:
+        gene_folder_clean="results/02_gene_prediction/clean"
+    shell:
+        """
+        mkdir -p {output.gene_folder_clean}
+        source bin/genePred.sh -d {input.clean_data} -o {output.gene_folder_clean} -m 3000
+        """
+
+rule get_orthologous_gene_groups_and_check_busco:
+    input:
+        clean_data="data/02_clean",
+        gene_folder_clean="results/02_gene_prediction/clean",
+        busco_db="data/03_busco_downloads/apicomplexa_odb10"
+    output:
+        busco_folder="results/04_BUSCO",
+        ortho_folder="results/05_ORTHO"
+    shell:
+        """
+        mkdir -p {output.busco_folder}
+        mkdir -p {output.ortho_folder}
+        source bin/getOrtho.sh -i {input.clean_data} -g {input.gene_folder_clean} -d {input.busco_db} -b {output.busco_folder} -o {output.ortho_folder}
+        """
+
+rule generate_phylogenetic_tree:
+    input:
+        busco_folder="results/04_BUSCO",
+        ortho_folder="results/05_ORTHO"
+    output:
+        phylo_folder="results/06_PHYLO"
+    shell:
+        """
+        mkdir -p {output.phylo_folder}
+        source bin/createPhyloTree.sh -i {input.busco_folder} -p {input.ortho_folder} -o {output.phylo_folder}
+        """
+
+rule create_consensus_tree:
+    input:
+        phylo_folder="results/06_PHYLO/tree",
+        noTG_tree="results/06_PHYLO/noTG_tree"
+    output:
+        consensus_complete="results/07_CONTREE/complete",
+        consensus_minOut="results/07_CONTREE/minOut"
+    shell:
+        """
+        mkdir -p {output.consensus_complete}
+        source bin/consensusTree.sh -i {input.phylo_folder} -o {output.consensus_complete} -m false
+        mkdir -p {output.consensus_minOut}
+        source bin/consensusTree.sh -i {input.noTG_tree} -o {output.consensus_minOut} -m true
         """

@@ -32,9 +32,10 @@ for taxa in {Ht,Pb,Pc,Pf,Pk,Pv,Py,Tg}; do
 done
 
 # Store the complete BUSCO genes name present in all taxa
-cat $output_dir/complete.tsv | cut -f2 | sort | uniq -c | awk '$1 == 8 {print $2}' > $output_dir/all_shared_ortho.tsv
-
-cat $output_dir/complete.tsv | grep -v "Tg" | cut -f2 | sort | uniq -c | awk '$1 == 7 {print $2}' > $output_dir/noTg_shared_ortho.tsv
+cat $output_dir/complete.tsv | cut -f2 | sort | uniq -c |\
+awk '$1 == 8 {print $2}' > $output_dir/all_shared_ortho.tsv
+cat $output_dir/complete.tsv | grep -v "Tg" | cut -f2 | sort | uniq -c |\
+awk '$1 == 7 {print $2}' > $output_dir/noTg_shared_ortho.tsv
 
 # A while loop that reads in genes from the all_share_ortho.tsv file, finds the corresponding
 # sequence ids from the tsv_path file, and then extracts the sequences from the protein_dir
@@ -92,7 +93,8 @@ for f in $output_dir/alignments/*; do
     fi
 done
 # Extract the AICs from the log files
-grep -oP "(?<=BEST SCORE FOUND : ).+" $(find ${output_dir}/tree/ -name *.log) | tr ":" "\t" | sort -n -k2 > ${output_dir}/AICs_full.txt
+grep -oP "(?<=BEST SCORE FOUND : ).+" $(find ${output_dir}/tree/ -name *.log) | tr ":" "\t" |\
+sort -n -k2 > ${output_dir}/AICs_full.txt
 
 # 2. for the set of shared genes excluding the outgroup, Toxoplasma gondii
 mkdir -p ${output_dir}/noTg_tree
@@ -104,6 +106,6 @@ for f in $output_dir/noTg_alignments/*; do
         iqtree -s $f -m MFP -bb 1000 -nt AUTO -pre ${output_dir}/noTg_tree/$(basename $f .aln)/$(basename $f .aln)
     fi
 done
-
 # Extract the AICs from the log files
-grep -oP "(?<=BEST SCORE FOUND : ).+" $(find ${output_dir}/noTg_tree/ -name *.log) | tr ":" "\t" | sort -n -k2 > ${output_dir}/AICs_noTg.txt
+grep -oP "(?<=BEST SCORE FOUND : ).+" $(find ${output_dir}/noTg_tree/ -name *.log) | tr ":" "\t" |\
+sort -n -k2 > ${output_dir}/AICs_noTg.txt

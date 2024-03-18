@@ -58,7 +58,7 @@ for d in $orto_dir/*; do
         taxon=$(basename $d | cut -d'.' -f1)
         
         # fix header
-        awk -v fix="_$taxon" '/^>/{print $1 fix; next}{print}' "$ortho_dir/$d/$taxon.faa" | sed 's/\*//g' > "$orthod_dir/$taxon.faa"
+        awk -v fix="_$taxon" '/^>/{print $1 fix; next}{print}' "$ortho_dir/$d/$taxon.faa" | sed 's/\*//g' > "$orthod_dir/$taxon.fixed.faa"
     fi
 done
 

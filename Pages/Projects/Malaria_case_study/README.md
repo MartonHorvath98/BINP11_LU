@@ -46,11 +46,11 @@ mamba activate snakemake
 ## Usage
 After the environment is all set up, we can run the whole script to go through the analysis process.
 ```bash
-snakemake -p -j 16 --config ht="Haemoproteus_tartakovskyi"
+snakemake -p -j 16
 # where -j [--cores] is a mandatory argument assigning the number of cores for parallel computations
 #       --config is a user argument to select which genome should be addressed for cleaning 
 ```
-The snakefile, while being run creates is own environment - called 'malaria' - based on the `environment.yml` file, in which the following programs are installed:
+The [`snakefile`](Snakefile), while being run creates is own environment - called 'malaria' - based on the `environment.yml` file, in which the following programs are installed:
 ```bash
 # packages in environment at /root/miniforge3/envs/malaria:
 #
@@ -199,15 +199,20 @@ The results of the BUSCO analysis suggest that there has been some problems whil
 
 | Species | Complete, single-copy (S) | Complete and duplicated (D) | Fragmented (F) | Missing (M)   | 
 |---------|---------------------------|-----------------------------|----------------|---------------|
-| **Ht**  | **232 (52.2%)**           | **0 (0%)**                  | **10 (2.2%)**  |**204 (45.8%)**|
+| $${\color{red}Ht}$$ | $${\color{red}232\space(52.2\%)}$$ | $${\color{red}0\space(0\%)}$$  | $${\color{red}10\space(2.2\%)}$$ |$${\color{red}204\space(45.8\%)}$$|
 | Pb      | 363 (81.4%)               | 11 (2.5%)                   | 52 (11.7%)      | 20 (4.4%)    |
 | Pc      | 439 (98.4%)               | 0 (0%)                      | 7 (1.6%)        | 0 (0%)       |
 | Pf      | 444 (99.6%)               | 0 (0%)                      | 1 (0.2%)        | 1 (0.2%)     |
 | Pk      | 442 (99.1%)               | 0 (0%)                      | 1 (0.2%)        | 3 (0.7%)     |
 | Pv      | 441 (98.9%)               | 2 (0.4%)                    | 3 (0.7%)        | 0 (0%)       |
 | Py      | 443 (99.3%)               | 0 (0%)                      | 2 (0.4%)        | 1 (0.2%)     |
-| **Tg**  | **0 (0%)**                | **434 (97.3%)**             | **8 (1.8%)**    | **4 (0.9%)** |
+| $${\color{red}Tg}$$ | $${\color{red}0\space(0\%)}$$ | $${\color{red}434\space(97.3\%)}$$  | $${\color{red}8\space(1.8\%)}$$ |$${\color{red}4\space(0.9\%)}$$|
 
+![Fig2](results/04_BUSCO/Ht_genome.png)
+
+## Orthologous proteins across the taxa
+
+Consequentially, we rerun the `gffParse.pl` script on the clean *H. tartakovsky* genome as well as the rest of the species to extract the protein coding DNA sequences and the amino acid sequences as well. 
 
 
 

@@ -5,10 +5,10 @@
 while getopts d:f:m:o: flag
 do
     case "${flag}" in
-        d) dir2=${OPTARG};;
-        f) file2=${OPTARG};;
+        d) dir=${OPTARG};;
+        f) file=${OPTARG};;
         m) min_contig=${OPTARG};;
-        o) out_dir2=${OPTARG};;
+        o) out_dir=${OPTARG};;
     esac
 done
 
@@ -19,26 +19,26 @@ get_initials() {
 
 
 # Read in files from the input file or directory using -f or -d flags
-if [ -z "$file2" ]
+if [ -z "$file" ]
 then
-    for f in $dir2/*; do
+    for f in $dir/*; do
         if [ -f "$f" ]; then
             echo "Predicting $(basename $f) file..."
             # Create a unique output directory based on the initials of the species name
-            output2=$(get_initials "$(basename $f)")
+            output=$(get_initials "$(basename $f)")
             # Run the gene prediction function
-            wd="$out_dir2/$output2"
+            wd="$out_dir/$output"
             mkdir -p ${wd}
             gmes_petap.pl --ES --min_contig ${min_contig} --cores 100 --sequence ${f} --work_dir ${wd}
         fi
     done
 else
-    echo "Predicting $(basename $file2) file..."
+    echo "Predicting $(basename $file) file..."
     # Create a unique output directory based on the initials of the species name
-    output2=$(get_initials "$(basename $file2)")
+    output=$(get_initials "$(basename $file)")
     # Run the gene prediction function
 
-    wd="$out_dir2/$output2"
+    wd="$out_dir/$output"
     mkdir -p ${wd}
     gmes_petap.pl --ES --min_contig ${min_contig} --cores 100 --sequence ${file2} --work_dir ${wd}
 fi
