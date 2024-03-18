@@ -1,0 +1,7 @@
+results/06_PHYLO/tree/Group317/Group317.log	-10407.905
+results/06_PHYLO/tree/Group316/Group316.log	-10354.286
+results/06_PHYLO/tree/Group315/Group315.log	-7791.550
+results/06_PHYLO/tree/Group311/Group311.log	-4663.740
+results/06_PHYLO/tree/Group312/Group312.log	-4263.997
+results/06_PHYLO/tree/Group313/Group313.log	-2532.645
+results/06_PHYLO/tree/Group314/Group314.log	-2241.070
