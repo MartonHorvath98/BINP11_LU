@@ -87,7 +87,8 @@ phylo_folder="results/06_PHYLO"
 mkdir -p $phylo_folder
 
 # Run the createPhyloTree.sh script
-source bin/createPhyloTree.sh -i $busco_folder -p $ortho_folder -o $phylo_folder
+source bin/createPhylo_BUSCO.sh -i $busco_folder -p $ortho_folder -o $phylo_folder
+source bin/createPhylo_proteinortho.sh -i $ortho_folder -p "Malaria_phylo.proteinortho.tsv" -o $phylo_folder
 
 # Create consensus tree with phylip consense
 echo "###############################################"
@@ -100,6 +101,7 @@ mkdir -p $consensus_folder
 
 # Run the consensusTree.sh script
 source bin/consensusTree.sh -i ${phylo_folder}/tree -o ${consensus_folder}/complete -m false
+source bin/consensusTree.sh -i ${phylo_folder}/tree_proteinortho -o ${consensus_folder}/proteinortho -m false
 source bin/consensusTree.sh -i ${phylo_folder}/noTG_tree -o ${consensus_folder}/minOut -m true
 
 

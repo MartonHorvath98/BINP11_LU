@@ -22,7 +22,7 @@ if [ -f "${tsv_path}" ]; then
     echo "Extracting ProteinOrtho predicted groups found in all taxa"
     awk -F"\t" '$1 == "8" && $2 == "8" && $3 > 0.7 {
         print "Group"NR,$4,$5,$6,$7,$8,$9,$10,$11
-        }' $tsv_path > ${output_dir}/complete.tsv
+        }' $tsv_path > ${output_dir}/proteinortho.tsv
 fi
 
 # Create a directory to store the sequences
@@ -37,28 +37,28 @@ while read -r line; do
             grep --no-group-separator -A1 -w $gene ${input_dir}/${taxa}.fixed.faa >> ${output_dir}/sequences/${group}.fna
         done
     done
-done < ${output_dir}/complete.tsv
+done < ${output_dir}/proteinortho.tsv
 
 # Run Clustal Omega to align the sequences
-mkdir -p ${output_dir}/alignments
+mkdir -p ${output_dir}/alignments_proteinortho
 
 for f in $output_dir/sequences/*; do
     if [ -f "$f" ]; then
         echo "Aligning $f"
-        clustalo -i $f -o ${output_dir}/alignments/$(basename $f .faa).aln --auto
+        clustalo -i $f -o ${output_dir}/alignments_proteinortho/$(basename $f .faa).aln --auto
     fi
 done
 
 # Create a tree from the alignments using iqtree
-mkdir -p ${output_dir}/tree
+mkdir -p ${output_dir}/tree_proteinortho
 
 for f in $output_dir/alignments/*; do
     if [ -f "$f" ]; then
         echo "Creating tree from $f"
-        mkdir -p ${output_dir}/tree/$(basename $f .aln)
-        iqtree -s $f -m MFP -bb 1000 -nt AUTO -pre ${output_dir}/tree/$(basename $f .aln)/$(basename $f .aln)
+        mkdir -p ${output_dir}/tree_proteinortho/$(basename $f .aln)
+        iqtree -s $f -m MFP -bb 1000 -nt AUTO -pre ${output_dir}/tree_proteinortho/$(basename $f .aln)/$(basename $f .aln)
     fi
 done
 # Extract the AICs from the log files
-grep -oP "(?<=BEST SCORE FOUND : ).+" $(find ${output_dir}/tree/ -name *.log) | tr ":" "\t" |\
-sort -n -k2 > ${output_dir}/AICs_full.txt
+grep -oP "(?<=BEST SCORE FOUND : ).+" $(find ${output_dir}/tree_proteinortho/ -name *.log) | tr ":" "\t" |\
+sort -n -k2 > ${output_dir}/AICs_proteinortho.txt

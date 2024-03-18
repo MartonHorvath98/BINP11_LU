@@ -8,6 +8,8 @@ rule all:
     input:
         "results/07_CONTREE/complete",
         "results/07_CONTREE/minOut"
+        "results/07_CONTREE/proteinortho"
+
 
 rule create_environment:
     shell:
@@ -74,7 +76,7 @@ rule get_orthologous_gene_groups_and_check_busco:
         source bin/getOrtho.sh -i {input.clean_data} -g {input.gene_folder_clean} -d {input.busco_db} -b {output.busco_folder} -o {output.ortho_folder}
         """
 
-rule generate_phylogenetic_tree:
+rule generate_phylogenetic_tree_from_BUSCO:
     input:
         busco_folder="results/04_BUSCO",
         ortho_folder="results/05_ORTHO"
@@ -86,17 +88,32 @@ rule generate_phylogenetic_tree:
         source bin/createPhyloTree.sh -i {input.busco_folder} -p {input.ortho_folder} -o {output.phylo_folder}
         """
 
+rule generate_phylogenetic_tree_from_BUSCO:
+    input:
+        ortho_folder="results/05_ORTHO"
+        ortho_file="Malaria_phylo.proteinortho.tsv"
+    output:
+        phylo_folder="results/06_PHYLO"
+    shell:
+        """
+        source bin/createPhyloTree.sh -i {input.ortho_folder} -p {input.ortho_file} -o {output.phylo_folder}
+        """
+
 rule create_consensus_tree:
     input:
-        phylo_folder="results/06_PHYLO/tree",
+        full_tree="results/06_PHYLO/tree",
         noTG_tree="results/06_PHYLO/noTG_tree"
+        proteinortho_tree="results/06_PHYLO/proteinortho_tree"
     output:
         consensus_complete="results/07_CONTREE/complete",
         consensus_minOut="results/07_CONTREE/minOut"
+        consensus_proteinortho="results/07_CONTREE/proteinortho"
     shell:
         """
         mkdir -p {output.consensus_complete}
-        source bin/consensusTree.sh -i {input.phylo_folder} -o {output.consensus_complete} -m false
+        source bin/consensusTree.sh -i {input.full_tree} -o {output.consensus_complete} -m false
+        mkdir -p {output.consensus_proteinortho}
+        source bin/consensusTree.sh -i {input.proteinortho_tree} -o {output.consensus_proteinortho} -m false
         mkdir -p {output.consensus_minOut}
         source bin/consensusTree.sh -i {input.noTG_tree} -o {output.consensus_minOut} -m true
         """

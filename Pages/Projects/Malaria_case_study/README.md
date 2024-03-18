@@ -199,21 +199,123 @@ The results of the BUSCO analysis suggest that there has been some problems whil
 
 | Species | Complete, single-copy (S) | Complete and duplicated (D) | Fragmented (F) | Missing (M)   | 
 |---------|---------------------------|-----------------------------|----------------|---------------|
-| $${\color{red}Ht}$$ | $${\color{red}232\space(52.2\%)}$$ | $${\color{red}0\space(0\%)}$$  | $${\color{red}10\space(2.2\%)}$$ |$${\color{red}204\space(45.8\%)}$$|
+| $${\color{red}Ht}$$ | $${\color{red}232\space\(52.2\%\)}$$ | $${\color{red}0\space\(0\%\)}$$  | $${\color{red}10\space\(2.2\%\)}$$ |$${\color{red}204\space\(45.8\%\)}$$|
 | Pb      | 363 (81.4%)               | 11 (2.5%)                   | 52 (11.7%)      | 20 (4.4%)    |
 | Pc      | 439 (98.4%)               | 0 (0%)                      | 7 (1.6%)        | 0 (0%)       |
 | Pf      | 444 (99.6%)               | 0 (0%)                      | 1 (0.2%)        | 1 (0.2%)     |
 | Pk      | 442 (99.1%)               | 0 (0%)                      | 1 (0.2%)        | 3 (0.7%)     |
 | Pv      | 441 (98.9%)               | 2 (0.4%)                    | 3 (0.7%)        | 0 (0%)       |
 | Py      | 443 (99.3%)               | 0 (0%)                      | 2 (0.4%)        | 1 (0.2%)     |
-| $${\color{red}Tg}$$ | $${\color{red}0\space(0\%)}$$ | $${\color{red}434\space(97.3\%)}$$  | $${\color{red}8\space(1.8\%)}$$ |$${\color{red}4\space(0.9\%)}$$|
+| $${\color{red}Tg}$$ | $${\color{red}0\space\(0\%\)}$$ | $${\color{red}434\space\(97.3\%\)}$$  | $${\color{red}8\space\(1.8\%\)}$$ |$${\color{red}4\space\(0.9\%\)}$$|
 
 ![Fig2](results/04_BUSCO/Ht_genome.png)
 
 ## Orthologous proteins across the taxa
 
-Consequentially, we rerun the `gffParse.pl` script on the clean *H. tartakovsky* genome as well as the rest of the species to extract the protein coding DNA sequences and the amino acid sequences as well. 
+Consequentially, we rerun the `gffParse.pl` script on the clean *H. tartakovsky* genome as well as the rest of the species to extract the protein coding DNA sequences and the amino acid sequences as well. Then, performed an orthology search with [proteinortho](https://gitlab.com/paulklemm_PHD/proteinortho) (v.6.3.1) to find significant groups based on sequence similarity. This step was still part of the `getOrtho.sh` script.
 
+```bash
+# Call proteinortho to find orthologs using brace expansion.
+proteinortho6.pl -project=Malaria_phylo $ortho_dir/{Ht,Pb,Pc,Pf,Pk,Pv,Py,Tg}.fixed.faa
+```
+Furthermore, I also executed a second BUSCO analysis on the produced protein sequence files. The results were very somolar to the ones we have seen during the previous steps. Moving forward I used both the BUSCO results and the Proteinortho results to find orthologous genes for phylogenetic tree creation. In case of the BUSCO genes I followed two approaches:
+1. selected those completed and single-copy (S) BUSCO genes that were present in across all eight taxa
+2. excluded *T. gondii* from the analysis and used BUSCO (S) genes across the rest of the taxa
+
+The first method only yielded 2 genes, as the rest of the proteins were duplicated in *T. gondii*. The second method resulted in 136 genes. The two proteins present across all taxa have been:
+
+| ID          | Description                                   | AIC       |
+|-------------|-----------------------------------------------|-----------|
+| 8677at5794  | ATPase family AAA domain-containing protein 3 | -9995.394 |
+| 24023at5794 | PUA domain                                    | -6433.9   |
+
+```bash
+# Define the path to the full_table.tsv file
+tsv_path="run_apicomplexa_odb10/full_table.tsv"
+
+# Extract the complete and fragmented BUSCO genes found in all taxa
+for taxa in {Ht,Pb,Pc,Pf,Pk,Pv,Py,Tg}; do
+    echo "Extracting complete and fragmented BUSCO genes from $taxa"
+
+    if [ ! -f "$output_dir/complete.tsv" ]; then
+        echo -e "taxa\tgene" > $output_dir/complete.tsv
+    fi
+
+     # Extract the complete BUSCO genes
+    cat ${input_dir}/${taxa}.protein/${tsv_path} $output_dir |\
+    awk -v taxon=$taxa 'BEGIN{FS="\t"; OFS="\t"}{if($2 == "Complete") print taxon, $1}' >> $output_dir/complete.tsv    
+done
+
+# Store the complete BUSCO genes name present in all taxa
+cat $output_dir/complete.tsv | cut -f2 | sort | uniq -c |\
+awk '$1 == 8 {print $2}' > $output_dir/all_shared_ortho.tsv
+
+
+mkdir -p ${output_dir}/sequences
+# find the corresponding sequences 
+while read gene; do
+    echo "Extracting sequences for $gene"
+    # First hit for each taxa (every nucleotide sequence was duplicated in Tg)
+    grep -w $gene $output_dir/complete.tsv | cut -f1 | while read taxa; do
+        grep -w $gene ${input_dir}/${taxa}.protein/${tsv_path} | cut -f3 | head -1 | while read seq_id; do
+            # create multi-fasta file with the matching sequences
+            grep --no-group-separator -A1 -w $seq_id ${protein_dir}/${taxa}.fixed.faa >> $output_dir/sequences/$gene.faa
+        done
+    done
+done < $output_dir/all_shared_ortho.tsv
+```
+In contrary, when working with the ProteinOrtho outputs I used clusters, which contained one gene from each taxon and where the sequence similarity was over 70% across all species. With this approach I found seven such clusters for phylogenetic tree creation:
+
+| cluster  | Alg.-Conn. | sequences | Description | AIC |
+|----------|:----------:|-----------|-------------|-----|
+| Group317 | 0.75       | 272_g_Ht,3054_g_Pb,571_g_Pc,3594_g_Pf,591_g_Pk,551_g_Pv,4261_g_Py,7471_g_Tg  | Methylthiotransferase, N-terminal | -10407.905 |
+| Group316 | 0.75       | 1603_g_Ht,1584_g_Pb,2940_g_Pc,1145_g_Pf,3037_g_Pk,2912_g_Pv,3372_g_Py,11682_g_Tg | | -10354.286 |
+| Group315 | 0.75       | 1202_g_Ht,2842_g_Pb,1544_g_Pc,1620_g_Pf,1605_g_Pk,1522_g_Pv,2698_g_Py,12004_g_Tg | Cyclic nucleotide-binding, conserved site | -7791.550  |
+| Group311 | 1          | 1328_g_Ht,4351_g_Pb,2239_g_Pc,2238_g_Pf,2313_g_Pk,2200_g_Pv,1296_g_Py,4158_g_Tg  | -4663.740  | 
+| Group312 | 1          | 346_g_Ht,3769_g_Pb,2103_g_Pc,805_g_Pf,2164_g_Pk,2063_g_Pv,1162_g_Py,8008_g_Tg  | | -4263.997  |
+| Group313 | 1          | 76_g_Ht,3353_g_Pb,592_g_Pc,3574_g_Pf,613_g_Pk,570_g_Pv,4281_g_Py,8640_g_Tg | Matrin/U1-C-like, C2H2-type zinc finger | -2532.645  |
+| Group314 | 1          | 909_g_Ht,3720_g_Pb,1029_g_Pc,239_g_Pf,1070_g_Pk,1013_g_Pv,401_g_Py,12407_g_Tg | | -2241.070  |
+
+## Creating phylogenetic trees
+
+First, I created multiple sequence alignments files from the multi-fasta files using `clustalo` (v1.2.4) with automatically set options (`--auto`).
+```bash
+# Run Clustal Omega to align the sequences
+mkdir -p ${output_dir}/alignments
+
+for f in $output_dir/sequences/*; do
+    if [ -f "$f" ]; then
+        echo "Aligning $f"
+        clustalo -i $f -o ${output_dir}/alignments/$(basename $f .faa).aln --auto
+    fi
+done
+```
+Then, using iqtree I generated the phylogenetic trees using 1000 bootstraps and executing extended modell selection (`-m MFP`) to find the best modell by tree inference.
+```bash
+# Create a tree from the alignments using iqtree
+mkdir -p ${output_dir}/tree
+
+for f in $output_dir/alignments/*; do
+    if [ -f "$f" ]; then
+        echo "Creating tree from $f"
+        mkdir -p ${output_dir}/tree/$(basename $f .aln)
+        iqtree -s $f -m MFP -bb 1000 -nt AUTO -pre ${output_dir}/tree/$(basename $f .aln)/$(basename $f .aln)
+    fi
+done
+# Extract the AICs from the log files
+grep -oP "(?<=BEST SCORE FOUND : ).+" $(find ${output_dir}/tree/ -name *.log) | tr ":" "\t" |\
+sort -n -k2 > ${output_dir}/AICs_full.txt
+```
+All three resulting tree placed the organisms similarly, suggesting that the main human parasite *P. falciparum* evolved early from the *Plasmodium* genus, either directly from a shared ancestor with the avian parasite *H. tartakovsky* or later on sharing a closest common ancestor with the rodent parasites *P. yoelii* and *P. berghei*, instead of other Plasmodia that can be infectious to humans (*P. knowlesi*, *P. cynomolgi* or *P. vivax*).
+
+1. Tree based on the two collectively shared BUSCO genes:
+![Fig3](results/07_CONTREE/full_tree.png)
+
+2. Tree based on shared BUSCO genes, excluding the out-group *T. gondii*:
+![Fig4](results/07_CONTREE/minOut_tree.png)
+
+3. Tree based on the ProteinOrtho clusters:
+![Fig5](results/07_CONTREE/proteinortho_tree.png)
 
 
 
