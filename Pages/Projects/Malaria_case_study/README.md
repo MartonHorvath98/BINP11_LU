@@ -199,14 +199,14 @@ The results of the BUSCO analysis suggest that there has been some problems whil
 
 | Species | Complete, single-copy (S) | Complete and duplicated (D) | Fragmented (F) | Missing (M)   | 
 |---------|---------------------------|-----------------------------|----------------|---------------|
-| $${\color{red}Ht}$$ | $${\color{red}232\space\(52.2\%\)}$$ | $${\color{red}0\space\(0\%\)}$$  | $${\color{red}10\space\(2.2\%\)}$$ |$${\color{red}204\space\(45.8\%\)}$$|
+| $${\color{red}Ht}$$ | **232 (52.2%)** | **0 (0%)**                | **10 (2.2%)**   | **204 (45.8%)** |
 | Pb      | 363 (81.4%)               | 11 (2.5%)                   | 52 (11.7%)      | 20 (4.4%)    |
 | Pc      | 439 (98.4%)               | 0 (0%)                      | 7 (1.6%)        | 0 (0%)       |
 | Pf      | 444 (99.6%)               | 0 (0%)                      | 1 (0.2%)        | 1 (0.2%)     |
 | Pk      | 442 (99.1%)               | 0 (0%)                      | 1 (0.2%)        | 3 (0.7%)     |
 | Pv      | 441 (98.9%)               | 2 (0.4%)                    | 3 (0.7%)        | 0 (0%)       |
 | Py      | 443 (99.3%)               | 0 (0%)                      | 2 (0.4%)        | 1 (0.2%)     |
-| $${\color{red}Tg}$$ | $${\color{red}0\space\(0\%\)}$$ | $${\color{red}434\space\(97.3\%\)}$$  | $${\color{red}8\space\(1.8\%\)}$$ |$${\color{red}4\space\(0.9\%\)}$$|
+| $${\color{red}Tg}$$ | **0 (0%)**    | **434 (97.3%)**             | **8 (1.8%)**    | **4 (0.9%)** |
 
 ![Fig2](results/04_BUSCO/Ht_genome.png)
 
