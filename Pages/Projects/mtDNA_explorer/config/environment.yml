@@ -5,3 +5,6 @@ channels:
 dependencies:
   - mafft=7.520
   - bioawk=1.0
+  - emboss=6.6.0
+  - fasttree=2.1.10
+  - entrez-direct=13.9
