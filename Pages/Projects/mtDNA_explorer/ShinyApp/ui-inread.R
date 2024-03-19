@@ -1,21 +1,20 @@
-tabPanel("File upload",
-         fluidPage(
-           sidebarLayout(
-             sidebarPanel(h3("Choose a directory"),br(),
-                          shinyDirButton("dir", "Browse...", "Upload"),
-                          helpText('Please choose an input directory.'),
-                          h3("Choose a calculation method"),br(),
-                          radioButtons("calc", "Choose:", c("Serial" = "serial", "Parallel" = "parallel")),
-                          helpText('If you have at least 16Gb Ram and 8 Processor cores you can choose parallel computing, 
-                                   otherwise serial computing is strongly advised!'),br(),
-                          h3("Count reads"),br(),
-                          actionButton('count_button',' Count reads ',icon('refresh'),width = 180),br(),
-                          helpText('Please wait for a moment, calculation will take time (up to several minutes), do not click repeatedly.'),
-                          h3("Download readcounts"),br(),
-                          downloadButton("count_download",label="Download")),
-           
-           mainPanel(
-             add_busy_bar(color = "#FF0000"),
-             verbatimTextOutput('dir'),br(),
-             verbatimTextOutput('files'),br(),
-             dataTableOutput('count_table')))))
+fluidPage(
+  sidebarLayout(
+    sidebarPanel(h3("Choose a sample file"),br(),
+                 shinyFilesButton(id = "file", title = "Browse...", label = "Load",
+                                  multiple = F, buttonType = "default"),
+                 helpText('Load input files in fasta format, or containing a list of mutations,
+                          formatted as chr:pos:ref:alt.'),
+                 # choose threshold of information content for accepting a mutation
+                 sliderInput("threshold", "Threshold for information content", 
+                             min = 0, max = 2, value = 1.5, step = 0.05),
+                 helpText('Please select how strict the threshold should be, to decide
+                          which SNPs to keep for the prediction.'), br(),
+                 h3("Predict haplotype"),br(),
+                 actionButton('count_button',' Start prediction ',icon('refresh'),width = 180),br()),
+    
+    mainPanel(
+      add_busy_bar(color = "#FF0000"),
+      #verbatimTextOutput('dir'),br(),
+      #verbatimTextOutput('files'),br(),
+      dataTableOutput('count_table'))))
