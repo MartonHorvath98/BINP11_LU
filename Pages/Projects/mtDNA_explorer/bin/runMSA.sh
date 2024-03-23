@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define variables for environment name and Python version
-ENV_NAME="MSA"
+ENV_NAME="mtDNA"
 CONFIG="./config/environment.yml"
 
 # Check if the environment already exists
