@@ -14,10 +14,9 @@ tabPanel("File upload",
              
              mainPanel(
                add_busy_bar(color = "#FF0000"),
-               # Conditional panel that checks if 'setupComplete' is FALSE
-               h3("Ancient mtDNA Database"),
-               plotOutput("treeDisplay"),
-               DTOutput("dataTable"),
+               h3("Ancient mtDNA Database"),br(),
+               plotOutput("treeDisplay"),br(),
+               DTOutput("dataTable"),br(),
                textOutput("errorMsg")
              )
            ),
