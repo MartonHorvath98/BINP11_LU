@@ -4,7 +4,6 @@ shinyServer(function(input, output, session){
 })
 })
 
-setupComplete <- FALSE
 reference <- seqinr::read.fasta('data/ref/rCRS.fasta')
 # load mutational data from AmtDB
 mutations <- read.table("./data/AmtDB/mutations.txt", 

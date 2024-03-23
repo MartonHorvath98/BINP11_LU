@@ -58,7 +58,7 @@ observeEvent(input$goButton, {
   haplo_tree <<- ape::read.tree(text = newickString)
   
   make_tree <- reactive({
-    plot <- ggtree(haplo_tree, layout = 'circular',
+    plot <- ggtree(haplo_tree, layout = 'rectangular',
                    #open.angle = 120,
                    branch.length = 'none')
     
