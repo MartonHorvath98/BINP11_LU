@@ -1,180 +1,154 @@
-# load meat informations
-metadata <- read.csv("data/mtDNA/mtdb_metadata.txt", sep = "\t", header = TRUE)
-metadata <- metadata %>% 
-  select(identifier, mt_hg, year_from, year_to, latitude, longitude) %>% 
-  filter(mt_hg != "" & mt_hg != "-") %>% 
-  mutate(mt_hg = as.factor(mt_hg),
-         age = round((year_from + year_to) / 2, -2)) %>% 
-  select(-year_from, -year_to)
+################################################################################
+# 1.) Load analysis data                                                       #
+################################################################################
+
+# load meta information from AmtDB
+AmtDB <- read.csv("./data/AmtDB/amtdb_meta.txt", sep = "\t", header = TRUE)
+AmtDB <- AmtDB %>% 
+  #dplyr::select(identifier, mt_hg, year_from, year_to, latitude, longitude) %>% 
+  dplyr::filter(mt_hg != "" & mt_hg != "-") %>% 
+  dplyr::mutate(expand = "&oplus;",
+                mt_hg = as.factor(mt_hg),
+                age = round((year_from + year_to) / 2, -2)) %>% 
+  dplyr::select(!c(alternative_identifiers, group, comment, site, site_detail,
+                ychr_hg, ychr_snps, date_detail, reference_names, reference_links,
+                reference_data_links, c14_lab_code, c14_layer_tag, c14_sample_tag,
+                bp, sequence_source, avg_coverage)) %>% 
+  dplyr::relocate(expand, identifier, mt_hg, age, .before = everything())
+
+meta_data <<- AmtDB
 
 
-# load mutational data
-mutations <- read.table("data/mtDNA/mt_phyloTree_b17_Mutation.txt", 
+reference <- seqinr::read.fasta('./data/ref/rCRS.fasta')
+
+# load mutational data from AmtDB
+mutations <- read.table("./data/AmtDB/mutations.txt", 
                         quote = "", header = TRUE, sep = "\t",
                         stringsAsFactors = FALSE)
-mutation.df <- mutations %>% 
+
+# load information content
+info_content <- read.table("./data/ref/info_content.txt", 
+                           quote = "", header = TRUE, sep = "\t",
+                           stringsAsFactors = FALSE)
+
+# load full list of mutations
+mutations.full <- read.table("./data/AmtDB/mutations_full.txt", 
+                              header = TRUE, sep = "\t",
+                              stringsAsFactors = FALSE)
+
+################################################################################
+# 2.) Create utility datasets                                                  #
+################################################################################
+
+# extract haplogroup specific mutations
+mutations.haplo <- mutations %>% 
   group_by(hapGrp) %>%
   summarise(Mutations = paste(mutation, collapse=","))
 
+# extract position specific mutations
+mutations.position <- mutations %>% 
+  dplyr::select(!hapGrp) %>%
+  dplyr::distinct(mutation, .keep_all = T) %>%
+  setNames(c("Mutations", "position", "alternative", "reference")) %>% 
+  dplyr::mutate(alternative = ifelse(alternative == "", "-", alternative),
+                reference = ifelse(reference == "", "-", reference)) %>% 
+  dplyr::left_join(., info_content, by = c("position" = "Pos"))
+
+################################################################################
+# 3.) Create phylogenetic tree                                                 #
+################################################################################
 # load phylogeny data
-tree_data <- read.table("data/mtDNA/mt_phyloTree_b17_Tree2.txt", 
+tree_data <- read.table("data/AmtDB/hierarchy.txt", 
                         quote = "", header = F, sep = "\t",
                         col.names = c("to", "from"))
 tree_data <- tree_data[,c(2,1)]
+# create tree
+tree <- buildTree(tree_data, AmtDB, mutations.haplo)
 
-buildTree <- function(df) {
-  # Create a root node
-  root <- Node$new("mt-MRCA")
-  
-  # Recursive function to add children
-  addChildren <- function(node) {
-    children <- df[df$from == node$name, "to"]
-    for (child in children) {
-      childNode <- node$AddChild(child, 
-                                 mutations = mutation.df[mutation.df$hapGrp == child, "Mutations"],
-                                 identifier = metadata[metadata$mt_hg == child, "identifier"],
-                                 age = metadata[metadata$mt_hg == child, "age"],
-                                 latitude = metadata[metadata$mt_hg == child, "latitude"],
-                                 longitude = metadata[metadata$mt_hg == child, "longitude"])
-      addChildren(childNode) # Recursion for any children of the current child
-    }
-  }
-  
-  # Start the tree building process
-  addChildren(root)
-  
-  return(root)
-}
+# prune tree
+tree_clone <- Clone(tree)
+tips <- c("L0","L1","L2","L3","L4","L6","Q","M","M7","C","Z","E","G","D","N",
+          "O","I","W","Y","A","X","R","P","HV","H","V","J","T","F","B","K")
+trimTree(tree_clone, tips)
 
-tree <- buildTree(tree_data)
-
-passChildAttributeToParent <- function(node, value) {
-  # Base case: If the node is a leaf, return its own value
-  if(node$isLeaf) {
-    return(node$value)
-  } else {
-    # Recursive case: Traverse the children
-    childValues <- sapply(node$children, passChildAttributeToParent)
-    # Update the parent node with the sum of child values
-    node$value <- paste0(childValues)
-    return(node$value)
-  }
-}
-
-removeMissing <- function(node, attribute) {
-  print(paste("Attribute is: ", attribute))
-  # Base case: The node is a leaf
-  if (isLeaf(node)) {
-    # Check if the identifier is character(0)
-    if (length(node[[attribute]]) == 0) {
-      # Remove the leaf node
-      print(paste("Removing:", node$name))
-      node$parent$RemoveChild(node$name)
-    } else {
-      # Copy identifier to the parent node, appending it to existing identifiers if any
-      if (length(node$parent[[attribute]]) == 0) {
-        print(paste("Copying", node$name, "to", node$parent$name))
-        node$parent[[attribute]] <- node[[attribute]]
-      } else {
-        # Assuming identifier is a character vector, concatenate them
-        print(paste("Adding", node$name, "to", node$parent$name))
-        node$parent[[attribute]] <- c(node$parent[[attribute]], node[[attribute]])
-      }
-    }
-  } else {
-    # Recursive case: The node has children
-    for (child in node$children) {
-      print(paste("Visiting", child$name))
-      removeMissing(child, attribute)
-    }
-    # After recursion, if the node has become a leaf, check the identifier again
-    # This might happen if all children were removed
-    if (isLeaf(node) && length(node[[attribute]]) == 0) {
-      print(paste("Removing:", node$name))
-      node$parent$RemoveChild(node$name)
-    }
-  }
-}
-
-collectUniqueIdentifiers <- function(node, identifiers = character()) {
-  # If the node has an identifier, add it to the list
-  if (!is.null(node$identifier)) {
-    identifiers <- c(identifiers, node$identifier)
-  }
-  
-  # If the node has children, recurse into each child
-  if (!is.leaf(node)) {
-    for (child in node$children) {
-      identifiers <- collectUniqueIdentifiers(child, identifiers)
-    }
-  }
-  
-  # Return the identifiers collected so far
-  return(identifiers)
-}
-
-treeClone <- Clone(tree)
-removeMissing(treeClone, "identifier")
-
-plot(treeClone)
-
-# Function to convert data.tree to Newick format
-convertToNewick <- function(node) {
-  if (is.leaf(node)) {
-    return(node$name)
-  } else {
-    childStrings <- sapply(node$children, convertToNewick)
-    return(paste0("(", paste(childStrings, collapse = ","), ")", 
-                  stringr::str_replace_all(node$name, "'","_")))
-  }
-}
-
-# Example usage:
-newickString <- paste0(convertToNewick(treeClone), ";")
+# convert tree to newick format
+newickString <- paste0(convertToNewick(tree_clone), ";")
 newickString <- gsub("()", "", newickString, fixed = TRUE)
 
-library(ggtree)
-library(stringr)
-library(ggrepel)
-library(ape)
-tree2plot <- ape::read.tree(text = newickString)
-trimmed_tree <- drop.tip(tree2plot, tree2plot$tip.label[(20+1):length(tree2plot$tip.label)])
+haplot_tree <<- ape::read.tree(text = newickString)
 
 
-(p <- ggtree(trimmed_tree) + 
-    geom_tiplab() + 
-    geom_nodelab() +
-    geom_cladelabel(node=26, label="Haplogroup N", 
-                    color="red4", offset=.4, align=TRUE) + 
-    geom_cladelabel(node=23, label="Haplogroup M", 
-                    color="brown1", offset=.4, align=TRUE) + 
-    geom_cladelabel(node=22, label="Haplogroup L3", 
-                    color="blue", offset=1.2, align=TRUE) + 
-    theme_tree2())
-
-str_replace_all(label, "_", "`")
-
-# Load multiple sequence alignment
-msa <- readDNAMultipleAlignment("data/mtDNA/mtdb_sequences_msa_ref.fasta", format = "fasta")
-.filter <- metadata %>% 
-  dplyr::filter(mt_hg %in% trimmed_tree$tip.label) %>% 
-  dplyr::group_by(mt_hg) %>%
-  dplyr::slice(1) %>% 
-  dplyr::pull(identifier)
-
-msa <- msa@unmasked[which(names(msa@unmasked) %in% .filter),]
-msa <- msa[match(pruned_tree$tip.label, names(msa)),]
-names(msa) <- as.character(metadata[metadata$identifier %in% names(msa), "mt_hg"])
-writeXStringSet(msa, "data/mtDNA/mtdb_user_filtered.fasta")
-
-pruned_tree <- drop.tip(trimmed_tree, trimmed_tree$tip.label[!(trimmed_tree$tip.label %in% names(msa))])
 
 
-(m <- msaplot(ggtree(pruned_tree) + 
-          geom_tiplab() + 
-          geom_nodelab() +
-          theme_tree2(),
-        fasta = "data/mtDNA/mtdb_user_filtered.fasta",
-        offset = 1.5,
-        window = c(150,250)) + 
-  theme(legend.position = "none"))
+################################################################################
+# 4.) Update list of mutations based on phylogeny                              #
+################################################################################
+# update mutations based on tree
+
+# Function to read user input file upon clicking the 'goButton'
+# output$dataTable <- DT::renderDataTable({
+#   req(input$goButton)
+#   path <- filePath()
+#   req(path)
+#   tryCatch({
+#     data <- user_input(path)
+#     datatable(
+#       data,
+#       options = list(
+#         pagelength = 10
+#       ),
+#       rownames = FALSE,
+#       escape = FALSE,
+#       callback = DT::JS(
+#        "table.on('click', 'tr', function () {",
+#        "  var tr = $(this).closest('tr');",
+#        "  var row = table.row(tr);",
+#        "  var header = table.columns().header();",
+#        "  var headerData = [$(header[2]).text(), $(header[3]).text()];",
+#        "  if (row.child.isShown()) {",
+#        "    row.child.hide();",
+#        "    tr.removeClass('shown');",
+#        "  } else {",
+#        "    var rowData = row.data();",
+#        "    row.child('<strong>' + headerData[0] + '</strong>' + '\\t' + rowData[2] + '\\n' + ",
+#        "              '<strong>' + headerData[1] + '</strong>' + '\\t' + rowData[3]",
+#        "              ).show();", 
+#        "    tr.addClass('shown');",
+#        "  }",
+#        "});")
+#       )
+#        
+#       return(dt))
+#   }, error = function(e) {
+#     output$errorMsg <- renderText({ e$message })
+#     NULL
+#   })
+# }, server = FALSE) # Set server = FALSE for large datasets
+
+
+
+
+
+
+
+
+
+# full.haplo <- lapply(mutations.haplo$hapGrp, function(x){
+#   nodes <- FindNode(tree, x)$path
+#   nodes <- nodes[!nodes %in% c("mt-MRCA")]
+#   
+#   mutations <- NULL
+#   for (node in nodes){
+#     mutations <- c(mutations, unlist(str_split(mutations.haplo$Mutations[mutations.haplo$hapGrp == node],",")))
+#   }
+#   return(mutations)
+# })
+# 
+# names(full.haplo) <- mutations.haplo$hapGrp
+# 
+# mutations.full <- data.frame(hapGrp = names(full.haplo), 
+#                              Mutations = sapply(full.haplo, function(x) paste(unique(x), collapse = ","))) 
+# 
+# 
+# write.table(mutations.full, "data/AmtDB/mutations_full.txt", 
+#             sep = "\t", na = "NA", dec = ".", row.names = F, col.names = T)
